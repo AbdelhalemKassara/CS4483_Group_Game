@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 534605977}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.083, z: 0}
+  m_LocalPosition: {x: 0, y: -0.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -961,9 +961,9 @@ MonoBehaviour:
     rearRight: {fileID: 117626524}
   FWD: 0
   RWD: 1
-  strengthCoefficient: 3000
+  strengthCoefficient: 8000
   BrakeStrength: 150
-  maxTurn: 20
+  maxTurn: 40
   CM: {fileID: 534605978}
   carPosition: {fileID: 764904031}
   TailLights: []
@@ -1421,13 +1421,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.8
+    m_ExtremumSlip: 1.6
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1.6
     m_AsymptoteValue: 1
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.8
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1.5
@@ -1526,7 +1526,7 @@ Transform:
   m_GameObject: {fileID: 764419647}
   serializedVersion: 2
   m_LocalRotation: {x: 6.6097587e-12, y: 1, z: -0.0000018099951, w: 0.0000036517765}
-  m_LocalPosition: {x: -1.125, y: 2.33, z: -15.033}
+  m_LocalPosition: {x: -1.125, y: 2.37, z: -15.033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWheel: {fileID: 764516610}
   rightWheel: {fileID: 1012310336}
-  AntiRoll: 5000
+  AntiRoll: 3000
 --- !u!4 &764904033
 Transform:
   m_ObjectHideFlags: 0
@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWheel: {fileID: 1848857434}
   rightWheel: {fileID: 1537662819}
-  AntiRoll: 5000
+  AntiRoll: 3000
 --- !u!4 &764904035
 Transform:
   m_ObjectHideFlags: 0
@@ -2872,6 +2872,16 @@ MonoBehaviour:
     y: 2.02
     z: -4.16
     fov: 90
+  - mode: 2
+    x: -0.01
+    y: 1.07
+    z: -0.04
+    fov: 48.6
+  - mode: 2
+    x: -0.23
+    y: 1.01
+    z: -0.04
+    fov: 48.6
   curCar: {fileID: 764419647}
 --- !u!146 &1012310336
 WheelCollider:
@@ -2892,13 +2902,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.8
+    m_ExtremumSlip: 1.6
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1.6
     m_AsymptoteValue: 1
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.8
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1.5
@@ -3276,13 +3286,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.8
+    m_ExtremumSlip: 1.6
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1.6
     m_AsymptoteValue: 1
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.8
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1.5
@@ -3377,13 +3387,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.8
+    m_ExtremumSlip: 1.6
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1.6
     m_AsymptoteValue: 1
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.8
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1.5

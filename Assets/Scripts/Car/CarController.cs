@@ -102,12 +102,26 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     //kinda terrible way of doing this but it works
     public void EngineRpm()
     {
+        // if (RWD)
+        // {
+        //     
+        // }
+        //
+        // if (FWD)
+        // {
+        //     
+        // }
+        WheelColliders.rearLeft.GetGroundHit(out WheelHit wheelData);
+        // Debug.Log(wheelData.sidewaysSlip);
+        // Debug.Log(wheelData.forwardSlip);
+        // Debug.Log("");
         Rpm = WheelColliders.frontLeft.rpm;
         Rpm = Math.Min(Rpm, WheelColliders.frontRight.rpm);
         Rpm = Math.Min(Rpm, WheelColliders.rearLeft.rpm);
         Rpm = Math.Min(Rpm, WheelColliders.rearRight.rpm);
-        
         Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
+        Rpm = 7000 -1;
+
     }
     
 
@@ -184,8 +198,9 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
             
             if (RWD)
             {
-                WheelColliders.rearLeft.motorTorque = torque;
-                WheelColliders.rearRight.motorTorque = torque;
+                // LSD(torque, WheelColliders.rearLeft, WheelColliders.rearRight);
+                WheelColliders.rearLeft.motorTorque = 0.5f * torque;
+                WheelColliders.rearRight.motorTorque = 0.5f * torque;
             }
         }
         else
@@ -208,6 +223,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
 
     public float BrakeCurve(float PeakForce, float startForce, float rpm)//rpm of the wheel not the engine
     {
+        //breaking works fine without any rpm beign passed in just set a constant breaking force
         rpm = Math.Abs(rpm);
         return PeakForce * rpm;
     }
@@ -222,9 +238,11 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         {
             engineSound.pitch = 2000f / MaxRpm;// change the pitch to depending on the rpm (audio file needs to be at max rpm)
         }
-        Debug.Log(Math.Abs(Rpm));
-        Debug.Log(engineSound.pitch);
+        // Debug.Log(Math.Abs(Rpm));
+        // Debug.Log(engineSound.pitch);
     }
+    
+    //can't drift because of the open diff.
     
     //Differential types
     public void Spool()
@@ -237,10 +255,33 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
 
     }
     
-    public void LSD()
+    public void LSD(float engineTorque, WheelCollider w1,  WheelCollider w2)
     {
-
+        //take in the wheel colliders and use break and motor torque to adjust the wheel speeds
+        //use rpm to get each of the wheel speeds.
+        
+        //if rpm greater on one give less torque
+        //on the lesser one give more torque.
+        if (w1.rpm == 0 && w2.rpm == 0)
+        {
+            w1.motorTorque = 0.5f * engineTorque;
+            w2.motorTorque = 0.5f * engineTorque;
+            return;
+        }
+        
+        float max = Math.Max(Math.Abs(w1.rpm), Math.Abs(w2.rpm));
+        float rpmDiff = w1.rpm/max - w2.rpm/max;
+        
+        //rpmDiff should be from -1 to 1 here
+        rpmDiff++;
+        rpmDiff /= 2;//rpmDiff now ranges from 0 to 1
+        
+        w1.motorTorque =  (1.0f-rpmDiff)* engineTorque;
+        w2.motorTorque =   rpmDiff * engineTorque;
     }
 
-
+    //might not be possible to implement without it being janky or applying nearly infinte torque
+    public void FixedDiff() //equal speed to both wheels
+    {
+    }
 }
