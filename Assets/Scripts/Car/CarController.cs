@@ -24,6 +24,14 @@ public struct WheelMeshes
     public Transform rearRight;
 }
 
+[Serializable]
+public enum DiffType
+{
+    Open,
+    LSD,
+    Fixed,
+    Spool
+}
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour //this class inherits the MonoBehaviour class (Start, Update, FixedUpdate)
@@ -35,6 +43,9 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     [SerializeField] 
     private WheelMeshes WheelMeshes;
 
+    [SerializeField] 
+    private DiffType selectedDiffType;
+    
     public bool FWD;
     public bool RWD;
     public float strengthCoefficient = 500f;// declairs a variable called strengthCoefficient and gives it a value of 20000, f means float
@@ -190,6 +201,29 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
             // Debug.Log(TorqueToWheels);
             float torque = TorqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.deltaTime * ThrottleInput;
             // Debug.Log("Torque passed " + torque);
+
+            switch (selectedDiffType)
+            {
+                case DiffType.Fixed:
+                    if (FWD)
+                    {
+                        
+                    }
+
+                    if (RWD)
+                    {
+                        
+                    }
+                    break;
+                case DiffType.Open:
+                    break;
+                
+                case DiffType.Spool:
+                    break;
+                
+                case DiffType.LSD:
+                    break;
+            }
             if (FWD)
             {
                 WheelColliders.frontLeft.motorTorque = torque;
@@ -250,9 +284,10 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
 
     }
     
-    public void Open()
+    public void Open(float engineTorque, WheelCollider w1, WheelCollider w2)
     {//the power goes to the wheel with the lest resistance (the wheels spin at diff speeds)//what the game is doing now
-
+        w1.motorTorque = 0.5f * engineTorque;
+        w1.motorTorque = 0.5f * engineTorque;
     }
     
     public void LSD(float engineTorque, WheelCollider w1,  WheelCollider w2)
