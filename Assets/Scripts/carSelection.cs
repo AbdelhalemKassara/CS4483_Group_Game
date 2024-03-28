@@ -56,7 +56,16 @@ public class carSelection : MonoBehaviour
              play.gameObject.SetActive(false);
             buy.gameObject.SetActive(true);
             priceText.text = carPrices[index ]+ "$";
+
+            buy.interactable = (SaveManager.instance.money >= carPrices[currentCar]);
         }
+    }
+
+    public void BuyCar()
+    {
+        SaveManager.instance.money -= carPrices[currentCar];
+        SaveManager.instance.carsUnlocked[currentCar] = true;
+       
     }
 
     
