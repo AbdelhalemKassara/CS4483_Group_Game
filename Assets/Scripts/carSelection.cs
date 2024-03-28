@@ -47,15 +47,21 @@ public class carSelection : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(i == index);
         }
 
-        if(SaveManager.instance.carsUnlocked[index]){
+        UpdateUI();
+
+    }
+
+    public void UpdateUI(){
+
+        if(SaveManager.instance.carsUnlocked[currentCar]){
 
             play.gameObject.SetActive(true);
             buy.gameObject.SetActive(false);
         }
         else{
-             play.gameObject.SetActive(false);
+            play.gameObject.SetActive(false);
             buy.gameObject.SetActive(true);
-            priceText.text = carPrices[index ]+ "$";
+            priceText.text = carPrices[currentCar ]+ "$";
 
             buy.interactable = (SaveManager.instance.money >= carPrices[currentCar]);
         }
@@ -65,7 +71,8 @@ public class carSelection : MonoBehaviour
     {
         SaveManager.instance.money -= carPrices[currentCar];
         SaveManager.instance.carsUnlocked[currentCar] = true;
-       
+        SaveManager.instance.Save();
+        UpdateUI();
     }
 
     
