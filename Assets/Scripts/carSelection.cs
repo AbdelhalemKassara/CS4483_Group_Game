@@ -15,7 +15,7 @@ public class carSelection : MonoBehaviour
     [SerializeField] private int[] carPrices;
     
 
-    private void Awake(){
+    private void Start(){
         SelectionCar(0);
        
     }
