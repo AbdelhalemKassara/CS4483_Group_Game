@@ -1,11 +1,11 @@
-﻿# Default ignored files
+# Default ignored files
 /shelf/
 /workspace.xml
 # Rider ignored files
 /contentModel.xml
-/.idea.CS4483_Group_Game.iml
 /projectSettingsUpdater.xml
 /modules.xml
+/.idea.CS4483_Group_Game.iml
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
