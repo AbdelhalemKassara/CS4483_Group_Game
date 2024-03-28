@@ -1,10 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public class carSelection : MonoBehaviour
 {
     public int currentCar;
+
+    [Header("Play/Buy Buttons")]
+    [SerializeField] private Button play;
+    [SerializeField] private Button buy;
+    [SerializeField] private Text priceText;
+
+    [Header("Car Attributes")]
+    [SerializeField] private int[] carPrices;
+    
 
     private void Awake(){
         SelectionCar(0);
@@ -35,7 +44,18 @@ public class carSelection : MonoBehaviour
        
         for(int i =0; i<transform.childCount; i++){
 
-            transform.GetChild(i).gameObject.SetActive(i== index);
+            transform.GetChild(i).gameObject.SetActive(i == index);
+        }
+
+        if(SaveManager.instance.carsUnlocked[index]){
+
+            play.gameObject.SetActive(true);
+            buy.gameObject.SetActive(false);
+        }
+        else{
+             play.gameObject.SetActive(false);
+            buy.gameObject.SetActive(true);
+            priceText.text = carPrices[index ]+ "$";
         }
     }
 
