@@ -28,11 +28,17 @@ public struct WheelMeshes
 public enum DiffType
 {
     Open,
-    LSD,
-    Fixed,
-    Spool
+    LSD
 }
 
+[Serializable]
+public enum DriveWheels
+{
+    FWD,
+    RWD,
+    AWD
+}
+    
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour //this class inherits the MonoBehaviour class (Start, Update, FixedUpdate)
 {
@@ -45,9 +51,9 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
 
     [SerializeField] 
     private DiffType selectedDiffType;
-    
-    public bool FWD;
-    public bool RWD;
+    [SerializeField] 
+    private DriveWheels selectedDriveWheels;
+
     public float strengthCoefficient = 500f;// declairs a variable called strengthCoefficient and gives it a value of 20000, f means float
     public float BrakeStrength = 50f;// stores the break strength on each wheel
     public float maxTurn = 20f; // declairs a float called maxTurn and sets it to 20 (degrees)
@@ -113,24 +119,14 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     //kinda terrible way of doing this but it works
     public void EngineRpm()
     {
-        // if (RWD)
-        // {
-        //     
-        // }
-        //
-        // if (FWD)
-        // {
-        //     
-        // }
-        WheelColliders.rearLeft.GetGroundHit(out WheelHit wheelData);
-        // Debug.Log(wheelData.sidewaysSlip);
-        // Debug.Log(wheelData.forwardSlip);
-        // Debug.Log("");
-        Rpm = WheelColliders.frontLeft.rpm;
-        Rpm = Math.Min(Rpm, WheelColliders.frontRight.rpm);
-        Rpm = Math.Min(Rpm, WheelColliders.rearLeft.rpm);
-        Rpm = Math.Min(Rpm, WheelColliders.rearRight.rpm);
-        Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
+        //take the average of the drive wheels
+        
+
+        // Rpm = WheelColliders.frontLeft.rpm;
+        // Rpm = Math.Min(Rpm, WheelColliders.frontRight.rpm);
+        // Rpm = Math.Min(Rpm, WheelColliders.rearLeft.rpm);
+        // Rpm = Math.Min(Rpm, WheelColliders.rearRight.rpm);
+        // Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
         Rpm = 7000 -1;
 
     }
@@ -169,7 +165,6 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         float torque = BrakeStrength * Time.deltaTime * Convert.ToSingle(Handbrake) * 100000f;
         WheelColliders.rearLeft.brakeTorque = torque;
         WheelColliders.rearRight.brakeTorque = torque;
-        // Debug.Log(torque);
     }
     public void Breaking()
     {
@@ -184,57 +179,19 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
 
     public void Throttle()
     {
-
         if (Rpm < MaxRpm && Rpm > -MaxRpm)
         {
-            float TorqueToWheels;
-            // if (CurGear == 0 || Rpm < 0f)
-            // {
-            //     TorqueToWheels = 0;
-            // }
-            // else
-            // {
-            //     TorqueToWheels = EngineCurve(strengthCoefficient, MaxRpm, 1000f, Rpm);
-            // }
-            TorqueToWheels = EngineCurve(strengthCoefficient, MaxRpm, 1000f, Rpm);
-
-            // Debug.Log(TorqueToWheels);
-            float torque = TorqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.deltaTime * ThrottleInput;
-            // Debug.Log("Torque passed " + torque);
+            float torqueToWheels = EngineCurve(strengthCoefficient, MaxRpm, 1000f, Rpm);
+            float torque = torqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.deltaTime * ThrottleInput;
 
             switch (selectedDiffType)
             {
-                case DiffType.Fixed:
-                    if (FWD)
-                    {
-                        
-                    }
-
-                    if (RWD)
-                    {
-                        
-                    }
-                    break;
                 case DiffType.Open:
+                    handleDriveWheels(Open, torque);
                     break;
-                
-                case DiffType.Spool:
-                    break;
-                
                 case DiffType.LSD:
+                    handleDriveWheels(LSD, torque);
                     break;
-            }
-            if (FWD)
-            {
-                WheelColliders.frontLeft.motorTorque = torque;
-                WheelColliders.frontRight.motorTorque = torque;
-            }
-            
-            if (RWD)
-            {
-                // LSD(torque, WheelColliders.rearLeft, WheelColliders.rearRight);
-                WheelColliders.rearLeft.motorTorque = 0.5f * torque;
-                WheelColliders.rearRight.motorTorque = 0.5f * torque;
             }
         }
         else
@@ -246,23 +203,40 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         }
         
     }
-    public float EngineCurve(float PeakTorque, float PeakRpm, float InitialTorque, float rpm)
+
+    private void handleDriveWheels(Action<float, WheelCollider, WheelCollider> f, float torque)
     {
-        rpm = Math.Abs(rpm);
-        float Zero = (float)Math.Sqrt((double)PeakTorque - InitialTorque);
-        // Zero = Math.Clamp(Zero, 0, float.MaxValue);
-        PeakRpm = (2 * Zero) / PeakRpm;
-        return -1f * (float)Math.Pow((double)PeakRpm * rpm - Zero, 2) + PeakTorque;
+        switch (selectedDriveWheels)
+        {
+            case DriveWheels.AWD:
+                f(torque/2, WheelColliders.frontLeft, WheelColliders.frontRight);
+                f(torque/2, WheelColliders.rearLeft, WheelColliders.rearRight);
+                break;
+            case DriveWheels.FWD:
+                f(torque, WheelColliders.frontLeft, WheelColliders.frontRight);
+                break;
+            case DriveWheels.RWD:
+                f(torque, WheelColliders.rearLeft, WheelColliders.rearRight);
+                break;
+        }
+    }
+    private float EngineCurve(float peakTorque, float peakRpm, float initialTorque, float rpm)
+    {
+        // rpm = Math.Abs(rpm);
+        // float Zero = (float)Math.Sqrt((double)PeakTorque - InitialTorque);
+        // // Zero = Math.Clamp(Zero, 0, float.MaxValue);
+        // PeakRpm = (2 * Zero) / PeakRpm;
+        return peakTorque;
     }
 
-    public float BrakeCurve(float PeakForce, float startForce, float rpm)//rpm of the wheel not the engine
+    private float BrakeCurve(float peakForce, float startForce, float rpm)//rpm of the wheel not the engine
     {
         //breaking works fine without any rpm beign passed in just set a constant breaking force
-        rpm = Math.Abs(rpm);
-        return PeakForce * rpm;
+        // rpm = Math.Abs(rpm);
+        return peakForce;
     }
     
-    public void EngineAudio()
+    private void EngineAudio()
     {
         if (Math.Abs(Rpm) >= 2000f)
         {
@@ -276,21 +250,15 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         // Debug.Log(engineSound.pitch);
     }
     
-    //can't drift because of the open diff.
     
     //Differential types
-    public void Spool()
-    {// solid connection between the wheels(the wheels spin at the same speed)
-
-    }
-    
-    public void Open(float engineTorque, WheelCollider w1, WheelCollider w2)
+    private void Open(float engineTorque, WheelCollider w1, WheelCollider w2)
     {//the power goes to the wheel with the lest resistance (the wheels spin at diff speeds)//what the game is doing now
         w1.motorTorque = 0.5f * engineTorque;
-        w1.motorTorque = 0.5f * engineTorque;
+        w2.motorTorque = 0.5f * engineTorque;
     }
     
-    public void LSD(float engineTorque, WheelCollider w1,  WheelCollider w2)
+    private void LSD(float engineTorque, WheelCollider w1,  WheelCollider w2)
     {
         //take in the wheel colliders and use break and motor torque to adjust the wheel speeds
         //use rpm to get each of the wheel speeds.
@@ -310,13 +278,13 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         //rpmDiff should be from -1 to 1 here
         rpmDiff++;
         rpmDiff /= 2;//rpmDiff now ranges from 0 to 1
-        
-        w1.motorTorque =  (1.0f-rpmDiff)* engineTorque;
+        // Debug.Log(rpmDiff);
+        w1.motorTorque =  (1.0f-rpmDiff) * engineTorque;
         w2.motorTorque =   rpmDiff * engineTorque;
     }
 
     //might not be possible to implement without it being janky or applying nearly infinte torque
-    public void FixedDiff() //equal speed to both wheels
+    private void FixedDiff() //equal speed to both wheels
     {
     }
 }
