@@ -1,10 +1,6 @@
     using System.Collections.Generic;// using imports namespaces (namespaces are a collection of classes and other data types)
 using UnityEngine;
 using System;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization; // for convert to single
-
-
     
 [Serializable]//makes the struct visiable in the inspector  
 public struct WheelColliders
@@ -61,13 +57,11 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     private Rigidbody rb;// rigid body
 
     public Transform carPosition; // stores the cars center position
-    public List<GameObject> TailLights; // stores the tail lights (for lighting up the tail lights)
     public float[] GearRatio;
     public float FinalDriveRatio;// ratio from the end of the transmittion to the wheels
     
    public AudioSource engineSound;
-
-    
+   
     public float MaxRpm;
     protected float Rpm;
     
@@ -102,33 +96,36 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         MeshPosition();
         handBrake();
         EngineAudio();
-        // Debug.Log("Motor Torque");
-        // Debug.Log(WheelColliders.rearRight.motorTorque);
-        // Debug.Log(WheelColliders.rearLeft.motorTorque);
-        // Debug.Log(WheelColliders.frontRight.motorTorque);
-        // Debug.Log(WheelColliders.frontLeft.motorTorque);
-        // Debug.Log("BreakTorque");
-        // Debug.Log(WheelColliders.rearRight.brakeTorque);
-        // Debug.Log(WheelColliders.rearLeft.brakeTorque);
-        // Debug.Log(WheelColliders.frontRight.brakeTorque);
-        // Debug.Log(WheelColliders.frontLeft.brakeTorque);
-
     }
 
     
-    //kinda terrible way of doing this but it works
     public void EngineRpm()
     {
+        Rpm = 0;
+
         //take the average of the drive wheels
-        
+        switch (selectedDriveWheels)
+        {
+            case DriveWheels.AWD:
+                Rpm += WheelColliders.frontRight.rpm;
+                Rpm += WheelColliders.frontLeft.rpm;
+                Rpm += WheelColliders.rearLeft.rpm;
+                Rpm += WheelColliders.rearRight.rpm;
+                Rpm /= 4;
+                break;
+            case DriveWheels.FWD:
+                Rpm += WheelColliders.frontLeft.rpm;
+                Rpm += WheelColliders.frontRight.rpm;
+                Rpm /= 2;
+                break;
+            case DriveWheels.RWD:
+                Rpm += WheelColliders.rearRight.rpm;
+                Rpm += WheelColliders.rearLeft.rpm;
+                Rpm /= 2;
+                break;
+        }
 
-        // Rpm = WheelColliders.frontLeft.rpm;
-        // Rpm = Math.Min(Rpm, WheelColliders.frontRight.rpm);
-        // Rpm = Math.Min(Rpm, WheelColliders.rearLeft.rpm);
-        // Rpm = Math.Min(Rpm, WheelColliders.rearRight.rpm);
-        // Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
-        Rpm = 7000 -1;
-
+        Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
     }
     
 

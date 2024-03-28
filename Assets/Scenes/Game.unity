@@ -960,14 +960,12 @@ MonoBehaviour:
     rearLeft: {fileID: 2145734199}
     rearRight: {fileID: 117626524}
   selectedDiffType: 0
-  FWD: 0
-  RWD: 1
-  strengthCoefficient: 8000
-  BrakeStrength: 150
+  selectedDriveWheels: 1
+  strengthCoefficient: 6000
+  BrakeStrength: 1500
   maxTurn: 40
   CM: {fileID: 534605978}
   carPosition: {fileID: 764904031}
-  TailLights: []
   GearRatio:
   - -3.23
   - 3.23
@@ -1426,13 +1424,13 @@ WheelCollider:
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 1
-    m_AsymptoteValue: 0.3
-    m_Stiffness: 0.5
+    m_AsymptoteValue: 0.4
+    m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2907,13 +2905,13 @@ WheelCollider:
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 1
-    m_AsymptoteValue: 0.3
-    m_Stiffness: 0.5
+    m_AsymptoteValue: 0.4
+    m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3291,13 +3289,13 @@ WheelCollider:
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 1
-    m_AsymptoteValue: 0.3
-    m_Stiffness: 0.5
+    m_AsymptoteValue: 0.4
+    m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3392,13 +3390,13 @@ WheelCollider:
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 1
-    m_AsymptoteValue: 0.3
-    m_Stiffness: 0.5
+    m_AsymptoteValue: 0.4
+    m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
