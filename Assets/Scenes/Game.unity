@@ -961,9 +961,16 @@ MonoBehaviour:
     rearLeft: {fileID: 2145734199}
     rearRight: {fileID: 117626524}
   selectedDiffType: 0
+<<<<<<< HEAD
   selectedDriveWheels: 1
   strengthCoefficient: 6000
   BrakeStrength: 1500
+=======
+  FWD: 0
+  RWD: 1
+  strengthCoefficient: 8000
+  BrakeStrength: 150
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   maxTurn: 40
   CM: {fileID: 534605978}
   carPosition: {fileID: 764904031}
@@ -1425,13 +1432,22 @@ WheelCollider:
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
+<<<<<<< HEAD
     m_Stiffness: 2
+=======
+    m_Stiffness: 1
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 1
+<<<<<<< HEAD
     m_AsymptoteValue: 0.4
     m_Stiffness: 1
+=======
+    m_AsymptoteValue: 0.3
+    m_Stiffness: 0.5
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2906,13 +2922,22 @@ WheelCollider:
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
+<<<<<<< HEAD
     m_Stiffness: 2
+=======
+    m_Stiffness: 1
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 1
+<<<<<<< HEAD
     m_AsymptoteValue: 0.4
     m_Stiffness: 1
+=======
+    m_AsymptoteValue: 0.3
+    m_Stiffness: 0.5
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3348,13 +3373,22 @@ WheelCollider:
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
+<<<<<<< HEAD
     m_Stiffness: 2
+=======
+    m_Stiffness: 1
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 1
+<<<<<<< HEAD
     m_AsymptoteValue: 0.4
     m_Stiffness: 1
+=======
+    m_AsymptoteValue: 0.3
+    m_Stiffness: 0.5
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3449,13 +3483,22 @@ WheelCollider:
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
+<<<<<<< HEAD
     m_Stiffness: 2
+=======
+    m_Stiffness: 1
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 0.5
     m_AsymptoteSlip: 1
+<<<<<<< HEAD
     m_AsymptoteValue: 0.4
     m_Stiffness: 1
+=======
+    m_AsymptoteValue: 0.3
+    m_Stiffness: 0.5
+>>>>>>> b3a2cad (cleanup the code a bit for the car)
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
