@@ -101,20 +101,8 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     
     public void EngineRpm()
     {
-<<<<<<< HEAD
         Rpm = 0;
-=======
-        //take the average of the drive wheels
         
-
-        // Rpm = WheelColliders.frontLeft.rpm;
-        // Rpm = Math.Min(Rpm, WheelColliders.frontRight.rpm);
-        // Rpm = Math.Min(Rpm, WheelColliders.rearLeft.rpm);
-        // Rpm = Math.Min(Rpm, WheelColliders.rearRight.rpm);
-        // Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
-        Rpm = 7000 -1;
->>>>>>> b3a2cad (cleanup the code a bit for the car)
-
         //take the average of the drive wheels
         switch (selectedDriveWheels)
         {
