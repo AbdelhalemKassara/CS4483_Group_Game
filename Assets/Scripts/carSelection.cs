@@ -28,7 +28,7 @@ public class carSelection : MonoBehaviour
      
         }
 
-        else if (Input.GetKeyDown("d") && currentCar < 6 ){
+        else if (Input.GetKeyDown("d") && currentCar < 5 ){
             currentCar += 1;
         }
 

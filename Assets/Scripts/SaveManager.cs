@@ -10,7 +10,7 @@ public class SaveManager : MonoBehaviour
 
     //What we want to save
     public int money;
-    public bool[] carsUnlocked = new bool[7] { true, false, false, false, false, false,false };
+    public bool[] carsUnlocked = new bool[6] { true, false, false, false, false, false };
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class SaveManager : MonoBehaviour
             carsUnlocked = data.carsUnlocked;
 
             if (data.carsUnlocked ==  null)
-                carsUnlocked = new bool[7] { true, false, false, false, false, false,false};
+                carsUnlocked = new bool[6] { true, false, false, false, false, false};
 
             file.Close();
         }
