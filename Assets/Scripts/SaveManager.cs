@@ -12,6 +12,8 @@ public class SaveManager : MonoBehaviour
     public int money;
     public bool[] carsUnlocked = new bool[6] { true, false, false, false, false, false };
 
+    public bool[] freeCar = new bool[6] { true, true,true,true,true,true };
+
     private void Awake()
     {
         if (instance != null && instance != this)
