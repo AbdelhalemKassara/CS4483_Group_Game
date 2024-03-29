@@ -85,7 +85,6 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     }
 
 
-    //detect slip by getting the speed of the wheels and compare them to the speed of the car
     void FixedUpdate() // 
     {
         EngineRpm();// function that calculates the engine rpm
@@ -124,8 +123,8 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
                 Rpm /= 2;
                 break;
         }
-
         Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
+        
     }
     
 
@@ -243,8 +242,9 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         {
             engineSound.pitch = 2000f / MaxRpm;// change the pitch to depending on the rpm (audio file needs to be at max rpm)
         }
-        // Debug.Log(Math.Abs(Rpm));
-        // Debug.Log(engineSound.pitch);
+        
+        //this is due to the framrate of the display that the user is using so I had the issue when I switched to a 120hz monitor
+        // engineSound.pitch *= 4.0f;//for whatever reason sound is quieter after a merge
     }
     
     
