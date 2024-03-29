@@ -20,7 +20,7 @@ public class SwitchScene : MonoBehaviour
 
     private void OnEnable()
     {
-        
-        SceneManager.LoadScene(MapSelected.index+1);
+
+        SceneManager.LoadScene(1);
     }
 }
