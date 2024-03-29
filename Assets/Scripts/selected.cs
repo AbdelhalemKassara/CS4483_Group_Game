@@ -18,7 +18,10 @@ public class selected : MonoBehaviour
        
         for(int i =0; i<transform.childCount; i++)
         {
-            cameraManager.setCurCar(transform.GetChild(i).gameObject);
+            if (i == index)
+            {
+                cameraManager.setCurCar(transform.GetChild(i).gameObject);
+            }
             transform.GetChild(i).gameObject.SetActive(i== index);
         }
     }
