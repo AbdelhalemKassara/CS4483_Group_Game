@@ -21,6 +21,6 @@ public class SwitchScene : MonoBehaviour
     private void OnEnable()
     {
         
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(MapSelected.index+1);
     }
 }

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/GrassyRoad.unity
+    guid: f00333dcfcfae4b79a8a2d3314146875
+  - enabled: 1
+    path: Assets/Scenes/RockyRoad.unity
+    guid: c72c9c2ab43b0e94aa321290470ebbd5
   m_configObjects: {}

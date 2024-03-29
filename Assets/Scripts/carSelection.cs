@@ -15,7 +15,7 @@ public class carSelection : MonoBehaviour
     [SerializeField] private int[] carPrices;
     
 
-    private void Awake(){
+    private void Start(){
         SelectionCar(0);
        
     }
@@ -47,16 +47,32 @@ public class carSelection : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(i == index);
         }
 
-        if(SaveManager.instance.carsUnlocked[index]){
+        UpdateUI();
+
+    }
+
+    public void UpdateUI(){
+
+        if(SaveManager.instance.carsUnlocked[currentCar]){
 
             play.gameObject.SetActive(true);
             buy.gameObject.SetActive(false);
         }
         else{
-             play.gameObject.SetActive(false);
+            play.gameObject.SetActive(false);
             buy.gameObject.SetActive(true);
-            priceText.text = carPrices[index ]+ "$";
+            priceText.text = carPrices[currentCar ]+ "$";
+
+            buy.interactable = (SaveManager.instance.money >= carPrices[currentCar]);
         }
+    }
+
+    public void BuyCar()
+    {
+        SaveManager.instance.money -= carPrices[currentCar];
+        SaveManager.instance.carsUnlocked[currentCar] = true;
+        SaveManager.instance.Save();
+        UpdateUI();
     }
 
     
