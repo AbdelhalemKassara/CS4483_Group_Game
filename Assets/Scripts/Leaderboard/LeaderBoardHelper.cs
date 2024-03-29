@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LeaderBoardHelper : MonoBehaviour
 {
-    private TextMeshProUGUI title;
+    public TextMeshProUGUI title;
     [SerializeField]
     private List<TextMeshProUGUI> names;
 
