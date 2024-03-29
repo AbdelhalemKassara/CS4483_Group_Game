@@ -50,6 +50,10 @@ public class CameraManager : MonoBehaviour
                 break;
         }
     }
-    
+
+    public void setCurCar(GameObject obj)
+    {
+        curCar = obj;
+    }
 
 }
