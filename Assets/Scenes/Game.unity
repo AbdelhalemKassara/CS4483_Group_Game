@@ -135,6 +135,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarCamDashboard
       objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: peakTorque
+      value: 6000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[0].time
+      value: -0.025909424
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[1].time
+      value: 1.0145264
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[0].value
+      value: 0.7983093
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[1].value
+      value: 0.6975212
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[0].inSlope
+      value: 0.32364944
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[1].inSlope
+      value: -1.4864249
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[0].outSlope
+      value: 0.32364944
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[1].inWeight
+      value: 0.036442656
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[1].outSlope
+      value: -1.4864249
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[0].outWeight
+      value: 0.35347
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: torqueCurve.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202506351362030764, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668011412687720366, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8389973760916062847, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2320238
