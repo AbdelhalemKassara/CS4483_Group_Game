@@ -1,7 +1,8 @@
     using System.Collections.Generic;// using imports namespaces (namespaces are a collection of classes and other data types)
 using UnityEngine;
 using System;
-    
+using UnityEngine.Serialization;
+
 [Serializable]//makes the struct visiable in the inspector  
 public struct WheelColliders
 {
@@ -38,19 +39,17 @@ public enum DriveWheels
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour //this class inherits the MonoBehaviour class (Start, Update, FixedUpdate)
 {
+    [SerializeField] protected AnimationCurve torqueCurve; //this should range from 0 to 1 on both axies
+    [SerializeField] protected float peakTorque = 6000f;// declairs a variable called strengthCoefficient and gives it a value of 20000, f means float
+    [SerializeField] protected float MaxRpm;
+    [SerializeField] protected float minRpm = 1000f;
 
-    [SerializeField] 
-    protected WheelColliders WheelColliders;
+    [SerializeField] protected WheelColliders WheelColliders;
+    [SerializeField] private WheelMeshes WheelMeshes;
 
-    [SerializeField] 
-    private WheelMeshes WheelMeshes;
+    [SerializeField] private DiffType selectedDiffType;
+    [SerializeField] private DriveWheels selectedDriveWheels;
 
-    [SerializeField] 
-    private DiffType selectedDiffType;
-    [SerializeField] 
-    private DriveWheels selectedDriveWheels;
-
-    public float strengthCoefficient = 500f;// declairs a variable called strengthCoefficient and gives it a value of 20000, f means float
     public float BrakeStrength = 50f;// stores the break strength on each wheel
     public float maxTurn = 20f; // declairs a float called maxTurn and sets it to 20 (degrees)
     public Transform CM;// center of mass
@@ -62,7 +61,6 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     
    public AudioSource engineSound;
    
-    public float MaxRpm;
     protected float Rpm;
     
     //user controls and user controllable variables
@@ -126,6 +124,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         }
 
         Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
+        Rpm += minRpm;
     }
     
 
@@ -178,7 +177,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     {
         if (Rpm < MaxRpm && Rpm > -MaxRpm)
         {
-            float torqueToWheels = EngineCurve(strengthCoefficient, MaxRpm, 1000f, Rpm);
+            float torqueToWheels = EngineCurve(peakTorque, Rpm, MaxRpm, torqueCurve);
             float torque = torqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.deltaTime * ThrottleInput;
 
             switch (selectedDiffType)
@@ -217,13 +216,9 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
                 break;
         }
     }
-    private float EngineCurve(float peakTorque, float peakRpm, float initialTorque, float rpm)
+    private float EngineCurve(float peakTorque, float curRpm, float maxRpm, AnimationCurve torqueCurve)
     {
-        // rpm = Math.Abs(rpm);
-        // float Zero = (float)Math.Sqrt((double)PeakTorque - InitialTorque);
-        // // Zero = Math.Clamp(Zero, 0, float.MaxValue);
-        // PeakRpm = (2 * Zero) / PeakRpm;
-        return peakTorque;
+        return torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque;
     }
 
     private float BrakeCurve(float peakForce, float startForce, float rpm)//rpm of the wheel not the engine
@@ -235,16 +230,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     
     private void EngineAudio()
     {
-        if (Math.Abs(Rpm) >= 2000f)
-        {
-            engineSound.pitch = Math.Abs(Rpm) / MaxRpm;// change the pitch to depending on the rpm (audio file needs to be at max rpm)
-        }
-        else
-        {
-            engineSound.pitch = 2000f / MaxRpm;// change the pitch to depending on the rpm (audio file needs to be at max rpm)
-        }
-        // Debug.Log(Math.Abs(Rpm));
-        // Debug.Log(engineSound.pitch);
+        engineSound.pitch = Math.Abs(Rpm) / MaxRpm;// change the pitch to depending on the rpm (audio file needs to be at max rpm)
     }
     
     
