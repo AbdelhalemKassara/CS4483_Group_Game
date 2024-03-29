@@ -16,6 +16,7 @@ public class selected : MonoBehaviour
     private void SelectionCar(int index)
     {
        
+
         for(int i =0; i<transform.childCount; i++)
         {
             if (i == index)
