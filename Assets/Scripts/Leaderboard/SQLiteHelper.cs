@@ -130,10 +130,58 @@ public class SQLiteHelper : MonoBehaviour {
                     if (count == 0)
                     {
                         // Insert
-                        dbCommand.CommandText = $"INSERT INTO players (username) VALUES (@username);";
-                        dbCommand.CommandText += $"\nINSERT INTO player_currency (username) VALUES (@username)";
+                        dbCommand.CommandText = $"INSERT INTO players (username) VALUES (@username)";
                         Debug.Log("Inserted "+ username);
                     }
+                    
+                    dbCommand.ExecuteNonQuery();
+                }
+                dbTransaction.Commit();
+            }
+        }
+    }
+    // USE FOR MONEY UPDATING WHEN BUYING AS WELL.
+    public static void UpdateCoin(string username, int coins)
+    {
+        string dbName = "unitygame.db";
+        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "Scripts", "Leaderboard", dbName);
+        using (IDbConnection dbConnection = new SqliteConnection(dbPath))
+        {
+            dbConnection.Open();
+            int count = 0;
+            using (IDbTransaction dbTransaction = dbConnection.BeginTransaction())
+            {
+                using (IDbCommand dbCommand = dbConnection.CreateCommand())
+                {
+                    dbCommand.Transaction = dbTransaction;
+
+                    // Use parameterized query for safety
+                    dbCommand.CommandText = $"SELECT * FROM player_currency WHERE username = @username";
+                    var usernameParam = dbCommand.CreateParameter();
+                    usernameParam.ParameterName = "@username";
+                    usernameParam.Value = username;
+                    dbCommand.Parameters.Add(usernameParam);
+                    int currency = 0;
+
+                    // Check existence
+                    var dataReader = dbCommand.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        count++;
+                        currency = dataReader.GetInt32(dataReader.GetOrdinal("currency"));
+                    }
+                    dataReader.Close();
+
+                    if (count == 1)
+                    {
+                        // update
+                        dbCommand.CommandText = $"UPDATE player_currency SET currency = @currency WHERE username = @username";
+                        Debug.Log("Updated "+ username);
+                    }
+                    var currencyParam = dbCommand.CreateParameter();
+                    currencyParam.ParameterName = "@currency";
+                    currencyParam.Value = currency + coins;
+                    dbCommand.Parameters.Add(currencyParam);
                     dbCommand.ExecuteNonQuery();
                 }
                 dbTransaction.Commit();

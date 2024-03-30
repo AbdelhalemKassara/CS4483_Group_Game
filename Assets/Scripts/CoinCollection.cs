@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinCollection : MonoBehaviour
-{
+{ 
     private int coin = 0;
-   private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "coin")
         {   
