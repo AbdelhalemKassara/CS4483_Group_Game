@@ -5545,7 +5545,7 @@ MonoBehaviour:
     rearRight: {fileID: 3949615788741443844}
   selectedDiffType: 0
   selectedDriveWheels: 1
-  BrakeStrength: 1500
+  BrakeStrength: 120000000
   maxTurn: 40
   CM: {fileID: 7831645035121448143}
   carPosition: {fileID: 6549420988506319062}

@@ -94,8 +94,9 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         Breaking();
         Steering();
         MeshPosition();
-        handBrake();
+        // handBrake();
         EngineAudio();
+        
     }
 
     
@@ -166,13 +167,19 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     }
     public void Breaking()
     {
-        float torque = BrakeCurve(BrakeStrength, 100f, Rpm / (FinalDriveRatio * GearRatio[CurGear])) * Time.deltaTime * BrakeInput;
+        // float torque = BrakeCurve(BrakeStrength, 100f, Rpm / (FinalDriveRatio * GearRatio[CurGear])) * Time.deltaTime * BrakeInput;
         // Debug.Log("Brake Torque: " + torque);
-        WheelColliders.frontLeft.brakeTorque = torque;
-        WheelColliders.frontRight.brakeTorque = torque;
-        WheelColliders.rearLeft.brakeTorque = torque;
-        WheelColliders.rearRight.brakeTorque = torque;
+        WheelCollider cur = WheelColliders.frontLeft;
+        cur.brakeTorque = BrakeCurve(BrakeStrength, BrakeInput, cur.rpm);
+        
+        cur = WheelColliders.frontRight;
+        cur.brakeTorque = BrakeCurve(BrakeStrength, BrakeInput, cur.rpm);
 
+        cur = WheelColliders.rearLeft;
+        cur.brakeTorque = BrakeCurve(BrakeStrength, BrakeInput, cur.rpm);
+
+        cur = WheelColliders.frontRight;
+        cur.brakeTorque = BrakeCurve(BrakeStrength, BrakeInput, cur.rpm);
     }
 
     public void Throttle()
@@ -207,15 +214,19 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
                 break;
         }
     }
+    
+    //TO-DO: give the engine a bit of inertia so there isn't a sudden cutoff of power when it hits the rev limit
     private float EngineCurve(float peakTorque, float curRpm, float maxRpm, AnimationCurve torqueCurve)
     {
-        timeout += Time.deltaTime;
+        if (timeout <= maxRpmTimeout)
+        {
+            timeout += Time.deltaTime;
+        }
 
         if (Math.Abs(curRpm) >= maxRpm)
         {
             timeout = 0f;
         }
-      
         
 
         if (timeout >= maxRpmTimeout)
@@ -232,11 +243,19 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         }
     }
 
-    private float BrakeCurve(float peakForce, float startForce, float rpm)//rpm of the wheel not the engine
+    private float BrakeCurve(float peakForce, float pedalInput, float rpm)//rpm of the wheel not the engine
     {
-        //breaking works fine without any rpm beign passed in just set a constant breaking force
-        // rpm = Math.Abs(rpm);
-        return peakForce;
+        
+        //as velocity increases brake torque should decrease
+        //torque = const * pedalForce / velocity
+        if(rpm < -1.0f || rpm > 1.0f)
+        {
+            return peakForce * pedalInput / rpm;
+        }
+        else
+        {
+            return peakForce * pedalInput;
+        }
     }
     
     private void EngineAudio()
