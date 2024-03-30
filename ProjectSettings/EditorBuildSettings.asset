@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/RockyRoad.unity
     guid: c72c9c2ab43b0e94aa321290470ebbd5
   - enabled: 1
+    path: Assets/Scenes/CityRoad.unity
+    guid: 956182611eaeb4cc58783c5895f875bb
+  - enabled: 1
+    path: Assets/Scenes/FunRoad.unity
+    guid: d16e92efd7124417e9ef8b54ff3a2f09
+  - enabled: 1
     path: Assets/Scenes/Score scene.unity
     guid: d946c4d4847fcac4b810ee4489f03d04
   m_configObjects: {}
