@@ -18,7 +18,7 @@ public class Mapselection : MonoBehaviour
      
         }
 
-        else if (Input.GetKeyDown("d") && currentMap < 2 ){
+        else if (Input.GetKeyDown("d") && currentMap < 4 ){
             currentMap += 1;
         }
 

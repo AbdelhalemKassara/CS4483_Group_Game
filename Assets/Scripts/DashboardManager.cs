@@ -9,6 +9,8 @@ public class DashboardManager : MonoBehaviour
     public TextMeshProUGUI curGear;
     public TextMeshProUGUI curRpm;
     public TextMeshProUGUI timer;
+    public TextMeshProUGUI speed;
+    
     float elapsedTime;
     
     public virtual void setGear(int gear)
@@ -29,6 +31,10 @@ public class DashboardManager : MonoBehaviour
         return elapsedTime;
     }
 
+    public virtual void setSpeed(float speed)
+    {
+        this.speed.text = Convert.ToString(speed) + " KM/H";
+    }
     public virtual void setRpm(float rpm)
     {
         curRpm.text = "MaxRPM: 90000 \nRPM: " + Convert.ToString(rpm);
