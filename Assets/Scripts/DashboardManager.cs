@@ -24,6 +24,11 @@ public class DashboardManager : MonoBehaviour
         }
     }
 
+    public float GetElapsedTime()
+    {
+        return elapsedTime;
+    }
+
     public virtual void setRpm(float rpm)
     {
         curRpm.text = "MaxRPM: 90000 \nRPM: " + Convert.ToString(rpm);
