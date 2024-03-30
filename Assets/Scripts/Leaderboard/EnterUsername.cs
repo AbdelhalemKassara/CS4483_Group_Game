@@ -15,7 +15,7 @@ public class EnterUsername : MonoBehaviour
 
     public void OnSubmit()
     {
-        var inputString = nameInputField.text;
+        var inputString = nameInputField.text.ToLower();
         if (inputString.Length < 3 || inputString.Length > 14 ||inputString.Contains(" "))
         {
             warning.SetActive(true);
