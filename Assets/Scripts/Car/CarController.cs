@@ -105,26 +105,27 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         switch (selectedDriveWheels)
         {
             case DriveWheels.AWD:
-                Rpm += WheelColliders.frontRight.rpm;
-                Rpm += WheelColliders.frontLeft.rpm;
-                Rpm += WheelColliders.rearLeft.rpm;
-                Rpm += WheelColliders.rearRight.rpm;
+                Rpm += Math.Abs(WheelColliders.frontRight.rpm);
+                Rpm += Math.Abs(WheelColliders.frontLeft.rpm);
+                Rpm += Math.Abs(WheelColliders.rearLeft.rpm);
+                Rpm += Math.Abs(WheelColliders.rearRight.rpm);
                 Rpm /= 4;
                 break;
             case DriveWheels.FWD:
-                Rpm += WheelColliders.frontLeft.rpm;
-                Rpm += WheelColliders.frontRight.rpm;
+                Rpm += Math.Abs(WheelColliders.frontLeft.rpm);
+                Rpm += Math.Abs(WheelColliders.frontRight.rpm);
                 Rpm /= 2;
                 break;
             case DriveWheels.RWD:
-                Rpm += WheelColliders.rearRight.rpm;
-                Rpm += WheelColliders.rearLeft.rpm;
+                Rpm += Math.Abs(WheelColliders.rearRight.rpm);
+                Rpm += Math.Abs(WheelColliders.rearLeft.rpm);
                 Rpm /= 2;
                 break;
         }
 
         Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
-        Rpm += minRpm;
+        Rpm += Rpm < 0 ? -Rpm : Rpm;//fix this garbage
+        
     }
     
 
@@ -175,29 +176,18 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
 
     public void Throttle()
     {
-        if (Rpm < MaxRpm && Rpm > -MaxRpm)
-        {
-            float torqueToWheels = EngineCurve(peakTorque, Rpm, MaxRpm, torqueCurve);
-            float torque = torqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.deltaTime * ThrottleInput;
+        float torqueToWheels = EngineCurve(peakTorque, Rpm, MaxRpm, torqueCurve);
+        float torque = torqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.deltaTime * ThrottleInput;
 
-            switch (selectedDiffType)
-            {
-                case DiffType.Open:
-                    handleDriveWheels(Open, torque);
-                    break;
-                case DiffType.LSD:
-                    handleDriveWheels(LSD, torque);
-                    break;
-            }
-        }
-        else
+        switch (selectedDiffType)
         {
-            WheelColliders.frontLeft.motorTorque = 0f;
-            WheelColliders.frontRight.motorTorque = 0f;
-            WheelColliders.rearLeft.motorTorque = 0f;
-            WheelColliders.rearRight.motorTorque = 0f;
+            case DiffType.Open:
+                handleDriveWheels(Open, torque);
+                break;
+            case DiffType.LSD:
+                handleDriveWheels(LSD, torque);
+                break;
         }
-        
     }
 
     private void handleDriveWheels(Action<float, WheelCollider, WheelCollider> f, float torque)
@@ -218,7 +208,14 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     }
     private float EngineCurve(float peakTorque, float curRpm, float maxRpm, AnimationCurve torqueCurve)
     {
-        return torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque;
+        if (Math.Abs(curRpm) < maxRpm)
+        {
+            return torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque;
+        }
+        else
+        {
+            return -torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque * Math.Abs(curRpm - maxRpm)/maxRpm; 
+        }
     }
 
     private float BrakeCurve(float peakForce, float startForce, float rpm)//rpm of the wheel not the engine
