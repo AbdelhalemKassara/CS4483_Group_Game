@@ -1,6 +1,7 @@
 ﻿using Mono.Data.Sqlite;
 using System.Data;
 using UnityEngine;
+using System;
 using System.IO;
 using System.Collections.Generic;
 public class SQLiteHelper : MonoBehaviour {
@@ -45,19 +46,99 @@ public class SQLiteHelper : MonoBehaviour {
         using (IDbConnection dbConnection = new SqliteConnection(dbPath))
         {
             dbConnection.Open();
-            using (IDbCommand dbReadCommand = dbConnection.CreateCommand())
+            int count = 0;
+            using (IDbTransaction dbTransaction = dbConnection.BeginTransaction())
             {
-                // Assuming currentMap is a valid table name. Be cautious with dynamic table names.
-                dbReadCommand.CommandText = "INSERT INTO "+currentMap+" (username, time_score) " +
-                                            "VALUES ("+username+", "+ timescore+") " +
-                                            "ON CONFLICT(username) DO UPDATE " +
-                                            "SET time_score = excluded.time_score " +
-                                            "WHERE time_score > excluded.time_score;";
-                dbReadCommand.ExecuteNonQuery();
+                using (IDbCommand dbCommand = dbConnection.CreateCommand())
+                {
+                    dbCommand.Transaction = dbTransaction;
+
+                    // Use parameterized query for safety
+                    dbCommand.CommandText = $"SELECT * FROM {currentMap} WHERE username = @username";
+                    var usernameParam = dbCommand.CreateParameter();
+                    usernameParam.ParameterName = "@username";
+                    usernameParam.Value = username;
+                    dbCommand.Parameters.Add(usernameParam);
+
+                    // Check existence
+                    var dataReader = dbCommand.ExecuteReader(); // 17
+                    while (dataReader.Read())
+                    {
+                        count++;
+                    }
+                    dataReader.Close();
+
+                    if (count == 0)
+                    {
+                        // Insert
+                        dbCommand.CommandText = $"INSERT INTO {currentMap} (username, time_score) VALUES (@username, @timescore)";
+                        Debug.Log("Inserted "+ username + " with score" + timescore);
+                    }
+                    else
+                    {
+                        // Update
+                        dbCommand.CommandText = $"UPDATE {currentMap} SET time_score = @timescore WHERE username = @username AND time_score > @timescore";
+                        Debug.Log("Updated "+ username + " with score" + timescore);
+
+                    }
+
+                    // Common parameters for both queries
+                    dbCommand.Parameters.Add(usernameParam); // Reuse the username parameter
+                    var timescoreParam = dbCommand.CreateParameter();
+                    timescoreParam.ParameterName = "@timescore";
+                    timescoreParam.Value = timescore;
+                    dbCommand.Parameters.Add(timescoreParam);
+
+                    dbCommand.ExecuteNonQuery();
+                }
+                dbTransaction.Commit();
             }
         }
 
+
         return "Success";
+    }
+    public static void InsertPlayer(string username)
+    {
+        string dbName = "unitygame.db";
+        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "Scripts", "Leaderboard", dbName);
+        using (IDbConnection dbConnection = new SqliteConnection(dbPath))
+        {
+            dbConnection.Open();
+            int count = 0;
+            using (IDbTransaction dbTransaction = dbConnection.BeginTransaction())
+            {
+                using (IDbCommand dbCommand = dbConnection.CreateCommand())
+                {
+                    dbCommand.Transaction = dbTransaction;
+
+                    // Use parameterized query for safety
+                    dbCommand.CommandText = $"SELECT * FROM players WHERE username = @username";
+                    var usernameParam = dbCommand.CreateParameter();
+                    usernameParam.ParameterName = "@username";
+                    usernameParam.Value = username;
+                    dbCommand.Parameters.Add(usernameParam);
+
+                    // Check existence
+                    var dataReader = dbCommand.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        count++;
+                    }
+                    dataReader.Close();
+
+                    if (count == 0)
+                    {
+                        // Insert
+                        dbCommand.CommandText = $"INSERT INTO players (username) VALUES (@username);";
+                        dbCommand.CommandText += $"\nINSERT INTO player_currency (username) VALUES (@username)";
+                        Debug.Log("Inserted "+ username);
+                    }
+                    dbCommand.ExecuteNonQuery();
+                }
+                dbTransaction.Commit();
+            }
+        }
     }
 
     

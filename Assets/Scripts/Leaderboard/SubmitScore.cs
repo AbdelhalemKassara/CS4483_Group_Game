@@ -7,38 +7,29 @@ using TMPro;
 
 public class SubmitScore : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject warning;
-
     public TextMeshProUGUI score;
     
-    [SerializeField]
-    public TMP_InputField inputText;
-
     public SQLiteHelper sqLiteHelper;
 
-    private readonly string _mapName = StaticFinishData.MapName;
-    private readonly int _timeScore = StaticFinishData.TimeScore;
+    // private readonly string _mapName = StaticFinishData.MapName;
+    // private readonly int _timeScore = StaticFinishData.TimeScore;
+    
+    
 
     void Start()
     {
-        score.text = _timeScore.ToString();
+        // score.text = _timeScore.ToString();
+        score.text = "Time Completed: "+200;
     }
     public void OnSubmitScore()
     {
-        if (inputText.text.Length < 3)
+        // var s = sqLiteHelper.UpdateScores(_mapName, inputText.text, _timeScore);
+        var s = sqLiteHelper.UpdateScores("map_1", "test1".ToLower(), 177);
+
+        Debug.Log("Test");
+        if (s == "Success")
         {
-            var s = sqLiteHelper.UpdateScores(_mapName, inputText.text, _timeScore);
-            Debug.Log("Test");
-            if (s == "Success")
-            {
-                SceneManager.LoadScene(0);
-            }
-            
-        }
-        else
-        {
-            warning.SetActive(true);
+            SceneManager.LoadScene(0);
         }
         
     }
