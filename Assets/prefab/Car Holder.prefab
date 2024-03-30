@@ -429,6 +429,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b544378238ded4b1fae46d1006168d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torqueCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.73083264
+      inSlope: -0.1322896
+      outSlope: -0.1322896
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06466133
+    - serializedVersion: 3
+      time: 1
+      value: 0.4923401
+      inSlope: -3.0094478
+      outSlope: -3.0094478
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.020973708
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  peakTorque: 6000
+  MaxRpm: 9000
+  minRpm: 1000
   WheelColliders:
     frontLeft: {fileID: 7242508130666871446}
     frontRight: {fileID: 2954459453350519761}
@@ -441,7 +468,6 @@ MonoBehaviour:
     rearRight: {fileID: 3748672945710305693}
   selectedDiffType: 0
   selectedDriveWheels: 1
-  strengthCoefficient: 6000
   BrakeStrength: 1500
   maxTurn: 40
   CM: {fileID: 8571375579276089139}
@@ -455,7 +481,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 2466167545160493545}
-  MaxRpm: 9000
   dashboardManager: {fileID: 0}
   headLightsManager: {fileID: 7263214848869003439}
 --- !u!114 &6562368314790692078
@@ -1726,6 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020b56e008070a7408c2aefe1a6edfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraManager: {fileID: 0}
 --- !u!1 &5951074818833703387
 GameObject:
   m_ObjectHideFlags: 0

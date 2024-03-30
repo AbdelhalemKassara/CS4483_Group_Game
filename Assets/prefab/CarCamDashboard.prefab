@@ -3026,6 +3026,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b544378238ded4b1fae46d1006168d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torqueCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  peakTorque: 6000
+  MaxRpm: 10000
+  minRpm: 1000
   WheelColliders:
     frontLeft: {fileID: 3002137106837341254}
     frontRight: {fileID: 7700826252733946255}
@@ -3038,7 +3047,6 @@ MonoBehaviour:
     rearRight: {fileID: 5203700209680862999}
   selectedDiffType: 1
   selectedDriveWheels: 1
-  strengthCoefficient: 6000
   BrakeStrength: 1200000
   maxTurn: 30
   CM: {fileID: 4079663919710995109}
@@ -3052,7 +3060,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5280648661062501922}
-  MaxRpm: 10000
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 544130177262285347}
 --- !u!114 &799692313900685537
@@ -5205,6 +5212,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b544378238ded4b1fae46d1006168d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torqueCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  peakTorque: 6000
+  MaxRpm: 9000
+  minRpm: 1000
   WheelColliders:
     frontLeft: {fileID: 6263578943605694452}
     frontRight: {fileID: 102599197954828020}
@@ -5217,7 +5233,6 @@ MonoBehaviour:
     rearRight: {fileID: 8638160850708540}
   selectedDiffType: 0
   selectedDriveWheels: 1
-  strengthCoefficient: 6000
   BrakeStrength: 1200000
   maxTurn: 40
   CM: {fileID: 7107674787841258880}
@@ -5231,7 +5246,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 3707900424970523445}
-  MaxRpm: 9000
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4086871541388787802}
 --- !u!82 &3707900424970523445
@@ -5487,6 +5501,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b544378238ded4b1fae46d1006168d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torqueCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.7977295
+      inSlope: 1.6345787
+      outSlope: 1.6345787
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.018951613
+    - serializedVersion: 3
+      time: 1
+      value: 0.42111588
+      inSlope: -0.5149807
+      outSlope: -0.5149807
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.02459675
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  peakTorque: 6000
+  MaxRpm: 9000
+  minRpm: 1000
   WheelColliders:
     frontLeft: {fileID: 3431664997774731863}
     frontRight: {fileID: 9211843330746059724}
@@ -5499,7 +5540,6 @@ MonoBehaviour:
     rearRight: {fileID: 3949615788741443844}
   selectedDiffType: 0
   selectedDriveWheels: 1
-  strengthCoefficient: 6000
   BrakeStrength: 1500
   maxTurn: 40
   CM: {fileID: 7831645035121448143}
@@ -5513,7 +5553,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5721004824402801416}
-  MaxRpm: 9000
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 6873507081421035495}
 --- !u!114 &8573722004431043746
@@ -6285,6 +6324,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b544378238ded4b1fae46d1006168d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torqueCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  peakTorque: 6000
+  MaxRpm: 10000
+  minRpm: 1000
   WheelColliders:
     frontLeft: {fileID: 2741323347383043912}
     frontRight: {fileID: 2558359452609070555}
@@ -6297,7 +6345,6 @@ MonoBehaviour:
     rearRight: {fileID: 5425518830661203564}
   selectedDiffType: 1
   selectedDriveWheels: 1
-  strengthCoefficient: 6000
   BrakeStrength: 1200000
   maxTurn: 40
   CM: {fileID: 7636486164965806923}
@@ -6311,7 +6358,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 1472981094444661918}
-  MaxRpm: 10000
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4558685607002577722}
 --- !u!114 &574897788936783229
@@ -8127,6 +8173,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b544378238ded4b1fae46d1006168d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torqueCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  peakTorque: 6000
+  MaxRpm: 7000
+  minRpm: 1000
   WheelColliders:
     frontLeft: {fileID: 6592382569513164484}
     frontRight: {fileID: 5630899419218858098}
@@ -8139,7 +8194,6 @@ MonoBehaviour:
     rearRight: {fileID: 367830692415669111}
   selectedDiffType: 1
   selectedDriveWheels: 0
-  strengthCoefficient: 60000
   BrakeStrength: 1200000
   maxTurn: 30
   CM: {fileID: 340808027156154581}
@@ -8153,7 +8207,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 2681081405308229079}
-  MaxRpm: 7000
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 8896157304411368683}
 --- !u!64 &6016008107699912345
@@ -8500,6 +8553,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b544378238ded4b1fae46d1006168d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torqueCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  peakTorque: 6000
+  MaxRpm: 10000
+  minRpm: 1000
   WheelColliders:
     frontLeft: {fileID: 7129242489520275514}
     frontRight: {fileID: 4107788690734824415}
@@ -8512,7 +8574,6 @@ MonoBehaviour:
     rearRight: {fileID: 4644670471785874347}
   selectedDiffType: 1
   selectedDriveWheels: 1
-  strengthCoefficient: 6000
   BrakeStrength: 1200000
   maxTurn: 30
   CM: {fileID: 7217414524117399876}
@@ -8526,7 +8587,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5111698993303578833}
-  MaxRpm: 10000
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 5450660209990807748}
 --- !u!114 &5450660209990807748
