@@ -24,7 +24,7 @@ public class SubmitScore : MonoBehaviour
     public void OnSubmitScore()
     {
         // var s = sqLiteHelper.UpdateScores(_mapName, inputText.text, _timeScore);
-        var s = sqLiteHelper.UpdateScores("map_1", "test1".ToLower(), 177);
+        var s = sqLiteHelper.UpdateScores("map_1", PlayerInfo.Username.ToLower(), 177);
 
         Debug.Log("Test");
         if (s == "Success")
