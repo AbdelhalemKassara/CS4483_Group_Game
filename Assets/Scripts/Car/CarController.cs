@@ -43,7 +43,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     [SerializeField] protected float peakTorque = 6000f;// declairs a variable called strengthCoefficient and gives it a value of 20000, f means float
     [SerializeField] protected float MaxRpm;
     [SerializeField] protected float minRpm = 1000f;
-
+    [SerializeField] private float maxRpmTimeout = 0.1f;
     [SerializeField] protected WheelColliders WheelColliders;
     [SerializeField] private WheelMeshes WheelMeshes;
 
@@ -70,12 +70,14 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     protected bool Handbrake = false;
     protected int CurGear = 1; // starts on the first gear (0 is reverse)
 
-    
+    //timeout for rev limit
+    public float timeout = 0.0f;
     void Start()
     {
 
         rb = GetComponent<Rigidbody>();
-
+        timeout = maxRpmTimeout + 1f;
+        
         if (CM)// checks to see if the center of mass object exists
         {
             rb.centerOfMass = CM.position - carPosition.position; // sets the center of mass
@@ -124,8 +126,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         }
 
         Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
-        Rpm += Rpm < 0 ? -Rpm : Rpm;//fix this garbage
-        
+        Rpm += Rpm < 0 ? -minRpm : minRpm;//fix this garbage
     }
     
 
@@ -208,13 +209,26 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     }
     private float EngineCurve(float peakTorque, float curRpm, float maxRpm, AnimationCurve torqueCurve)
     {
-        if (Math.Abs(curRpm) < maxRpm)
+        timeout += Time.deltaTime;
+
+        if (Math.Abs(curRpm) >= maxRpm)
+        {
+            timeout = 0f;
+        }
+      
+        
+
+        if (timeout >= maxRpmTimeout)
         {
             return torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque;
         }
-        else
+        else if(timeout >= maxRpmTimeout && Math.Abs(curRpm) >= maxRpm)
         {
             return -torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque * Math.Abs(curRpm - maxRpm)/maxRpm; 
+        }
+        else
+        {
+            return 0;
         }
     }
 

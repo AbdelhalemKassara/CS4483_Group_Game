@@ -3035,6 +3035,7 @@ MonoBehaviour:
   peakTorque: 6000
   MaxRpm: 10000
   minRpm: 1000
+  maxRpmTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 3002137106837341254}
     frontRight: {fileID: 7700826252733946255}
@@ -3060,6 +3061,7 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5280648661062501922}
+  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 544130177262285347}
 --- !u!114 &799692313900685537
@@ -5221,6 +5223,7 @@ MonoBehaviour:
   peakTorque: 6000
   MaxRpm: 9000
   minRpm: 1000
+  maxRpmTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 6263578943605694452}
     frontRight: {fileID: 102599197954828020}
@@ -5246,6 +5249,7 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 3707900424970523445}
+  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4086871541388787802}
 --- !u!82 &3707900424970523445
@@ -5528,6 +5532,7 @@ MonoBehaviour:
   peakTorque: 6000
   MaxRpm: 9000
   minRpm: 1000
+  maxRpmTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 3431664997774731863}
     frontRight: {fileID: 9211843330746059724}
@@ -5553,6 +5558,7 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5721004824402801416}
+  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 6873507081421035495}
 --- !u!114 &8573722004431043746
@@ -6333,6 +6339,7 @@ MonoBehaviour:
   peakTorque: 6000
   MaxRpm: 10000
   minRpm: 1000
+  maxRpmTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 2741323347383043912}
     frontRight: {fileID: 2558359452609070555}
@@ -6358,6 +6365,7 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 1472981094444661918}
+  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4558685607002577722}
 --- !u!114 &574897788936783229
@@ -8182,6 +8190,7 @@ MonoBehaviour:
   peakTorque: 6000
   MaxRpm: 7000
   minRpm: 1000
+  maxRpmTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 6592382569513164484}
     frontRight: {fileID: 5630899419218858098}
@@ -8207,6 +8216,7 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 2681081405308229079}
+  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 8896157304411368683}
 --- !u!64 &6016008107699912345
@@ -8562,6 +8572,7 @@ MonoBehaviour:
   peakTorque: 6000
   MaxRpm: 10000
   minRpm: 1000
+  maxRpmTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 7129242489520275514}
     frontRight: {fileID: 4107788690734824415}
@@ -8587,6 +8598,7 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5111698993303578833}
+  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 5450660209990807748}
 --- !u!114 &5450660209990807748
