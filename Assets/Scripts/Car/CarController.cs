@@ -48,7 +48,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     [SerializeField] private WheelMeshes WheelMeshes;
 
     [SerializeField] private DiffType selectedDiffType;
-    [SerializeField] private DriveWheels selectedDriveWheels;
+    [SerializeField] protected DriveWheels selectedDriveWheels;
 
     public float BrakeStrength = 50f;// stores the break strength on each wheel
     public float handbreakMult = 100.0f;
@@ -231,7 +231,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
             timeout = 0f;
         }
         
-
+        Debug.Log(timeout);
         if (timeout >= maxRpmTimeout)
         {
             return torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque;
