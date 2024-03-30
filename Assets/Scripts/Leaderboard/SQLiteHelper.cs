@@ -3,7 +3,6 @@ using System.Data;
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
-
 public class SQLiteHelper : MonoBehaviour {
     public List<PlayerScore> GetMap(string currentMap)
     {
@@ -39,18 +38,27 @@ public class SQLiteHelper : MonoBehaviour {
 
         return playerScores;
     }
+    public string UpdateScores(string currentMap, string username, int timescore)
+    {
+        string dbName = "unitygame.db";
+        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "Scripts", "Leaderboard", dbName);
+        using (IDbConnection dbConnection = new SqliteConnection(dbPath))
+        {
+            dbConnection.Open();
+            using (IDbCommand dbReadCommand = dbConnection.CreateCommand())
+            {
+                // Assuming currentMap is a valid table name. Be cautious with dynamic table names.
+                dbReadCommand.CommandText = "INSERT INTO "+currentMap+" (username, time_score) " +
+                                            "VALUES ("+username+", "+ timescore+") " +
+                                            "ON CONFLICT(username) DO UPDATE " +
+                                            "SET time_score = excluded.time_score " +
+                                            "WHERE time_score > excluded.time_score;";
+                dbReadCommand.ExecuteNonQuery();
+            }
+        }
 
-    // private void OnMouseDown()
-    // {
-    //     // Insert hits into the table.
-    //     IDbConnection dbConnection = CreateAndOpenDatabase();
-    //     IDbCommand dbCommandInsertValue = dbConnection.CreateCommand();
-    //     dbCommandInsertValue.CommandText = "INSERT OR REPLACE INTO HitCountTableSimple (id, hits) VALUES (0, " + hitCount + ")";
-    //     dbCommandInsertValue.ExecuteNonQuery();
-    //
-    //     // Remember to always close the connection at the end.
-    //     dbConnection.Close();
-    // }
+        return "Success";
+    }
 
     
 }
