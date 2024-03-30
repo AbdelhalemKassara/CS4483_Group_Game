@@ -238,7 +238,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         }
         else if(timeout >= maxRpmTimeout && Math.Abs(curRpm) >= maxRpm)
         {
-            return -torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque * Math.Abs(curRpm - maxRpm)/maxRpm; 
+            return -peakTorque * Math.Abs(curRpm - maxRpm)/maxRpm; 
         }
         else
         {
