@@ -51,6 +51,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     [SerializeField] private DriveWheels selectedDriveWheels;
 
     public float BrakeStrength = 50f;// stores the break strength on each wheel
+    public float handbreakMult = 100.0f;
     public float maxTurn = 20f; // declairs a float called maxTurn and sets it to 20 (degrees)
     public Transform CM;// center of mass
     private Rigidbody rb;// rigid body
@@ -71,7 +72,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     protected int CurGear = 1; // starts on the first gear (0 is reverse)
 
     //timeout for rev limit
-    public float timeout = 0.0f;
+    private float timeout = 0.0f;
     void Start()
     {
 
@@ -94,7 +95,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         Breaking();
         Steering();
         MeshPosition();
-        // handBrake();
+        handBrake();
         EngineAudio();
         
     }
@@ -160,10 +161,12 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         WheelMeshes.rearRight.position = Pos;
     }
     public void handBrake()
-    {   
-        float torque = BrakeStrength * Time.deltaTime * Convert.ToSingle(Handbrake) * 100000f;
-        WheelColliders.rearLeft.brakeTorque = torque;
-        WheelColliders.rearRight.brakeTorque = torque;
+    {
+        WheelCollider cur = WheelColliders.rearLeft;
+        cur.brakeTorque = BrakeCurve(BrakeStrength * handbreakMult, Convert.ToSingle(Handbrake), cur.rpm);
+
+        cur = WheelColliders.rearRight;
+        cur.brakeTorque = BrakeCurve(BrakeStrength * handbreakMult, Convert.ToSingle(Handbrake), cur.rpm);
     }
     public void Breaking()
     {

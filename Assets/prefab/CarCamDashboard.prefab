@@ -3049,6 +3049,7 @@ MonoBehaviour:
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
+  handbreakMult: 100
   maxTurn: 30
   CM: {fileID: 4079663919710995109}
   carPosition: {fileID: 2050754073100769208}
@@ -3061,7 +3062,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5280648661062501922}
-  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 544130177262285347}
 --- !u!114 &799692313900685537
@@ -5237,6 +5237,7 @@ MonoBehaviour:
   selectedDiffType: 0
   selectedDriveWheels: 1
   BrakeStrength: 1200000
+  handbreakMult: 100
   maxTurn: 40
   CM: {fileID: 7107674787841258880}
   carPosition: {fileID: 8501299618425872567}
@@ -5249,7 +5250,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 3707900424970523445}
-  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4086871541388787802}
 --- !u!82 &3707900424970523445
@@ -5545,7 +5545,8 @@ MonoBehaviour:
     rearRight: {fileID: 3949615788741443844}
   selectedDiffType: 0
   selectedDriveWheels: 1
-  BrakeStrength: 120000000
+  BrakeStrength: 9600
+  handbreakMult: 100
   maxTurn: 40
   CM: {fileID: 7831645035121448143}
   carPosition: {fileID: 6549420988506319062}
@@ -5558,7 +5559,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5721004824402801416}
-  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 6873507081421035495}
 --- !u!114 &8573722004431043746
@@ -6353,6 +6353,7 @@ MonoBehaviour:
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
+  handbreakMult: 100
   maxTurn: 40
   CM: {fileID: 7636486164965806923}
   carPosition: {fileID: 2982183197654024020}
@@ -6365,7 +6366,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 1472981094444661918}
-  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4558685607002577722}
 --- !u!114 &574897788936783229
@@ -8204,6 +8204,7 @@ MonoBehaviour:
   selectedDiffType: 1
   selectedDriveWheels: 0
   BrakeStrength: 1200000
+  handbreakMult: 100
   maxTurn: 30
   CM: {fileID: 340808027156154581}
   carPosition: {fileID: 6582197945928691998}
@@ -8216,7 +8217,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 2681081405308229079}
-  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 8896157304411368683}
 --- !u!64 &6016008107699912345
@@ -8586,6 +8586,7 @@ MonoBehaviour:
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
+  handbreakMult: 100
   maxTurn: 30
   CM: {fileID: 7217414524117399876}
   carPosition: {fileID: 4824697460926101782}
@@ -8598,7 +8599,6 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   engineSound: {fileID: 5111698993303578833}
-  timeout: 0
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 5450660209990807748}
 --- !u!114 &5450660209990807748
