@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &389079168
+--- !u!1001 &393618806
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -174,50 +174,6 @@ PrefabInstance:
     - target: {fileID: 8389973760916062847, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[0].value
-      value: 0.798584
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[1].value
-      value: 0.48770905
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[0].inSlope
-      value: 0.85300905
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[1].inSlope
-      value: -2.0262268
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[0].outSlope
-      value: 0.85300905
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[1].inWeight
-      value: 0.013311822
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[1].outSlope
-      value: -2.0262268
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164294241197077698, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
-      propertyPath: torqueCurve.m_Curve.Array.data[0].outWeight
-      value: 0.021412332
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -604,6 +560,6 @@ SceneRoots:
   - {fileID: 8066295045805584207}
   - {fileID: 5505715244291352696}
   - {fileID: 739306797}
-  - {fileID: 389079168}
   - {fileID: 2767824778447714392}
   - {fileID: 3508936232962209075}
+  - {fileID: 393618806}
