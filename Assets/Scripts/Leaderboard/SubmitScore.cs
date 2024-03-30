@@ -25,9 +25,8 @@ public class SubmitScore : MonoBehaviour
     {
         // var s = sqLiteHelper.UpdateScores(_mapName, inputText.text, _timeScore);
         var s = sqLiteHelper.UpdateScores("map_1", PlayerInfo.Username.ToLower(), 177);
-        
-        // Insert money after beating map REPLACE 200 with future money
-        SQLiteHelper.UpdateCoin(PlayerInfo.Username.ToLower(), 200);
+
+        Debug.Log("Test");
         if (s == "Success")
         {
             SceneManager.LoadScene(0);

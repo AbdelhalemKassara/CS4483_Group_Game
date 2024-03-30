@@ -27,7 +27,7 @@ public class CarInputController : CarController
         {
             headLightsManager.turnOffHeadlights();
         }
-        dashboardManager.setRpm(Rpm);   
+        dashboardManager.setRpm(Math.Abs(Rpm));   
     }
     
     //called when gameobject is enabled
