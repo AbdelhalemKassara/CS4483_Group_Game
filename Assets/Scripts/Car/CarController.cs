@@ -60,9 +60,11 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     public float[] GearRatio;
     public float FinalDriveRatio;// ratio from the end of the transmittion to the wheels
     
-   public AudioSource engineSound;
+    public AudioSource engineSound;
    
     protected float Rpm;
+
+    protected float Speed;
     
     //user controls and user controllable variables
     protected float ThrottleInput = 0;
@@ -89,15 +91,22 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     //detect slip by getting the speed of the wheels and compare them to the speed of the car
     void FixedUpdate() // 
     {
+        CalcSpeed();
+        calcSlip();
         EngineRpm();// function that calculates the engine rpm
+        
         //AutoTransmittion(); // function that 
         Throttle();
         Breaking();
         Steering();
-        MeshPosition();
         handBrake();
-        EngineAudio();
         
+        //update stuff
+        //dashboard
+        //headlights
+        //tireSmoke
+        MeshPosition();
+        EngineAudio();
     }
 
     
@@ -301,5 +310,68 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     //might not be possible to implement without it being janky or applying nearly infinte torque
     private void FixedDiff() //equal speed to both wheels
     {
+    }
+
+    private void CalcSpeed()
+    {
+        float speed = 0.0f;
+        WheelCollider cur;
+        switch (selectedDriveWheels)
+        {
+            case DriveWheels.AWD:
+                cur = WheelColliders.rearRight;
+                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
+                cur = WheelColliders.rearLeft;
+                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
+                cur = WheelColliders.frontLeft;
+                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
+                cur = WheelColliders.frontRight;
+                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
+
+                speed /= 4.0f;
+                break;
+            case DriveWheels.FWD:
+                cur = WheelColliders.frontLeft;
+                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
+                cur = WheelColliders.frontRight;
+                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
+
+                speed /= 2.0f;
+                break;
+            case DriveWheels.RWD:
+                cur = WheelColliders.rearRight;
+                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
+                cur = WheelColliders.rearLeft;
+                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
+
+                speed /= 2.0f;
+                break;
+        }
+
+        Speed = speed;
+    }
+    private void calcSlip()
+    {
+        WheelHit test;
+        WheelColliders.frontLeft.GetGroundHit(out test);
+        String str = "";
+        str += test.sidewaysSlip / WheelColliders.frontLeft.sidewaysFriction.extremumSlip;
+        str += " | ";
+        
+        WheelColliders.frontRight.GetGroundHit(out test);
+        str += test.sidewaysSlip / WheelColliders.frontRight.sidewaysFriction.extremumSlip;
+        
+        Debug.Log(str);
+
+        WheelColliders.frontLeft.GetGroundHit(out test);
+        str = "";
+        str += test.sidewaysSlip / WheelColliders.frontLeft.sidewaysFriction.extremumSlip;
+        str += " | ";
+        
+        WheelColliders.frontRight.GetGroundHit(out test);
+        str += test.sidewaysSlip / WheelColliders.frontRight.sidewaysFriction.extremumSlip;
+        
+        Debug.Log(str);
+        Debug.Log("");
     }
 }
