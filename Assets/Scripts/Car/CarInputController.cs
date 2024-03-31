@@ -27,8 +27,9 @@ public class CarInputController : CarController
         {
             headLightsManager.turnOffHeadlights();
         }
+        
         dashboardManager.setRpm(Math.Abs(Rpm));   
-        CalcSpeed();
+        dashboardManager.setSpeed(Speed);
     }
     
     //called when gameobject is enabled
@@ -141,43 +142,5 @@ public class CarInputController : CarController
     {
         Handbrake = false;
     }
-
-    private void CalcSpeed()
-    {
-        float speed = 0.0f;
-        WheelCollider cur;
-        switch (selectedDriveWheels)
-        {
-            case DriveWheels.AWD:
-                cur = WheelColliders.rearRight;
-                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
-                cur = WheelColliders.rearLeft;
-                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
-                cur = WheelColliders.frontLeft;
-                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
-                cur = WheelColliders.frontRight;
-                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
-
-                speed /= 2.0f;
-                break;
-            case DriveWheels.FWD:
-                cur = WheelColliders.frontLeft;
-                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
-                cur = WheelColliders.frontRight;
-                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
-
-                speed /= 2.0f;
-                break;
-            case DriveWheels.RWD:
-                cur = WheelColliders.rearRight;
-                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
-                cur = WheelColliders.rearLeft;
-                speed += 2.0f * (float)Math.PI * cur.radius * cur.rpm * 3.6f / 60.0f;
-
-                speed /= 2.0f;
-                break;
-        }
-
-        dashboardManager.setSpeed(speed);
-    }
+    
 }
