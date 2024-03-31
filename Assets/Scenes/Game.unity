@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarCamDashboard
       objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: peakTorque
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: BrakeStrength
+      value: 96000
+      objectReference: {fileID: 0}
     - target: {fileID: 2925821929560231673, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: m_Mass
       value: 20

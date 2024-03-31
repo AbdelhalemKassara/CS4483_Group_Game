@@ -293,7 +293,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
         //rpmDiff should be from -1 to 1 here
         rpmDiff++;
         rpmDiff /= 2;//rpmDiff now ranges from 0 to 1
-        // Debug.Log(rpmDiff);
+
         w1.motorTorque =  (1.0f-rpmDiff) * engineTorque;
         w2.motorTorque =   rpmDiff * engineTorque;
     }
