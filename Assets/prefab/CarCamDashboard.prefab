@@ -424,12 +424,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413424589878699064}
   serializedVersion: 2
-  m_LocalRotation: {x: -2.47951e-10, y: -4.95902e-10, z: -6.579806e-14, w: 1}
+  m_LocalRotation: {x: -2.47951e-10, y: -4.95902e-10, z: -6.5798495e-14, w: 1}
   m_LocalPosition: {x: -0.00001859665, y: 0.0023021698, z: -0.0010993481}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483625546206421038}
+  m_Father: {fileID: 980992090981185082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4429156187273426407
 MeshFilter:
@@ -1507,6 +1507,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8851118018426815682}
+  - {fileID: 6350657039110223121}
   m_Father: {fileID: 2954211089354378536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760159245809027022
@@ -1820,7 +1821,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3949615788741443844}
+  m_Father: {fileID: 3489596458159069367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4779588257135165080
 MeshFilter:
@@ -3060,17 +3061,23 @@ MonoBehaviour:
     frontRight: {fileID: 7700826252733946255}
     rearLeft: {fileID: 143151554412197459}
     rearRight: {fileID: 3440676162593766568}
-  WheelMeshes:
-    frontLeft: {fileID: 4985842546757878965}
-    frontRight: {fileID: 1797116294801307855}
-    rearLeft: {fileID: 9086987060684340520}
-    rearRight: {fileID: 5203700209680862999}
+  WheelMeshesRot:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
+  WheelMeshesStatic:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
   handbreakMult: 100
   maxTurn: 30
   CM: {fileID: 4079663919710995109}
+  rb: {fileID: 0}
   carPosition: {fileID: 2050754073100769208}
   GearRatio:
   - -3.23
@@ -3080,9 +3087,9 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  engineSound: {fileID: 5280648661062501922}
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 544130177262285347}
+  engineSound: {fileID: 5280648661062501922}
 --- !u!114 &799692313900685537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,7 +4021,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7698544666371888561}
   - {fileID: 170953588914657376}
   - {fileID: 6205260584569770904}
   m_Father: {fileID: 8644291821202612884}
@@ -5402,17 +5408,23 @@ MonoBehaviour:
     frontRight: {fileID: 102599197954828020}
     rearLeft: {fileID: 3628720719861150525}
     rearRight: {fileID: 1874125109240708924}
-  WheelMeshes:
-    frontLeft: {fileID: 7368846373960925695}
-    frontRight: {fileID: 7352910477046084332}
-    rearLeft: {fileID: 1961217971401115802}
-    rearRight: {fileID: 8638160850708540}
+  WheelMeshesRot:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
+  WheelMeshesStatic:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
   selectedDiffType: 0
   selectedDriveWheels: 1
   BrakeStrength: 1200000
   handbreakMult: 100
   maxTurn: 40
   CM: {fileID: 7107674787841258880}
+  rb: {fileID: 0}
   carPosition: {fileID: 8501299618425872567}
   GearRatio:
   - -3.23
@@ -5422,9 +5434,9 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  engineSound: {fileID: 3707900424970523445}
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4086871541388787802}
+  engineSound: {fileID: 3707900424970523445}
 --- !u!82 &3707900424970523445
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5711,17 +5723,23 @@ MonoBehaviour:
     frontRight: {fileID: 9211843330746059724}
     rearLeft: {fileID: 5763907711275945369}
     rearRight: {fileID: 2925821929560231673}
-  WheelMeshes:
+  WheelMeshesRot:
     frontLeft: {fileID: 6377271583008281698}
     frontRight: {fileID: 483625546206421038}
     rearLeft: {fileID: 3422821095010901450}
     rearRight: {fileID: 3949615788741443844}
+  WheelMeshesStatic:
+    frontLeft: {fileID: 3954549897735861595}
+    frontRight: {fileID: 980992090981185082}
+    rearLeft: {fileID: 8187027892614707338}
+    rearRight: {fileID: 3489596458159069367}
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 96000
   handbreakMult: 100
   maxTurn: 40
   CM: {fileID: 7831645035121448143}
+  rb: {fileID: 0}
   carPosition: {fileID: 6549420988506319062}
   GearRatio:
   - -3.23
@@ -5731,9 +5749,9 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  engineSound: {fileID: 5721004824402801416}
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 6873507081421035495}
+  engineSound: {fileID: 5721004824402801416}
 --- !u!114 &8573722004431043746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6536,17 +6554,23 @@ MonoBehaviour:
     frontRight: {fileID: 2558359452609070555}
     rearLeft: {fileID: 5520312606511977589}
     rearRight: {fileID: 4389031878355492900}
-  WheelMeshes:
-    frontLeft: {fileID: 5308542826437201897}
-    frontRight: {fileID: 4566667577932295645}
-    rearLeft: {fileID: 8007119466614461265}
-    rearRight: {fileID: 5425518830661203564}
+  WheelMeshesRot:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
+  WheelMeshesStatic:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
   handbreakMult: 100
   maxTurn: 40
   CM: {fileID: 7636486164965806923}
+  rb: {fileID: 0}
   carPosition: {fileID: 2982183197654024020}
   GearRatio:
   - -3.23
@@ -6556,9 +6580,9 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  engineSound: {fileID: 1472981094444661918}
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4558685607002577722}
+  engineSound: {fileID: 1472981094444661918}
 --- !u!114 &574897788936783229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6729,7 +6753,6 @@ Transform:
   m_Children:
   - {fileID: 8758199342140693682}
   - {fileID: 594623309858813989}
-  - {fileID: 6350657039110223121}
   m_Father: {fileID: 2954211089354378536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4817657281366894727
@@ -8405,17 +8428,23 @@ MonoBehaviour:
     frontRight: {fileID: 5630899419218858098}
     rearLeft: {fileID: 515080920702025506}
     rearRight: {fileID: 693992818472436406}
-  WheelMeshes:
-    frontLeft: {fileID: 1950414625875937116}
-    frontRight: {fileID: 2346954603452249958}
-    rearLeft: {fileID: 1302959093628311659}
-    rearRight: {fileID: 367830692415669111}
+  WheelMeshesRot:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
+  WheelMeshesStatic:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
   selectedDiffType: 1
   selectedDriveWheels: 0
   BrakeStrength: 1200000
   handbreakMult: 100
   maxTurn: 30
   CM: {fileID: 340808027156154581}
+  rb: {fileID: 0}
   carPosition: {fileID: 6582197945928691998}
   GearRatio:
   - -3.32
@@ -8425,9 +8454,9 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  engineSound: {fileID: 2681081405308229079}
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 8896157304411368683}
+  engineSound: {fileID: 2681081405308229079}
 --- !u!64 &6016008107699912345
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8805,17 +8834,23 @@ MonoBehaviour:
     frontRight: {fileID: 4107788690734824415}
     rearLeft: {fileID: 4201424265032884715}
     rearRight: {fileID: 3634379738793087889}
-  WheelMeshes:
-    frontLeft: {fileID: 8815412009272493668}
-    frontRight: {fileID: 2815900762798887597}
-    rearLeft: {fileID: 2326747015225281358}
-    rearRight: {fileID: 4644670471785874347}
+  WheelMeshesRot:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
+  WheelMeshesStatic:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    rearLeft: {fileID: 0}
+    rearRight: {fileID: 0}
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
   handbreakMult: 100
   maxTurn: 30
   CM: {fileID: 7217414524117399876}
+  rb: {fileID: 0}
   carPosition: {fileID: 4824697460926101782}
   GearRatio:
   - -3.23
@@ -8825,9 +8860,9 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  engineSound: {fileID: 5111698993303578833}
   dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 5450660209990807748}
+  engineSound: {fileID: 5111698993303578833}
 --- !u!114 &5450660209990807748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9585,6 +9620,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5859709374279276447}
+  - {fileID: 1303445798734317288}
   m_Father: {fileID: 6170073999285443307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6194426772534555692
@@ -10092,7 +10128,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3422821095010901450}
+  m_Father: {fileID: 8187027892614707338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7753015828448004605
 MeshFilter:
@@ -10698,6 +10734,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8163435073866039614}
+  - {fileID: 7639809704816010805}
   m_Father: {fileID: 6523553924195814264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6961181866589828551
@@ -11101,7 +11138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6377271583008281698}
+  m_Father: {fileID: 3954549897735861595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2760931048381960950
 MeshFilter:
@@ -11455,6 +11492,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2990841377831282095}
+  - {fileID: 7698544666371888561}
   m_Father: {fileID: 8644291821202612884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7897427259158654733
@@ -11569,7 +11607,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1303445798734317288}
   - {fileID: 8016374219296677968}
   - {fileID: 2953533679166952085}
   m_Father: {fileID: 6170073999285443307}
@@ -12223,7 +12260,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7639809704816010805}
   - {fileID: 2721243073590437426}
   - {fileID: 7926982341434706908}
   m_Father: {fileID: 6523553924195814264}
