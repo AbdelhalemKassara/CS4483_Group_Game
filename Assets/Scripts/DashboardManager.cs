@@ -12,6 +12,7 @@ public class DashboardManager : MonoBehaviour
     public TextMeshProUGUI timer;
     public TextMeshProUGUI speed;
 
+    public CarDashboard _carDashboard;
     private CarController _carController;
     float elapsedTime;
     
@@ -38,6 +39,7 @@ public class DashboardManager : MonoBehaviour
     {
         _carController = carController;
     }
+
     public virtual void setSpeed(float speed)
     {
         this.speed.text = Convert.ToString(speed) + " KM/H";
@@ -48,7 +50,7 @@ public class DashboardManager : MonoBehaviour
     }
 
     void Update(){
-        setRpm(_carController.getRpm());
+        _carDashboard.updateNeedle(_carController.getRpm());
         setSpeed(_carController.getSpeed());
         setGear(_carController.getGear());
         
