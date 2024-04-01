@@ -3188,6 +3188,8 @@ MonoBehaviour:
   minRpm: 1000
   maxRpmTimeout: 0.1
   gearShiftTimeout: 0.1
+  autoClutchFullEngageSpeed: 10
+  enableAutoClutch: 1
   WheelColliders:
     frontLeft: {fileID: 3002137106837341254}
     frontRight: {fileID: 7700826252733946255}
@@ -5628,6 +5630,8 @@ MonoBehaviour:
   minRpm: 1000
   maxRpmTimeout: 0.1
   gearShiftTimeout: 0.1
+  autoClutchFullEngageSpeed: 10
+  enableAutoClutch: 1
   WheelColliders:
     frontLeft: {fileID: 6263578943605694452}
     frontRight: {fileID: 102599197954828020}
@@ -5962,6 +5966,8 @@ MonoBehaviour:
   minRpm: 1000
   maxRpmTimeout: 0.01
   gearShiftTimeout: 0.2
+  autoClutchFullEngageSpeed: 10
+  enableAutoClutch: 1
   WheelColliders:
     frontLeft: {fileID: 3431664997774731863}
     frontRight: {fileID: 9211843330746059724}
@@ -6814,6 +6820,8 @@ MonoBehaviour:
   minRpm: 1000
   maxRpmTimeout: 0.1
   gearShiftTimeout: 0.1
+  autoClutchFullEngageSpeed: 10
+  enableAutoClutch: 1
   WheelColliders:
     frontLeft: {fileID: 2741323347383043912}
     frontRight: {fileID: 2558359452609070555}
@@ -7082,7 +7090,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8ae36527918d94afb97b2d30282b3e97, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8971,6 +8979,8 @@ MonoBehaviour:
   minRpm: 1000
   maxRpmTimeout: 0.1
   gearShiftTimeout: 0.1
+  autoClutchFullEngageSpeed: 10
+  enableAutoClutch: 1
   WheelColliders:
     frontLeft: {fileID: 6592382569513164484}
     frontRight: {fileID: 5630899419218858098}
@@ -9396,6 +9406,8 @@ MonoBehaviour:
   minRpm: 1000
   maxRpmTimeout: 0.1
   gearShiftTimeout: 0.1
+  autoClutchFullEngageSpeed: 10
+  enableAutoClutch: 1
   WheelColliders:
     frontLeft: {fileID: 7129242489520275514}
     frontRight: {fileID: 4107788690734824415}
@@ -11029,7 +11041,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8ae36527918d94afb97b2d30282b3e97, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11765,7 +11777,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8ae36527918d94afb97b2d30282b3e97, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11893,7 +11905,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8ae36527918d94afb97b2d30282b3e97, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14439,7 +14451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: moveWithTransform
@@ -14582,7 +14594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: moveWithTransform
@@ -14725,7 +14737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: ringBufferMode
@@ -14888,7 +14900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: moveWithTransform
