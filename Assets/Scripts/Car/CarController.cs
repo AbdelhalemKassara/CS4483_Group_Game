@@ -1,6 +1,7 @@
     using System.Collections.Generic;// using imports namespaces (namespaces are a collection of classes and other data types)
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 using UnityEngine.Serialization;
 
 [Serializable]//makes the struct visiable in the inspector  
@@ -49,6 +50,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
 
     [SerializeField] private DiffType selectedDiffType;
     [SerializeField] protected DriveWheels selectedDriveWheels;
+    public CarDashboard carDashboard;
 
     public float BrakeStrength = 50f;// stores the break strength on each wheel
     public float handbreakMult = 100.0f;
@@ -110,7 +112,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
     }
 
     
-    public void EngineRpm()
+    private void EngineRpm()
     {
         Rpm = 0;
         
@@ -138,6 +140,7 @@ public class CarController : MonoBehaviour //this class inherits the MonoBehavio
 
         Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
         Rpm += Rpm < 0 ? -minRpm : minRpm;//fix this garbage
+        carDashboard.updateNeedle(Rpm);
     }
     
 
