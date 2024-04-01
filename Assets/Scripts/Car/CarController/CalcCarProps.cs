@@ -87,13 +87,13 @@ namespace Car
             
             Debug.Log(str);
 
-            WheelColliders.frontLeft.GetGroundHit(out test);
+            WheelColliders.rearLeft.GetGroundHit(out test);
             str = "";
-            str += test.sidewaysSlip / WheelColliders.frontLeft.sidewaysFriction.extremumSlip;
+            str += test.sidewaysSlip / WheelColliders.rearLeft.sidewaysFriction.extremumSlip;
             str += " | ";
             
-            WheelColliders.frontRight.GetGroundHit(out test);
-            str += test.sidewaysSlip / WheelColliders.frontRight.sidewaysFriction.extremumSlip;
+            WheelColliders.rearRight.GetGroundHit(out test);
+            str += test.sidewaysSlip / WheelColliders.rearRight.sidewaysFriction.extremumSlip;
             
             Debug.Log(str);
             Debug.Log("");
