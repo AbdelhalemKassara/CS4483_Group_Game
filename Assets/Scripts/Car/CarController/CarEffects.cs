@@ -39,14 +39,24 @@ namespace Car
 
         private void TireSmoke()
         {
-            ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL, wheelAudio.frontL, wheelTrail.frontL);
-            ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR, wheelAudio.frontR, wheelTrail.frontR);
-            ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL, wheelAudio.rearL, wheelTrail.rearL);
-            ProcessEmission(_wheelSlip.rearRSide, _wheelSlip.rearRForward, _wheelSmoke.rearR, wheelAudio.rearR, wheelTrail.rearR);
+            float emissionDir = 0.0f;
+            if (Speed < 0.0f)
+            {
+                emissionDir = -1.0f;
+            }
+            else
+            {
+                emissionDir = 1.0f;
+            }
+            
+            ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL, wheelAudio.frontL, wheelTrail.frontL, emissionDir);
+            ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR, wheelAudio.frontR, wheelTrail.frontR, emissionDir);
+            ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL, wheelAudio.rearL, wheelTrail.rearL, emissionDir);
+            ProcessEmission(_wheelSlip.rearRSide, _wheelSlip.rearRForward, _wheelSmoke.rearR, wheelAudio.rearR, wheelTrail.rearR, emissionDir);
             
         }
 
-        private void ProcessEmission(float slide, float forward, ParticleSystem particle, AudioSource audio, TrailRenderer trail)
+        private void ProcessEmission(float slide, float forward, ParticleSystem particle, AudioSource audio, TrailRenderer trail, float emissionDir)
         {
             float rateOverTimeSide = 0.0f;
             float rateOverTimeForward = 0.0f;
@@ -82,16 +92,14 @@ namespace Car
             
             //this is the only reasonable way of having the smoke direction change without
             //having the particle reset all the time
-            if (Speed < 0.0f && prevEmissionVelocity != -1.0f)
+            if (prevEmissionVelocity != emissionDir)
             {
-                prevEmissionVelocity = -1.0f;
-                emVelocity.y = -1.0f;
+                prevEmissionVelocity = emissionDir;
+                emVelocity.y = emissionDir;
             }
-            else if(prevEmissionVelocity != 1.0f)
-            {
-                prevEmissionVelocity = 1.0f;
-                emVelocity.y = 1.0f;
-            }
+            
+
+     
             
             //can't change these values as it causes the particle to reset and redoes the "previous" smoke
             // float sum = rateOverTimeSide + rateOverTimeForward;
