@@ -53,7 +53,15 @@ namespace Car
         public AudioSource rearL;
         public AudioSource rearR;
     }
-    
+
+    [Serializable]
+    public struct WheelTrail
+    {
+        public TrailRenderer frontL;
+        public TrailRenderer frontR;
+        public TrailRenderer rearL;
+        public TrailRenderer rearR;
+    }
     [Serializable]
     public enum DiffType
     {

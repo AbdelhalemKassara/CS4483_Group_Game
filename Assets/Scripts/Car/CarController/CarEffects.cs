@@ -39,18 +39,19 @@ namespace Car
 
         private void TireSmoke()
         {
-            ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL, wheelAudio.frontL);
-            ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR, wheelAudio.frontR);
-            ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL, wheelAudio.rearL);
-            ProcessEmission(_wheelSlip.rearRSide, _wheelSlip.rearRForward, _wheelSmoke.rearR, wheelAudio.rearR);
+            ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL, wheelAudio.frontL, wheelTrail.frontL);
+            ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR, wheelAudio.frontR, wheelTrail.frontR);
+            ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL, wheelAudio.rearL, wheelTrail.rearL);
+            ProcessEmission(_wheelSlip.rearRSide, _wheelSlip.rearRForward, _wheelSmoke.rearR, wheelAudio.rearR, wheelTrail.rearR);
             
         }
 
-        private void ProcessEmission(float slide, float forward, ParticleSystem particle, AudioSource audio)
+        private void ProcessEmission(float slide, float forward, ParticleSystem particle, AudioSource audio, TrailRenderer trail)
         {
             float rateOverTimeSide = 0.0f;
             float rateOverTimeForward = 0.0f;
             float audioLevel = 0.0f;
+            trail.emitting = false;
             
             ParticleSystem.EmissionModule emission = particle.emission;
             
@@ -62,12 +63,14 @@ namespace Car
                 rateOverTimeSide = Math.Abs(slide) * sideToSideEmission;
                 audioLevel += Math.Clamp(Math.Abs(slide) - 1.0f, 0.0f, 1.0f);
                 //use this for switching when car spinning in reverse and wheel speed
+                trail.emitting = true;
             }
             
             if (forward > 1.0f || forward < -1.0f)
             {
                 rateOverTimeForward = Math.Abs(forward) * FrontToBackEmission;
                 audioLevel += Math.Clamp(Math.Abs(forward) - 1.0f, 0.0f, 1.0f);
+                trail.emitting = true;
             }
 
             
