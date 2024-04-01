@@ -18,6 +18,7 @@ namespace Car
         [SerializeField] private WheelMeshes WheelMeshesRot;
         [SerializeField] private WheelMeshes WheelMeshesStatic;
         [SerializeField] private WheelSmoke _wheelSmoke;
+        [SerializeField] private WheelAudio wheelAudio;
         
         [SerializeField] private DiffType selectedDiffType;
         [SerializeField] private DriveWheels selectedDriveWheels;

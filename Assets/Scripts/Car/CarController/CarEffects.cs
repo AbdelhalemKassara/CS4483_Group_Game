@@ -39,17 +39,18 @@ namespace Car
 
         private void TireSmoke()
         {
-            ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL);
-            ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR);
-            ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL);
-            ProcessEmission(_wheelSlip.rearRSide, _wheelSlip.rearRForward, _wheelSmoke.rearR);
+            ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL, wheelAudio.frontL);
+            ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR, wheelAudio.frontR);
+            ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL, wheelAudio.rearL);
+            ProcessEmission(_wheelSlip.rearRSide, _wheelSlip.rearRForward, _wheelSmoke.rearR, wheelAudio.rearR);
             
         }
 
-        private void ProcessEmission(float slide, float forward, ParticleSystem particle)
+        private void ProcessEmission(float slide, float forward, ParticleSystem particle, AudioSource audio)
         {
             float rateOverTimeSide = 0.0f;
             float rateOverTimeForward = 0.0f;
+            float audioLevel = 0.0f;
             
             ParticleSystem.EmissionModule emission = particle.emission;
             
@@ -59,16 +60,22 @@ namespace Car
             {
                 //use this to modify based on how much the wheel is slipping
                 rateOverTimeSide = Math.Abs(slide) * sideToSideEmission;
-                
+                audioLevel += Math.Clamp(Math.Abs(slide) - 1.0f, 0.0f, 1.0f);
                 //use this for switching when car spinning in reverse and wheel speed
             }
             
             if (forward > 1.0f || forward < -1.0f)
             {
                 rateOverTimeForward = Math.Abs(forward) * FrontToBackEmission;
+                audioLevel += Math.Clamp(Math.Abs(forward) - 1.0f, 0.0f, 1.0f);
             }
 
+            
+            
             emission.rateOverTime = rateOverTimeSide + rateOverTimeForward;
+            
+            audioLevel = Math.Clamp(audioLevel, 0.0f, 1.0f);
+            audio.volume = audioLevel;
             
             //this is the only reasonable way of having the smoke direction change without
             //having the particle reset all the time

@@ -46,6 +46,15 @@ namespace Car
     }
 
     [Serializable]
+    public struct WheelAudio
+    {
+        public AudioSource frontL;
+        public AudioSource frontR;
+        public AudioSource rearL;
+        public AudioSource rearR;
+    }
+    
+    [Serializable]
     public enum DiffType
     {
         Open,
