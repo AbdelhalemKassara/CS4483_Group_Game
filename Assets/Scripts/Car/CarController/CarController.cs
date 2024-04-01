@@ -17,7 +17,8 @@ namespace Car
         [SerializeField] private WheelColliders WheelColliders;
         [SerializeField] private WheelMeshes WheelMeshesRot;
         [SerializeField] private WheelMeshes WheelMeshesStatic;
-
+        [SerializeField] private WheelSmoke _wheelSmoke;
+        
         [SerializeField] private DiffType selectedDiffType;
         [SerializeField] private DriveWheels selectedDriveWheels;
 
@@ -77,7 +78,7 @@ namespace Car
             //tireSmoke
             MeshPosition();
             EngineAudio();
-
+            TireSmoke();
         }
 
         public float getRpm()

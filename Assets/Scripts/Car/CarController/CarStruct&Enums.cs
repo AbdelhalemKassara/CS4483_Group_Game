@@ -22,6 +22,15 @@ namespace Car
     }
 
     [Serializable]
+    public struct WheelSmoke
+    {
+        public ParticleSystem frontL;
+        public ParticleSystem frontR;
+        public ParticleSystem rearL;
+        public ParticleSystem rearR;
+    }
+
+    [Serializable]
     public enum DiffType
     {
         Open,
@@ -35,5 +44,5 @@ namespace Car
         RWD,
         AWD
     }
-
+    
 }
