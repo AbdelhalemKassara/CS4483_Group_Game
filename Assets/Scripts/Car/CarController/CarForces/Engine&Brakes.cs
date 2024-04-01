@@ -28,14 +28,21 @@ namespace Car
                 timeout += Time.deltaTime;
             }
 
+            if (_shiftTimeout <= gearShiftTimeout)
+            {
+                _shiftTimeout += Time.deltaTime;
+                return 0;
+            }
+            
             if (Math.Abs(curRpm) >= maxRpm)
             {
                 timeout = 0f;
             }
             
+            
             if (timeout >= maxRpmTimeout)
             {
-                return torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque;
+                return torqueCurve.Evaluate(Math.Clamp(curRpm/maxRpm, 0, 1)) * peakTorque * ClutchInput;
             }
             else if(timeout < maxRpmTimeout && Math.Abs(curRpm) >= maxRpm)
             {
@@ -45,6 +52,12 @@ namespace Car
             {
                 return 0;
             }
+        }
+
+        private void AutoClutch()
+        {
+            //should replace Speed with real speed
+            ClutchInput = Math.Clamp(Math.Abs((float)Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y + rb.velocity.z * rb.velocity.z)) / autoClutchFullEngageSpeed, 0.05f, 1.0f);
         }
     }
 }

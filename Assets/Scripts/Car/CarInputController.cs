@@ -89,6 +89,7 @@ public class CarInputController : CarController
         if (CurGear > 0)
         {
             CurGear--;
+            _shiftTimeout = 0.0f;
         }
     }
     private void OnDownShiftC(InputAction.CallbackContext value) { }
@@ -98,6 +99,7 @@ public class CarInputController : CarController
         if (CurGear < GearRatio.Length - 1)
         {
             CurGear++;
+            _shiftTimeout = 0.0f;
         }
     }
 

@@ -14,6 +14,10 @@ namespace Car
         [SerializeField] private float MaxRpm;
         [SerializeField] private float minRpm = 1000f;
         [SerializeField] private float maxRpmTimeout = 0.1f;
+        [SerializeField] private float gearShiftTimeout = 0.1f;
+        [SerializeField] private float autoClutchFullEngageSpeed = 10.0f;//in km/h
+        [SerializeField] private bool enableAutoClutch = true;
+        
         [SerializeField] private WheelColliders WheelColliders;
         [SerializeField] private WheelMeshes WheelMeshesRot;
         [SerializeField] private WheelMeshes WheelMeshesStatic;
@@ -49,7 +53,8 @@ namespace Car
         private float Speed;
         private float timeout = 0.0f;//timeout for rev limit
         private WheelSlip _wheelSlip;
-
+        protected float _shiftTimeout = 0.0f;
+        
         private float prevEmissionVelocity = 1.0f;
         
         //user controllable variables
@@ -58,11 +63,13 @@ namespace Car
         protected float SteeringInput = 0;//negative is left, positive is right
         protected bool Handbrake = false;
         protected int CurGear = 1; // starts on the first gear (0 is reverse)
+        protected float ClutchInput = 1.0f;
         
         void Start()
         {
             rb = GetComponent<Rigidbody>();
             timeout = maxRpmTimeout + 1f;
+            _shiftTimeout = gearShiftTimeout + 1f;
             
             if (CM)// checks to see if the center of mass object exists
             {
@@ -78,7 +85,11 @@ namespace Car
             CalcSpeed();
             calcSlip();
             EngineRpm();// function that calculates the engine rpm
-            
+
+            if (enableAutoClutch)
+            {
+                AutoClutch();
+            }
             //AutoTransmittion(); // function that 
             Throttle();
             Breaking();

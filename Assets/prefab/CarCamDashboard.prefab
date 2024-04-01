@@ -3187,6 +3187,7 @@ MonoBehaviour:
   MaxRpm: 10000
   minRpm: 1000
   maxRpmTimeout: 0.1
+  gearShiftTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 3002137106837341254}
     frontRight: {fileID: 7700826252733946255}
@@ -5626,6 +5627,7 @@ MonoBehaviour:
   MaxRpm: 9000
   minRpm: 1000
   maxRpmTimeout: 0.1
+  gearShiftTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 6263578943605694452}
     frontRight: {fileID: 102599197954828020}
@@ -5959,6 +5961,7 @@ MonoBehaviour:
   MaxRpm: 9000
   minRpm: 1000
   maxRpmTimeout: 0.01
+  gearShiftTimeout: 0.2
   WheelColliders:
     frontLeft: {fileID: 3431664997774731863}
     frontRight: {fileID: 9211843330746059724}
@@ -6810,6 +6813,7 @@ MonoBehaviour:
   MaxRpm: 10000
   minRpm: 1000
   maxRpmTimeout: 0.1
+  gearShiftTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 2741323347383043912}
     frontRight: {fileID: 2558359452609070555}
@@ -8966,6 +8970,7 @@ MonoBehaviour:
   MaxRpm: 7000
   minRpm: 1000
   maxRpmTimeout: 0.1
+  gearShiftTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 6592382569513164484}
     frontRight: {fileID: 5630899419218858098}
@@ -9390,6 +9395,7 @@ MonoBehaviour:
   MaxRpm: 10000
   minRpm: 1000
   maxRpmTimeout: 0.1
+  gearShiftTimeout: 0.1
   WheelColliders:
     frontLeft: {fileID: 7129242489520275514}
     frontRight: {fileID: 4107788690734824415}
