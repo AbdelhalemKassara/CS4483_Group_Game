@@ -20,12 +20,12 @@ public class DashboardManager : MonoBehaviour
     {
         if (gear == 0)
         {
-            curGear.text = "Gear: R";
+            curGear.text = "R";
 
         }
         else
         {
-            curGear.text = "Gear: " + Convert.ToString(gear);
+            curGear.text = "M: " + Convert.ToString(gear);
         }
     }
 
@@ -42,18 +42,13 @@ public class DashboardManager : MonoBehaviour
 
     public virtual void setSpeed(float speed)
     {
-        this.speed.text = Convert.ToString(speed) + " KM/H";
-    }
-    public virtual void setRpm(float rpm)
-    {
-        curRpm.text = "MaxRPM: 90000 \nRPM: " + Convert.ToString(rpm);
+        this.speed.text = Convert.ToString((int)speed);
     }
 
     void Update(){
         _carDashboard.updateNeedle(_carController.getRpm());
         setSpeed(_carController.getSpeed());
         setGear(_carController.getGear());
-        
         
         elapsedTime += Time.deltaTime;
         int minutes = Mathf.FloorToInt(elapsedTime / 60);

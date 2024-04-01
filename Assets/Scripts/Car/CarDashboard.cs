@@ -16,7 +16,7 @@ public class CarDashboard : MonoBehaviour
         desiredPos = startPos - endPos;
         float temp = rpm / 10000;
 
-        needle.transform.eulerAngles = new Vector3(0, 0,(startPos - temp * desiredPos));
+        needle.transform.eulerAngles = new Vector3(0, 0, (startPos - temp * desiredPos));
 
     }
 }

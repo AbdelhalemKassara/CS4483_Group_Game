@@ -95,6 +95,11 @@ namespace Car
         {
             return CurGear;
         }
+
+        public float getMaxRPM()
+        {
+            return MaxRpm;
+        }
         void Update()
         {
             if (WheelColliders.frontLeft.brakeTorque > 0 || WheelColliders.frontRight.brakeTorque > 0 ||
