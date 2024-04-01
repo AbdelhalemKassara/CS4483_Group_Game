@@ -16,6 +16,15 @@ public class CarInputController : CarController
         input = new InputMaster();
     }
 
+    void Start()
+    {
+        base.Start();
+    }
+
+    void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
     void Update()
     {
         if (WheelColliders.frontLeft.brakeTorque > 0 || WheelColliders.frontRight.brakeTorque > 0 ||
