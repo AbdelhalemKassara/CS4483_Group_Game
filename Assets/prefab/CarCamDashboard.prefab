@@ -3071,6 +3071,11 @@ MonoBehaviour:
     frontRight: {fileID: 0}
     rearLeft: {fileID: 0}
     rearRight: {fileID: 0}
+  _wheelSmoke:
+    frontL: {fileID: 0}
+    frontR: {fileID: 0}
+    rearL: {fileID: 0}
+    rearR: {fileID: 0}
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
@@ -3087,7 +3092,6 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 544130177262285347}
   engineSound: {fileID: 5280648661062501922}
 --- !u!114 &799692313900685537
@@ -5418,6 +5422,11 @@ MonoBehaviour:
     frontRight: {fileID: 0}
     rearLeft: {fileID: 0}
     rearRight: {fileID: 0}
+  _wheelSmoke:
+    frontL: {fileID: 0}
+    frontR: {fileID: 0}
+    rearL: {fileID: 0}
+    rearR: {fileID: 0}
   selectedDiffType: 0
   selectedDriveWheels: 1
   BrakeStrength: 1200000
@@ -5434,7 +5443,6 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4086871541388787802}
   engineSound: {fileID: 3707900424970523445}
 --- !u!82 &3707900424970523445
@@ -5733,6 +5741,11 @@ MonoBehaviour:
     frontRight: {fileID: 980992090981185082}
     rearLeft: {fileID: 8187027892614707338}
     rearRight: {fileID: 3489596458159069367}
+  _wheelSmoke:
+    frontL: {fileID: 6025567033995910745}
+    frontR: {fileID: 3120811510838619241}
+    rearL: {fileID: 8323948544969935096}
+    rearR: {fileID: 8654721229765463300}
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 96000
@@ -5749,7 +5762,6 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 6873507081421035495}
   engineSound: {fileID: 5721004824402801416}
 --- !u!114 &8573722004431043746
@@ -6564,6 +6576,11 @@ MonoBehaviour:
     frontRight: {fileID: 0}
     rearLeft: {fileID: 0}
     rearRight: {fileID: 0}
+  _wheelSmoke:
+    frontL: {fileID: 0}
+    frontR: {fileID: 0}
+    rearL: {fileID: 0}
+    rearR: {fileID: 0}
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
@@ -6580,7 +6597,6 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 4558685607002577722}
   engineSound: {fileID: 1472981094444661918}
 --- !u!114 &574897788936783229
@@ -8438,6 +8454,11 @@ MonoBehaviour:
     frontRight: {fileID: 0}
     rearLeft: {fileID: 0}
     rearRight: {fileID: 0}
+  _wheelSmoke:
+    frontL: {fileID: 0}
+    frontR: {fileID: 0}
+    rearL: {fileID: 0}
+    rearR: {fileID: 0}
   selectedDiffType: 1
   selectedDriveWheels: 0
   BrakeStrength: 1200000
@@ -8454,7 +8475,6 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 8896157304411368683}
   engineSound: {fileID: 2681081405308229079}
 --- !u!64 &6016008107699912345
@@ -8844,6 +8864,11 @@ MonoBehaviour:
     frontRight: {fileID: 0}
     rearLeft: {fileID: 0}
     rearRight: {fileID: 0}
+  _wheelSmoke:
+    frontL: {fileID: 0}
+    frontR: {fileID: 0}
+    rearL: {fileID: 0}
+    rearR: {fileID: 0}
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 1200000
@@ -8860,7 +8885,6 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  dashboardManager: {fileID: 2755705081786591036}
   headLightsManager: {fileID: 5450660209990807748}
   engineSound: {fileID: 5111698993303578833}
 --- !u!114 &5450660209990807748
@@ -12820,6 +12844,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: VelocityModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -12859,6 +12887,11 @@ PrefabInstance:
 --- !u!4 &2990841377831282095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277412065456692, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+  m_PrefabInstance: {fileID: 2994515707226773403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3120811510838619241 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
   m_PrefabInstance: {fileID: 2994515707226773403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5863384253144327595
@@ -12930,6 +12963,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: VelocityModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -12969,6 +13006,11 @@ PrefabInstance:
 --- !u!4 &5859709374279276447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277412065456692, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+  m_PrefabInstance: {fileID: 5863384253144327595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6025567033995910745 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
   m_PrefabInstance: {fileID: 5863384253144327595}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8162047247689200394
@@ -13040,6 +13082,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: VelocityModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -13079,6 +13125,11 @@ PrefabInstance:
 --- !u!4 &8163435073866039614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277412065456692, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+  m_PrefabInstance: {fileID: 8162047247689200394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8323948544969935096 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
   m_PrefabInstance: {fileID: 8162047247689200394}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8852474577580455670
@@ -13150,6 +13201,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: VelocityModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -13160,6 +13215,10 @@ PrefabInstance:
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: VelocityModule.speedModifier.scalar
@@ -13186,6 +13245,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+--- !u!198 &8654721229765463300 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198705542068714482, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
+  m_PrefabInstance: {fileID: 8852474577580455670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8851118018426815682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277412065456692, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}

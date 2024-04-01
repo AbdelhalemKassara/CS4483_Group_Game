@@ -39,7 +39,13 @@ namespace Car
 
         private void TireSmoke()
         {
-            
+            // _wheelSmoke.rearL.emission.rateOverTime = 1;
+            // _wheelSmoke.rearL.velocityOverLifetime.y = 100.0f;
+            ParticleSystem.EmissionModule emission = _wheelSmoke.rearL.emission;
+            emission.rateOverTime = 1000.0f;
+
+            ParticleSystem.VelocityOverLifetimeModule emVelocity = _wheelSmoke.rearL.velocityOverLifetime;
+            emVelocity.y = 10.0f;
         }
 
     }
