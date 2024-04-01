@@ -39,16 +39,54 @@ namespace Car
 
         private void TireSmoke()
         {
-            //Speed
-            //rpm
+            ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL);
+            ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR);
+            ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL);
+            ProcessEmission(_wheelSlip.rearRSide, _wheelSlip.rearRForward, _wheelSmoke.rearR);
             
-            // _wheelSmoke.rearL.emission.rateOverTime = 1;
-            // _wheelSmoke.rearL.velocityOverLifetime.y = 100.0f;
-            ParticleSystem.EmissionModule emission = _wheelSmoke.rearL.emission;
-            emission.rateOverTime = 1000.0f;
+        }
 
-            ParticleSystem.VelocityOverLifetimeModule emVelocity = _wheelSmoke.rearL.velocityOverLifetime;
-            emVelocity.y = 10.0f;
+        private void ProcessEmission(float slide, float forward, ParticleSystem particle)
+        {
+            float rateOverTimeSide = 0.0f;
+            float rateOverTimeForward = 0.0f;
+            
+            ParticleSystem.EmissionModule emission = particle.emission;
+            
+            ParticleSystem.VelocityOverLifetimeModule emVelocity = particle.velocityOverLifetime;
+
+            if (slide > 1.0f || slide < -1.0f)
+            {
+                //use this to modify based on how much the wheel is slipping
+                rateOverTimeSide = Math.Abs(slide) * sideToSideEmission;
+                
+                //use this for switching when car spinning in reverse and wheel speed
+            }
+            
+            if (forward > 1.0f || forward < -1.0f)
+            {
+                rateOverTimeForward = Math.Abs(forward) * FrontToBackEmission;
+            }
+
+            emission.rateOverTime = rateOverTimeSide + rateOverTimeForward;
+            
+            //this is the only reasonable way of having the smoke direction change without
+            //having the particle reset all the time
+            if (Speed < 0.0f && prevEmissionVelocity != -1.0f)
+            {
+                prevEmissionVelocity = -1.0f;
+                emVelocity.y = -1.0f;
+            }
+            else if(prevEmissionVelocity != 1.0f)
+            {
+                prevEmissionVelocity = 1.0f;
+                emVelocity.y = 1.0f;
+            }
+            
+            //can't change these values as it causes the particle to reset and redoes the "previous" smoke
+            // float sum = rateOverTimeSide + rateOverTimeForward;
+            // emVelocity.y = forward * FrontToBackEmissionVelocity * rateOverTimeForward / sum;
+            // emVelocity.x = -slide * sideToSideEmissionVelocity * rateOverTimeSide / sum;
         }
 
     }

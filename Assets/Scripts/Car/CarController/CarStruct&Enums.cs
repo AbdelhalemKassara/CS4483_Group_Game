@@ -11,7 +11,22 @@ namespace Car
         public WheelCollider rearLeft;
         public WheelCollider rearRight;
     }
-        
+
+    [Serializable]
+    public struct WheelSlip
+    {
+        public float frontLSide;
+        public float frontLForward; //acceleration is negative braking is positive
+
+        public float frontRSide;
+        public float frontRForward;
+
+        public float rearLSide;
+        public float rearLForward;
+
+        public float rearRSide;
+        public float rearRForward;
+    }
     [Serializable]  
     public struct WheelMeshes
     {
