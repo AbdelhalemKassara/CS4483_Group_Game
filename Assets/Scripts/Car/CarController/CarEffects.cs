@@ -40,13 +40,13 @@ namespace Car
         private void TireSmoke()
         {
             float emissionDir = 0.0f;
-            if (Speed < 0.0f)
+            if (Rpm < 0.0f)
             {
-                emissionDir = -1.0f;
+                emissionDir = 1.0f;
             }
             else
             {
-                emissionDir = 1.0f;
+                emissionDir = -1.0f;
             }
             
             ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL, wheelAudio.frontL, wheelTrail.frontL, emissionDir);
@@ -94,6 +94,7 @@ namespace Car
             //having the particle reset all the time
             if (prevEmissionVelocity != emissionDir)
             {
+                Debug.Log(emissionDir);
                 prevEmissionVelocity = emissionDir;
                 emVelocity.y = emissionDir;
             }
