@@ -9232,6 +9232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraManager: {fileID: 350250986463859604}
+  dashboardManager: {fileID: 2755705081786591036}
 --- !u!1 &5902992780987154719
 GameObject:
   m_ObjectHideFlags: 0
