@@ -79,14 +79,7 @@ namespace Car
                         break;
                     }
 
-                    if (Rpm < MaxRpm - autoTransMinRpmOffsetFromMaxEngineRpm)
-                    {
-                        decrementGear(false);
-                    }
-                    else if(Rpm > MaxRpm - autoTransMaxRpmOffsetFromMaxEngineRpm)
-                    {
-                        incrementGear();
-                    }
+                    DecideToSwitchGears();
                     break;
                 case DriveWheels.FWD:
                     //if the wheel slips don't change gears
@@ -95,14 +88,8 @@ namespace Car
                     {
                         break;
                     }
-                    if (Rpm < MaxRpm - autoTransMinRpmOffsetFromMaxEngineRpm)
-                    {
-                        decrementGear(false);
-                    }
-                    else if(Rpm > MaxRpm - autoTransMaxRpmOffsetFromMaxEngineRpm)
-                    {
-                        incrementGear();
-                    }
+
+                    DecideToSwitchGears();
                     break;
                 case DriveWheels.RWD:
                     //if the wheel slips don't change gears
@@ -111,17 +98,20 @@ namespace Car
                     {
                         break;
                     }
-                    if (Rpm < MaxRpm - autoTransMinRpmOffsetFromMaxEngineRpm)
-                    {
-                        Debug.Log("decrement");
-                        decrementGear(false);
-                    }
-                    else if(Rpm > MaxRpm - autoTransMaxRpmOffsetFromMaxEngineRpm)
-                    {
-                        Debug.Log("increment");
-                        incrementGear();
-                    }
+
+                    DecideToSwitchGears();
                     break;
+            }
+        }
+        private void DecideToSwitchGears()
+        {
+            if (Rpm < MaxRpm - autoTransMinRpmOffsetFromMaxEngineRpm)
+            {
+                decrementGear(false);
+            }
+            else if(Rpm > MaxRpm - autoTransMaxRpmOffsetFromMaxEngineRpm)
+            {
+                incrementGear();
             }
         }
     }

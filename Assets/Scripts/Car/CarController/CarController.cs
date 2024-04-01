@@ -44,9 +44,6 @@ namespace Car
         [SerializeField] private float sideToSideEmission = 10.0f;
         [SerializeField] private float FrontToBackEmission = 100.0f;
         
-        [SerializeField] private float sideToSideEmissionVelocity = 0.1f;
-        [SerializeField] private float FrontToBackEmissionVelocity = 1.0f;
-
         [SerializeField] private HeadLightsManager headLightsManager;
 
         [SerializeField] private AudioSource engineSound;
