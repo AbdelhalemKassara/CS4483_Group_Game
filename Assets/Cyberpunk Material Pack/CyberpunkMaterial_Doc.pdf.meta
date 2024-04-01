@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Cars/rpm.meta
+guid: b021a5939e4583b47a8ac3765d6501f6
+folderAsset: yes
+========
 guid: 58b7f456555f41b469c2ce8aebabeb66
+>>>>>>>> main:Assets/Cyberpunk Material Pack/CyberpunkMaterial_Doc.pdf.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
