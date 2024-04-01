@@ -10,7 +10,7 @@ public class CarInputController : CarController
 
     public DashboardManager dashboardManager;
     public HeadLightsManager headLightsManager;
-    
+
     void Awake()
     {
         input = new InputMaster();
