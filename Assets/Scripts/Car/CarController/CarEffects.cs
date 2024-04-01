@@ -94,7 +94,6 @@ namespace Car
             //having the particle reset all the time
             if (prevEmissionVelocity != emissionDir)
             {
-                Debug.Log(emissionDir);
                 prevEmissionVelocity = emissionDir;
                 emVelocity.y = emissionDir;
             }

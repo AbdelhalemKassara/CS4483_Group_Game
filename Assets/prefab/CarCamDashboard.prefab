@@ -3236,6 +3236,7 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
+  enableAutoTransmission: 0
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -5678,6 +5679,7 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
+  enableAutoTransmission: 0
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -6014,6 +6016,7 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
+  enableAutoTransmission: 0
   sideToSideEmission: 10
   FrontToBackEmission: 100
   sideToSideEmissionVelocity: 0.1
@@ -6501,7 +6504,7 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
@@ -6868,6 +6871,7 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
+  enableAutoTransmission: 0
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -8329,7 +8333,7 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
@@ -9027,6 +9031,7 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
+  enableAutoTransmission: 0
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -9454,6 +9459,7 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
+  enableAutoTransmission: 0
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -9885,7 +9891,7 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
@@ -12275,7 +12281,7 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2

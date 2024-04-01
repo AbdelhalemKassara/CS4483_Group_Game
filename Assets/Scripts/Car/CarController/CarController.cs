@@ -37,7 +37,8 @@ namespace Car
         [SerializeField] private Transform carPosition; // stores the cars center position
         [SerializeField] protected float[] GearRatio;
         [SerializeField] private float FinalDriveRatio;// ratio from the end of the transmittion to the wheels
-
+        [SerializeField] protected bool enableAutoTransmission = false;
+        
         [SerializeField] private float sideToSideEmission = 10.0f;
         [SerializeField] private float FrontToBackEmission = 100.0f;
         
@@ -90,6 +91,11 @@ namespace Car
             {
                 AutoClutch();
             }
+
+            if (enableAutoTransmission)
+            {
+                AutoTransmission();
+            }
             //AutoTransmittion(); // function that 
             Throttle();
             Breaking();
@@ -121,6 +127,26 @@ namespace Car
         public float getMaxRPM()
         {
             return MaxRpm;
+        }
+
+        public bool getEnableAutoTransmission()
+        {
+            return enableAutoTransmission;
+        }
+
+        public void setEnableAutoTransmission(bool val)
+        {
+            enableAutoTransmission = val;
+        }
+
+        public bool getEnableAutoClutch()
+        {
+            return enableAutoClutch;
+        }
+
+        public void setEnableAutoClutch(bool val)
+        {
+            enableAutoClutch = val;
         }
         void Update()
         {

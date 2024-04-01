@@ -56,8 +56,28 @@ namespace Car
 
         private void AutoClutch()
         {
-            // Debug.Log((float)Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y + rb.velocity.z * rb.velocity.z) * 3.6f);//speed in km/h
             ClutchInput = Math.Clamp(Math.Abs(Speed) / autoClutchFullEngageSpeed, 0.05f, 1.0f);
+        }
+
+        private void AutoTransmission()
+        {
+            //if the wheels are slipping don't change gears
+            
+            //otherwise when rpm reaches max-100.0f upshift and when rpm reaches max - 2000.0f downshift
+            //we should replace these constants with optimal rpms from the torque curve
+
+            switch (selectedDriveWheels)
+            {
+                case DriveWheels.AWD:
+                    
+                    break;
+                case DriveWheels.FWD:
+
+                    break;
+                case DriveWheels.RWD:
+                    
+                    break;
+            }
         }
     }
 }
