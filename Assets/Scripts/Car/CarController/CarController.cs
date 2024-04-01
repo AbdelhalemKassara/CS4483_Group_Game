@@ -31,23 +31,32 @@ namespace Car
         [SerializeField] private Transform carPosition; // stores the cars center position
         [SerializeField] protected float[] GearRatio;
         [SerializeField] private float FinalDriveRatio;// ratio from the end of the transmittion to the wheels
+
+        [SerializeField] private float sideToSideEmission = 10.0f;
+        [SerializeField] private float FrontToBackEmission = 100.0f;
         
+        [SerializeField] private float sideToSideEmissionVelocity = 0.1f;
+        [SerializeField] private float FrontToBackEmissionVelocity = 1.0f;
+
         [SerializeField] private HeadLightsManager headLightsManager;
 
         [SerializeField] private AudioSource engineSound;
        
-        //rpm and speed of the car
+        //car properties
         private float Rpm;
         private float Speed;
         private float timeout = 0.0f;//timeout for rev limit
+        private WheelSlip _wheelSlip;
 
+        private float prevEmissionVelocity = 1.0f;
+        
         //user controllable variables
         protected float ThrottleInput = 0;
         protected float BrakeInput = 0;
         protected float SteeringInput = 0;//negative is left, positive is right
         protected bool Handbrake = false;
         protected int CurGear = 1; // starts on the first gear (0 is reverse)
-
+        
         void Start()
         {
             rb = GetComponent<Rigidbody>();

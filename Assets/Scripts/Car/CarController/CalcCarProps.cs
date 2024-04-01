@@ -76,27 +76,41 @@ namespace Car
         }
         private void calcSlip()
         {
-            WheelHit test;
-            WheelColliders.frontLeft.GetGroundHit(out test);
-            String str = "";
-            str += test.sidewaysSlip / WheelColliders.frontLeft.sidewaysFriction.extremumSlip;
-            str += " | ";
+            WheelHit wheelHit;
+            WheelColliders.frontLeft.GetGroundHit(out wheelHit);
+            _wheelSlip.frontLSide = wheelHit.sidewaysSlip / WheelColliders.frontLeft.sidewaysFriction.extremumSlip;
+            _wheelSlip.frontLForward = wheelHit.forwardSlip / WheelColliders.frontLeft.forwardFriction.extremumSlip;
             
-            WheelColliders.frontRight.GetGroundHit(out test);
-            str += test.sidewaysSlip / WheelColliders.frontRight.sidewaysFriction.extremumSlip;
-            
-            Debug.Log(str);
+            WheelColliders.frontRight.GetGroundHit(out wheelHit);
+            _wheelSlip.frontRSide = wheelHit.sidewaysSlip / WheelColliders.frontRight.sidewaysFriction.extremumSlip;
+            _wheelSlip.frontRForward = wheelHit.forwardSlip / WheelColliders.frontRight.forwardFriction.extremumSlip;
 
-            WheelColliders.rearLeft.GetGroundHit(out test);
-            str = "";
-            str += test.sidewaysSlip / WheelColliders.rearLeft.sidewaysFriction.extremumSlip;
-            str += " | ";
+            WheelColliders.rearLeft.GetGroundHit(out wheelHit);
+            _wheelSlip.rearLSide = wheelHit.sidewaysSlip / WheelColliders.rearLeft.sidewaysFriction.extremumSlip;
+            _wheelSlip.rearLForward = wheelHit.forwardSlip / WheelColliders.rearLeft.forwardFriction.extremumSlip;
+
+            WheelColliders.rearRight.GetGroundHit(out wheelHit);
+            _wheelSlip.rearRSide = wheelHit.sidewaysSlip / WheelColliders.rearRight.sidewaysFriction.extremumSlip;
+            _wheelSlip.rearRForward = wheelHit.forwardSlip / WheelColliders.rearRight.forwardFriction.extremumSlip;
+
             
-            WheelColliders.rearRight.GetGroundHit(out test);
-            str += test.sidewaysSlip / WheelColliders.rearRight.sidewaysFriction.extremumSlip;
-            
-            Debug.Log(str);
-            Debug.Log("");
+            // if (Math.Abs(_wheelSlip.frontLSide) > 1.0f || Math.Abs(_wheelSlip.frontRSide) > 1.0f ||
+            //     Math.Abs(_wheelSlip.rearLSide) > 1.0f || Math.Abs(_wheelSlip.rearRSide) > 1.0f)
+            // {
+            //     Debug.Log("Sideways");
+            //     Debug.Log(_wheelSlip.frontLSide + " | " + _wheelSlip.frontRSide);
+            //     Debug.Log(_wheelSlip.rearLSide + " | " + _wheelSlip.rearRSide);
+            //     Debug.Log("");
+            // }
+            //
+            // if (Math.Abs(_wheelSlip.frontLForward) > 1.0f || Math.Abs(_wheelSlip.frontRForward) > 1.0f ||
+            //     Math.Abs(_wheelSlip.rearLForward) > 1.0f || Math.Abs(_wheelSlip.rearRForward) > 1.0f)
+            // {
+            //     Debug.Log("Forward");
+            //     Debug.Log(_wheelSlip.frontLForward + " | " + _wheelSlip.frontRForward);
+            //     Debug.Log(_wheelSlip.rearLForward + " | " + _wheelSlip.rearRForward);
+            //     Debug.Log("");
+            // }
         }
 
     }
