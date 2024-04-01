@@ -31,7 +31,6 @@ namespace Car
         [SerializeField] protected float[] GearRatio;
         [SerializeField] private float FinalDriveRatio;// ratio from the end of the transmittion to the wheels
         
-        [SerializeField] private DashboardManager dashboardManager;
         [SerializeField] private HeadLightsManager headLightsManager;
 
         [SerializeField] private AudioSource engineSound;
@@ -79,9 +78,6 @@ namespace Car
             MeshPosition();
             EngineAudio();
 
-            dashboardManager.setGear(CurGear);
-            dashboardManager.setRpm(Math.Abs(Rpm));   
-            dashboardManager.setSpeed(Speed);
         }
 
         public float getRpm()
@@ -93,7 +89,11 @@ namespace Car
         {
             return Math.Abs(Speed);
         }
-        
+
+        public int getGear()
+        {
+            return CurGear;
+        }
         void Update()
         {
             if (WheelColliders.frontLeft.brakeTorque > 0 || WheelColliders.frontRight.brakeTorque > 0 ||
