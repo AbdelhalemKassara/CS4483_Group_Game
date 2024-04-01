@@ -33,7 +33,7 @@ namespace Car
             }
 
             Rpm = Rpm * FinalDriveRatio * GearRatio[CurGear];// compute the engine rpm based off of the speed of the wheel
-            Rpm += Rpm < 0 ? -minRpm : minRpm;//fix this garbage
+            Rpm += Rpm < 0 ? -minRpm : minRpm;
         }
 
         private void CalcSpeed()

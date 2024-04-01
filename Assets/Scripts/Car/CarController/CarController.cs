@@ -38,6 +38,8 @@ namespace Car
         [SerializeField] protected float[] GearRatio;
         [SerializeField] private float FinalDriveRatio;// ratio from the end of the transmittion to the wheels
         [SerializeField] protected bool enableAutoTransmission = false;
+        [SerializeField] protected float autoTransMinRpmOffsetFromMaxEngineRpm = 4500.0f;
+        [SerializeField] protected float autoTransMaxRpmOffsetFromMaxEngineRpm = 100.0f;
         
         [SerializeField] private float sideToSideEmission = 10.0f;
         [SerializeField] private float FrontToBackEmission = 100.0f;
@@ -82,28 +84,22 @@ namespace Car
         //detect slip by getting the speed of the wheels and compare them to the speed of the car
         void FixedUpdate() // 
         {
-            //calcCarProps
+            //CalcCarProps
             CalcSpeed();
             calcSlip();
             EngineRpm();// function that calculates the engine rpm
 
+            //CarForces
             if (enableAutoClutch)
-            {
                 AutoClutch();
-            }
-
             if (enableAutoTransmission)
-            {
                 AutoTransmission();
-            }
-            //AutoTransmittion(); // function that 
             Throttle();
             Breaking();
             Steering();
             handBrake();
             
-            //update stuff
-            //tireSmoke
+            //CarEffects
             MeshPosition();
             EngineAudio();
             TireSmoke();
@@ -147,6 +143,26 @@ namespace Car
         public void setEnableAutoClutch(bool val)
         {
             enableAutoClutch = val;
+        }
+
+        protected void incrementGear()
+        {
+            if (CurGear < GearRatio.Length - 1 && !(CurGear == 0 && Speed < -0.1f))
+            {
+                CurGear++;
+                _shiftTimeout = 0.0f;
+            }
+        }
+
+        protected void decrementGear(bool canGoRev)
+        {
+            int minGear = canGoRev ? 0 : 1;
+
+            if (CurGear > minGear && !(CurGear == 1 && Speed > 0.1f))
+            {
+                CurGear--;
+                _shiftTimeout = 0.0f;
+            }
         }
         void Update()
         {

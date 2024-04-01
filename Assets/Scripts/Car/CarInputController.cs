@@ -90,12 +90,8 @@ public class CarInputController : CarController
         {
             return;
         }
-        
-        if (CurGear > 0 && !(CurGear == 1 && Speed > 0.1f))
-        {
-            CurGear--;
-            _shiftTimeout = 0.0f;
-        }
+
+        decrementGear(true);
     }
     private void OnDownShiftC(InputAction.CallbackContext value) { }
 
@@ -105,12 +101,8 @@ public class CarInputController : CarController
         {
             return;
         }
-        
-        if (CurGear < GearRatio.Length - 1 && !(CurGear == 0 && Speed < -0.1f))
-        {
-            CurGear++;
-            _shiftTimeout = 0.0f;
-        }
+
+        incrementGear();   
     }
 
     private void OnUpShiftC(InputAction.CallbackContext value) { }

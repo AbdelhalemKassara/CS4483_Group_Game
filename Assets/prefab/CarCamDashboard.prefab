@@ -3237,6 +3237,8 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   enableAutoTransmission: 0
+  autoTransMinRpmOffsetFromMaxEngineRpm: 4000
+  autoTransMaxRpmOffsetFromMaxEngineRpm: 100
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -5680,6 +5682,8 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   enableAutoTransmission: 0
+  autoTransMinRpmOffsetFromMaxEngineRpm: 4000
+  autoTransMaxRpmOffsetFromMaxEngineRpm: 100
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -6016,7 +6020,9 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  enableAutoTransmission: 0
+  enableAutoTransmission: 1
+  autoTransMinRpmOffsetFromMaxEngineRpm: 4500
+  autoTransMaxRpmOffsetFromMaxEngineRpm: 100
   sideToSideEmission: 10
   FrontToBackEmission: 100
   sideToSideEmissionVelocity: 0.1
@@ -6872,6 +6878,8 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   enableAutoTransmission: 0
+  autoTransMinRpmOffsetFromMaxEngineRpm: 4000
+  autoTransMaxRpmOffsetFromMaxEngineRpm: 100
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -9032,6 +9040,8 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   enableAutoTransmission: 0
+  autoTransMinRpmOffsetFromMaxEngineRpm: 4000
+  autoTransMaxRpmOffsetFromMaxEngineRpm: 100
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10
@@ -9460,6 +9470,8 @@ MonoBehaviour:
   - 0.848
   FinalDriveRatio: 4.4
   enableAutoTransmission: 0
+  autoTransMinRpmOffsetFromMaxEngineRpm: 4000
+  autoTransMaxRpmOffsetFromMaxEngineRpm: 100
   sideToSideEmission: 10
   FrontToBackEmission: 10
   sideToSideEmissionVelocity: 10

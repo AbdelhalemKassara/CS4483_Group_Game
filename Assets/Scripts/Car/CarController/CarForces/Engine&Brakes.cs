@@ -65,17 +65,62 @@ namespace Car
             
             //otherwise when rpm reaches max-100.0f upshift and when rpm reaches max - 2000.0f downshift
             //we should replace these constants with optimal rpms from the torque curve
-
+            
+            //reverse gear won't work
             switch (selectedDriveWheels)
             {
                 case DriveWheels.AWD:
-                    
+                    //if the wheel slips don't change gears
+                    if (Math.Abs(_wheelSlip.frontRSide) > 1.0f || Math.Abs(_wheelSlip.frontRForward) > 1.0f ||
+                        Math.Abs(_wheelSlip.frontLSide) > 1.0f || Math.Abs(_wheelSlip.frontLForward) > 1.0f ||
+                        Math.Abs(_wheelSlip.rearRSide) > 1.0f || Math.Abs(_wheelSlip.rearRForward) > 1.0f ||
+                        Math.Abs(_wheelSlip.rearLSide) > 1.0f || Math.Abs(_wheelSlip.rearLForward) > 1.0f)
+                    {
+                        break;
+                    }
+
+                    if (Rpm < MaxRpm - autoTransMinRpmOffsetFromMaxEngineRpm)
+                    {
+                        decrementGear(false);
+                    }
+                    else if(Rpm > MaxRpm - autoTransMaxRpmOffsetFromMaxEngineRpm)
+                    {
+                        incrementGear();
+                    }
                     break;
                 case DriveWheels.FWD:
-
+                    //if the wheel slips don't change gears
+                    if (Math.Abs(_wheelSlip.frontRSide) > 1.0f || Math.Abs(_wheelSlip.frontRForward) > 1.0f ||
+                        Math.Abs(_wheelSlip.frontLSide) > 1.0f || Math.Abs(_wheelSlip.frontLForward) > 1.0f)
+                    {
+                        break;
+                    }
+                    if (Rpm < MaxRpm - autoTransMinRpmOffsetFromMaxEngineRpm)
+                    {
+                        decrementGear(false);
+                    }
+                    else if(Rpm > MaxRpm - autoTransMaxRpmOffsetFromMaxEngineRpm)
+                    {
+                        incrementGear();
+                    }
                     break;
                 case DriveWheels.RWD:
-                    
+                    //if the wheel slips don't change gears
+                    if (Math.Abs(_wheelSlip.rearRSide) > 1.0f || Math.Abs(_wheelSlip.rearRForward) > 1.0f ||
+                        Math.Abs(_wheelSlip.rearLSide) > 1.0f || Math.Abs(_wheelSlip.rearLForward) > 1.0f)
+                    {
+                        break;
+                    }
+                    if (Rpm < MaxRpm - autoTransMinRpmOffsetFromMaxEngineRpm)
+                    {
+                        Debug.Log("decrement");
+                        decrementGear(false);
+                    }
+                    else if(Rpm > MaxRpm - autoTransMaxRpmOffsetFromMaxEngineRpm)
+                    {
+                        Debug.Log("increment");
+                        incrementGear();
+                    }
                     break;
             }
         }
