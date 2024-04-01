@@ -10,29 +10,12 @@ public class CarInputController : CarController
 {
     private InputMaster input = null;
 
-    public DashboardManager dashboardManager;
-    public HeadLightsManager headLightsManager;
 
     void Awake()
     {
         input = new InputMaster();
     }
 
-    void Update()
-    {
-        if (WheelColliders.frontLeft.brakeTorque > 0 || WheelColliders.frontRight.brakeTorque > 0 ||
-            WheelColliders.rearRight.brakeTorque > 0 || WheelColliders.rearLeft.brakeTorque > 0)
-        {
-            headLightsManager.turnOnHeadlights();
-        }
-        else
-        {
-            headLightsManager.turnOffHeadlights();
-        }
-        
-        dashboardManager.setRpm(Math.Abs(Rpm));   
-        dashboardManager.setSpeed(Speed);
-    }
     
     //called when gameobject is enabled
     private void OnEnable()
@@ -103,13 +86,10 @@ public class CarInputController : CarController
 
     private void OnDownShiftP(InputAction.CallbackContext value)
     {
-        //if(value.ReadValue<bool>()) {}
         if (CurGear > 0)
         {
             CurGear--;
         }
-
-        dashboardManager.setGear(CurGear);
     }
     private void OnDownShiftC(InputAction.CallbackContext value) { }
 
@@ -119,8 +99,6 @@ public class CarInputController : CarController
         {
             CurGear++;
         }
-        
-        dashboardManager.setGear(CurGear);
     }
 
     private void OnUpShiftC(InputAction.CallbackContext value) { }
