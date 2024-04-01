@@ -56,8 +56,8 @@ namespace Car
 
         private void AutoClutch()
         {
-            //should replace Speed with real speed
-            ClutchInput = Math.Clamp(Math.Abs((float)Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y + rb.velocity.z * rb.velocity.z)) / autoClutchFullEngageSpeed, 0.05f, 1.0f);
+            // Debug.Log((float)Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y + rb.velocity.z * rb.velocity.z) * 3.6f);//speed in km/h
+            ClutchInput = Math.Clamp(Math.Abs(Speed) / autoClutchFullEngageSpeed, 0.05f, 1.0f);
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Car
        
         //car properties
         private float Rpm;
-        private float Speed;
+        protected float Speed;
         private float timeout = 0.0f;//timeout for rev limit
         private WheelSlip _wheelSlip;
         protected float _shiftTimeout = 0.0f;
