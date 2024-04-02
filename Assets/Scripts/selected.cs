@@ -9,6 +9,7 @@ public class selected : MonoBehaviour
     public DashboardManager dashboardManager;
     private void Awake(){
         SelectionCar(CarSelected.index);
+        
        
     }
 
