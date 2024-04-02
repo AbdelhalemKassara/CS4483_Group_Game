@@ -1497,20 +1497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a584265fc6621409149fb3833fc532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &336737972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336737970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 020b56e008070a7408c2aefe1a6edfea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraManager: {fileID: 0}
-  dashboardManager: {fileID: 0}
 --- !u!114 &336737974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5296,9 +5282,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6055936132231081560, guid: a5ce0e338f5b08640b10c3187f3839e1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 336737972}
     - targetCorrespondingSourceObject: {fileID: 6055936132231081560, guid: a5ce0e338f5b08640b10c3187f3839e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 336737971}
@@ -11978,9 +11961,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6055936132231081560, guid: a5ce0e338f5b08640b10c3187f3839e1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8102199074051600569}
-    - targetCorrespondingSourceObject: {fileID: 6055936132231081560, guid: a5ce0e338f5b08640b10c3187f3839e1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8102199074051600568}
     - targetCorrespondingSourceObject: {fileID: 6055936132231081560, guid: a5ce0e338f5b08640b10c3187f3839e1, type: 3}
       insertIndex: -1
@@ -12039,20 +12019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a584265fc6621409149fb3833fc532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8102199074051600569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8102199074051600567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 020b56e008070a7408c2aefe1a6edfea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraManager: {fileID: 0}
-  dashboardManager: {fileID: 0}
 --- !u!114 &8102199074051600571
 MonoBehaviour:
   m_ObjectHideFlags: 0
