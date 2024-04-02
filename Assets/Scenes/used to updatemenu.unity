@@ -11845,11 +11845,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143972075}
   m_CullTransparentMesh: 1
---- !u!1 &3243317898830078451 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5226000853497930098, guid: eb33cb1c691fe0647b887d304495b1e5, type: 3}
-  m_PrefabInstance: {fileID: 5982802356874517595}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5982802356874517595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11969,10 +11964,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5226000853497930098, guid: eb33cb1c691fe0647b887d304495b1e5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8509364683329061672}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb33cb1c691fe0647b887d304495b1e5, type: 3}
 --- !u!224 &6252668448516925820 stripped
 RectTransform:
@@ -12204,31 +12196,6 @@ MonoBehaviour:
   buy: {fileID: 1628781204}
   priceText: {fileID: 1936129990}
   carPrices: 0000000064000000c80000009001000084030000e8030000
---- !u!114 &8509364683329061671 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9201303240830897273, guid: eb33cb1c691fe0647b887d304495b1e5, type: 3}
-  m_PrefabInstance: {fileID: 5982802356874517595}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243317898830078451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8509364683329061672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243317898830078451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5aab2b9f3186904dbd45e9a7c597698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myMixer: {fileID: 0}
-  volumeSlider: {fileID: 8509364683329061671}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
