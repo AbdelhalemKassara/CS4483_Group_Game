@@ -23,4 +23,9 @@ public class SwitchScene : MonoBehaviour
         
         SceneManager.LoadScene(MapSelected.index+1);
     }
+
+    public void Exit(){
+
+        Application.Quit();
+    }
 }
