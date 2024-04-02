@@ -11,7 +11,8 @@ public class CarInputController : CarController
     private InputMaster input = null;
     private int curGearToggle = -1;
     private float timeout = 0.0f;
-    private float AutoTransTimeoutDuration = 0.5f;
+    [SerializeField] private float AutoTransTimeoutDuration = 0.5f;
+    private float SteeringJoystickVal = 0.0f;
     
     void Awake()
     {
@@ -20,6 +21,21 @@ public class CarInputController : CarController
 
     void Update()
     {
+        float returnAmount = 1f;
+        
+        if (SteeringInput < -0.01f)
+        {
+            SteeringInput = Math.Clamp(SteeringInput + returnAmount * Time.deltaTime, -1f, 0f);
+        }
+        else if (SteeringInput > 0.01f)
+        {
+            SteeringInput = Math.Clamp(SteeringInput - returnAmount * Time.deltaTime, 0f, 1f);
+        }
+        
+        SteeringInput = Math.Clamp(SteeringInput + 2.5f * SteeringJoystickVal * Time.deltaTime, -Math.Abs(SteeringJoystickVal), Math.Abs(SteeringJoystickVal));
+        
+
+        
         if (timeout < AutoTransTimeoutDuration)
         {
             timeout += Time.deltaTime;
@@ -185,7 +201,7 @@ public class CarInputController : CarController
 
     private void OnSteeringP(InputAction.CallbackContext value)
     {
-        SteeringInput = value.ReadValue<float>();
+        SteeringJoystickVal = value.ReadValue<float>();
     }
 
     private void OnSteeringC(InputAction.CallbackContext value)

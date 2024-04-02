@@ -40,29 +40,47 @@ Probably the same thing just with an .exe for the last couple of steps
 - Adjustable center of mass 
 - two camera modes (dynamic (has a bit of a delay when following you) and fixed) with offset adjustments (anywhere in reference with the car, both inside and outside the car)
 - Fov adjustment (in unity editor under camera)
+- Start Racing
+- Car silding
+- 5 map
+- 6 cars
+- Pasue Menu
+- Finish Line
+- 5 Camera
+- sound track
+- LeaderBoard
+- controller/ Wheel controller
+- Car Wheel Running
+- Map data
+- Car lock (store)
+- Money
 
 ## Controls
 ### Keyboard
 - Camera view mode switch : C
 - Handbrake : spacebar
 - Steering : A for left, D for right
-- Down Shift : down array
+- Down Shift : down arrow
 - Up Shift : up arrow
-- Brake : S
+- Reverse : speed until 0 and press S
 - Throttle W
-
+- brake: s
+- pasuse : p
 ### Controller (any controller should work, I did most testing on the xbox one controller)
-- Camera view mode switch : Left shoulder
+- Camera view mode switch : Left shoulder (L1 for Playstation)
 - Handbrake : South Button (A on an xbox controller)
-- Steering : Leftstick
-- Down Shift : Button West (X on a xbox controller)
-- Up Shift : Button East (B on a xbox controller)
-- Brake : Left trigger
+- Steering : Leftstick Joystick
+- Down Shift : Button West (X on a xbox controller, and Square for Playstation)
+- Up Shift : Button East (B on a xbox controller, and O for Playstation)
+- Brake : Left trigger (L2 for Playstation)
 - Throttle Right trigger
 
-
 ## How To Play
-Click Start, Select, Select and will take you to the game.
+Main menu: 
+- There are a few different modes but please choose Normal Game for the demo.
+- If you would like to switch between Manual Transmission (To go faster you need to manually shift the gears), and Automatic Transmission (The car will automaticallu shift the gears for you), please click the mode you would like here.
+- Once in Normal Game please use the A or D on the keyboard to choose between the 5 maps we designed.
+- Then press select and enjoy the ride!
 
 
 
