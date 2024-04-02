@@ -8,7 +8,7 @@ public class SQLiteHelper : MonoBehaviour {
     public List<PlayerScore> GetMap(string currentMap)
     {
         string dbName = "unitygame.db";
-        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "Scripts", "Leaderboard", dbName);
+        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "StreamingAssets", dbName);
         List<PlayerScore> playerScores = new List<PlayerScore>();
         // Read all values from the table.
         using (IDbConnection dbConnection = new SqliteConnection(dbPath))
@@ -42,7 +42,7 @@ public class SQLiteHelper : MonoBehaviour {
     public string UpdateScores(string currentMap, string username, int timescore)
     {
         string dbName = "unitygame.db";
-        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "Scripts", "Leaderboard", dbName);
+        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "StreamingAssets", dbName);
         using (IDbConnection dbConnection = new SqliteConnection(dbPath))
         {
             dbConnection.Open();
@@ -101,7 +101,7 @@ public class SQLiteHelper : MonoBehaviour {
     public static void InsertPlayer(string username)
     {
         string dbName = "unitygame.db";
-        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "Scripts", "Leaderboard", dbName);
+        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "StreamingAssets", dbName);
         using (IDbConnection dbConnection = new SqliteConnection(dbPath))
         {
             dbConnection.Open();
@@ -142,7 +142,7 @@ public class SQLiteHelper : MonoBehaviour {
     public int GetBestScore(string currentMap = "map_1")
     {
         string dbName = "unitygame.db";
-        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "Scripts", "Leaderboard", dbName);
+        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "StreamingAssets", dbName);
         int playerScore = 0;
         // Read all values from the table.
         using (IDbConnection dbConnection = new SqliteConnection(dbPath))

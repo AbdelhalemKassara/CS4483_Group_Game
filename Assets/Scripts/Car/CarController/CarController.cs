@@ -16,7 +16,7 @@ namespace Car
         [SerializeField] private float maxRpmTimeout = 0.1f;
         [SerializeField] private float gearShiftTimeout = 0.1f;
         [SerializeField] private float autoClutchFullEngageSpeed = 10.0f;//in km/h
-        [SerializeField] private bool enableAutoClutch = true;
+        [SerializeField] protected bool enableAutoClutch = true;
         
         [SerializeField] private WheelColliders WheelColliders;
         [SerializeField] private WheelMeshes WheelMeshesRot;
@@ -24,6 +24,7 @@ namespace Car
         [SerializeField] private WheelSmoke _wheelSmoke;
         [SerializeField] private WheelAudio wheelAudio;
         [SerializeField] private WheelTrail wheelTrail;
+        [SerializeField] private float tireSlipAudioLevel = 1.0f;
         
         [SerializeField] private DiffType selectedDiffType;
         [SerializeField] private DriveWheels selectedDriveWheels;
@@ -88,7 +89,11 @@ namespace Car
 
             //CarForces
             if (enableAutoClutch)
+            {
+                Debug.Log("asdfads");
                 AutoClutch();
+            }
+
             if (enableAutoTransmission)
                 AutoTransmission();
             Throttle();
@@ -140,6 +145,16 @@ namespace Car
         public void setEnableAutoClutch(bool val)
         {
             enableAutoClutch = val;
+        }
+
+        public void setEngineAudio(float val)
+        {
+            engineSound.volume = Math.Clamp(val, 0.0f, 1.0f);
+        }
+
+        public void setTireSlipAudioLevel(float val)
+        {
+            tireSlipAudioLevel = Math.Clamp(val, 0.0f, 1.0f);
         }
 
         protected void incrementGear()

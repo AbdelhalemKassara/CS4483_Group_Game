@@ -12,11 +12,11 @@ namespace Car
             //torque = const * pedalForce / velocity
             if(rpm < -1.0f || rpm > 1.0f)
             {
-                return peakForce * pedalInput / Math.Abs(rpm);
+                return Math.Abs(peakForce * pedalInput / rpm);
             }
             else
             {
-                return peakForce * pedalInput;
+                return Math.Abs(peakForce * pedalInput);
             }
         }
         
@@ -25,12 +25,12 @@ namespace Car
         {
             if (timeout <= maxRpmTimeout)
             {
-                timeout += Time.deltaTime;
+                timeout += Time.fixedDeltaTime;
             }
 
             if (_shiftTimeout <= gearShiftTimeout)
             {
-                _shiftTimeout += Time.deltaTime;
+                _shiftTimeout += Time.fixedDeltaTime;
                 return 0;
             }
             

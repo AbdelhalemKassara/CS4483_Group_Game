@@ -80,6 +80,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Clutch"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""110905db-df7b-44aa-a0d5-5e0015113349"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -256,6 +265,39 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""Handbrake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c85d595-5d22-4439-96c6-be9b2b40c5dc"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""gamepad"",
+                    ""action"": ""Clutch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca9606c2-c991-4f3a-84aa-e39ab31a8dfa"",
+                    ""path"": ""<Gamepad>/{SecondaryTrigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""SteeringWheel"",
+                    ""action"": ""Clutch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4119065f-1b38-422d-bd2e-7ad105be45e4"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Clutch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -489,6 +531,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Car_DownShift = m_Car.FindAction("DownShift", throwIfNotFound: true);
         m_Car_Steering = m_Car.FindAction("Steering", throwIfNotFound: true);
         m_Car_Handbrake = m_Car.FindAction("Handbrake", throwIfNotFound: true);
+        m_Car_Clutch = m_Car.FindAction("Clutch", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_ChangeCameraMode = m_Camera.FindAction("ChangeCameraMode", throwIfNotFound: true);
@@ -561,6 +604,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Car_DownShift;
     private readonly InputAction m_Car_Steering;
     private readonly InputAction m_Car_Handbrake;
+    private readonly InputAction m_Car_Clutch;
     public struct CarActions
     {
         private @InputMaster m_Wrapper;
@@ -571,6 +615,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @DownShift => m_Wrapper.m_Car_DownShift;
         public InputAction @Steering => m_Wrapper.m_Car_Steering;
         public InputAction @Handbrake => m_Wrapper.m_Car_Handbrake;
+        public InputAction @Clutch => m_Wrapper.m_Car_Clutch;
         public InputActionMap Get() { return m_Wrapper.m_Car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -598,6 +643,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Handbrake.started += instance.OnHandbrake;
             @Handbrake.performed += instance.OnHandbrake;
             @Handbrake.canceled += instance.OnHandbrake;
+            @Clutch.started += instance.OnClutch;
+            @Clutch.performed += instance.OnClutch;
+            @Clutch.canceled += instance.OnClutch;
         }
 
         private void UnregisterCallbacks(ICarActions instance)
@@ -620,6 +668,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Handbrake.started -= instance.OnHandbrake;
             @Handbrake.performed -= instance.OnHandbrake;
             @Handbrake.canceled -= instance.OnHandbrake;
+            @Clutch.started -= instance.OnClutch;
+            @Clutch.performed -= instance.OnClutch;
+            @Clutch.canceled -= instance.OnClutch;
         }
 
         public void RemoveCallbacks(ICarActions instance)
@@ -734,6 +785,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnDownShift(InputAction.CallbackContext context);
         void OnSteering(InputAction.CallbackContext context);
         void OnHandbrake(InputAction.CallbackContext context);
+        void OnClutch(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {

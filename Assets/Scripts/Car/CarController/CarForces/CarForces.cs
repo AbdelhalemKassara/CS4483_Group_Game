@@ -21,8 +21,6 @@ namespace Car
         }
         public void Breaking()
         {
-            // float torque = BrakeCurve(BrakeStrength, 100f, Rpm / (FinalDriveRatio * GearRatio[CurGear])) * Time.deltaTime * BrakeInput;
-            // Debug.Log("Brake Torque: " + torque);
             WheelCollider cur = WheelColliders.frontLeft;
             cur.brakeTorque = BrakeCurve(BrakeStrength, BrakeInput, cur.rpm);
             
@@ -38,7 +36,7 @@ namespace Car
         public void Throttle()
         {
             float torqueToWheels = EngineCurve(peakTorque, Rpm, MaxRpm, torqueCurve);
-            float torque = torqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.deltaTime * ThrottleInput;
+            float torque = torqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.fixedDeltaTime * ThrottleInput;
 
             switch (selectedDiffType)
             {
@@ -51,19 +49,19 @@ namespace Car
             }
         }
         
-        private void handleDriveWheels(Action<float, WheelCollider, WheelCollider> f, float torque)
+        private void handleDriveWheels(Action<float, WheelCollider, WheelCollider, float, float> f, float torque)
         {
             switch (selectedDriveWheels)
             {
                 case DriveWheels.AWD:
-                    f(torque/2, WheelColliders.frontLeft, WheelColliders.frontRight);
-                    f(torque/2, WheelColliders.rearLeft, WheelColliders.rearRight);
+                    f(torque/2, WheelColliders.frontLeft, WheelColliders.frontRight, _wheelSlip.frontLForward, _wheelSlip.frontRForward);
+                    f(torque/2, WheelColliders.rearLeft, WheelColliders.rearRight, _wheelSlip.rearLForward, _wheelSlip.rearRForward);
                     break;
                 case DriveWheels.FWD:
-                    f(torque, WheelColliders.frontLeft, WheelColliders.frontRight);
+                    f(torque/2, WheelColliders.frontLeft, WheelColliders.frontRight, _wheelSlip.frontLForward, _wheelSlip.frontRForward);
                     break;
                 case DriveWheels.RWD:
-                    f(torque, WheelColliders.rearLeft, WheelColliders.rearRight);
+                    f(torque/2, WheelColliders.rearLeft, WheelColliders.rearRight, _wheelSlip.rearLForward, _wheelSlip.rearRForward);
                     break;
             }
         }

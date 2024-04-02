@@ -39,7 +39,7 @@ namespace Car
 
         private void TireSmoke()
         {
-            float emissionDir = 0.0f;
+            float emissionDir;
             if (Rpm < 0.0f)
             {
                 emissionDir = 1.0f;
@@ -48,7 +48,7 @@ namespace Car
             {
                 emissionDir = -1.0f;
             }
-            
+
             ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL, wheelAudio.frontL, wheelTrail.frontL, emissionDir);
             ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR, wheelAudio.frontR, wheelTrail.frontR, emissionDir);
             ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL, wheelAudio.rearL, wheelTrail.rearL, emissionDir);
@@ -71,7 +71,7 @@ namespace Car
             {
                 //use this to modify based on how much the wheel is slipping
                 rateOverTimeSide = Math.Abs(slide) * sideToSideEmission;
-                audioLevel += Math.Clamp(Math.Abs(slide) - 1.0f, 0.0f, 1.0f);
+                audioLevel += Math.Clamp(Math.Abs(slide) - 1.0f, 0.0f, tireSlipAudioLevel);
                 //use this for switching when car spinning in reverse and wheel speed
                 trail.emitting = true;
             }
@@ -79,7 +79,7 @@ namespace Car
             if (forward > 1.0f || forward < -1.0f)
             {
                 rateOverTimeForward = Math.Abs(forward) * FrontToBackEmission;
-                audioLevel += Math.Clamp(Math.Abs(forward) - 1.0f, 0.0f, 1.0f);
+                audioLevel += Math.Clamp(Math.Abs(forward) - 1.0f, 0.0f, tireSlipAudioLevel);
                 trail.emitting = true;
             }
 
@@ -87,7 +87,7 @@ namespace Car
             
             emission.rateOverTime = rateOverTimeSide + rateOverTimeForward;
             
-            audioLevel = Math.Clamp(audioLevel, 0.0f, 1.0f);
+            audioLevel = Math.Clamp(audioLevel, 0.0f, tireSlipAudioLevel);
             audio.volume = audioLevel;
             
             //this is the only reasonable way of having the smoke direction change without
