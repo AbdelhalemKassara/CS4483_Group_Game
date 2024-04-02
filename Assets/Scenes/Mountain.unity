@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -309,9 +309,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: back
       objectReference: {fileID: 0}
+    - target: {fileID: 1565384211454559270, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946259407227510763, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4308857891827929573, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_Name
       value: PasueMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308857891827929573, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8894342283601917620, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -363,7 +375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.682295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -371,23 +383,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.2320238
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.69268286
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -427,6 +439,14 @@ PrefabInstance:
     - target: {fileID: 798471800837052006, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: m_Name
       value: CarCamDashboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 861575390668391621, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2755705081786591036, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: mapId
+      value: map_5
       objectReference: {fileID: 0}
     - target: {fileID: 5095194575807172841, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: m_LocalPosition.y
