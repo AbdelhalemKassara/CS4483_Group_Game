@@ -15,7 +15,7 @@ public class Finishline : MonoBehaviour
           StaticFinishData.TimeScore = Mathf.FloorToInt(_dashboardManager.GetElapsedTime());
           Debug.Log("Testing");
 
-          SceneManager.LoadScene(4);
+          SceneManager.LoadScene(6);
       }
     }
 }

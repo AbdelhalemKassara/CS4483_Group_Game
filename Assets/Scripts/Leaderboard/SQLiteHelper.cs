@@ -140,6 +140,30 @@ public class SQLiteHelper : MonoBehaviour {
             }
         }
     }
+    public int GetBestScore(string currentMap = "map_1")
+    {
+        string dbName = "unitygame.db";
+        string dbPath = "URI=file:" + Path.Combine(Application.dataPath, "Scripts", "Leaderboard", dbName);
+        int playerScore = 0;
+        // Read all values from the table.
+        using (IDbConnection dbConnection = new SqliteConnection(dbPath))
+        {
+            dbConnection.Open();
+            using (IDbCommand dbReadCommand = dbConnection.CreateCommand())
+            {
+                // Assuming currentMap is a valid table name. Be cautious with dynamic table names.
+                dbReadCommand.CommandText = "SELECT * FROM "+currentMap + " ORDER BY time_score ASC LIMIT 1";
+                IDataReader dataReader = dbReadCommand.ExecuteReader(); // 17
+                
+                while (dataReader.Read())
+                {
+                    playerScore = dataReader.GetInt32(dataReader.GetOrdinal("time_score"));
+                }
+            }
+        }
+
+        return playerScore;
+    }
 
     
 }

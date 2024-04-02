@@ -1,36 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Car;
 
 public class CarInputController : CarController
 {
     private InputMaster input = null;
 
-    public DashboardManager dashboardManager;
-    public HeadLightsManager headLightsManager;
-    
+
     void Awake()
     {
         input = new InputMaster();
     }
 
-    void Update()
-    {
-        if (WheelColliders.frontLeft.brakeTorque > 0 || WheelColliders.frontRight.brakeTorque > 0 ||
-            WheelColliders.rearRight.brakeTorque > 0 || WheelColliders.rearLeft.brakeTorque > 0)
-        {
-            headLightsManager.turnOnHeadlights();
-        }
-        else
-        {
-            headLightsManager.turnOffHeadlights();
-        }
-        
-        dashboardManager.setRpm(Math.Abs(Rpm));   
-        dashboardManager.setSpeed(Speed);
-    }
     
     //called when gameobject is enabled
     private void OnEnable()
@@ -101,24 +86,23 @@ public class CarInputController : CarController
 
     private void OnDownShiftP(InputAction.CallbackContext value)
     {
-        //if(value.ReadValue<bool>()) {}
-        if (CurGear > 0)
+        if (enableAutoTransmission)
         {
-            CurGear--;
+            return;
         }
 
-        dashboardManager.setGear(CurGear);
+        decrementGear(true);
     }
     private void OnDownShiftC(InputAction.CallbackContext value) { }
 
     private void OnUpShiftP(InputAction.CallbackContext value)
     {
-        if (CurGear < GearRatio.Length - 1)
+        if (enableAutoTransmission)
         {
-            CurGear++;
+            return;
         }
-        
-        dashboardManager.setGear(CurGear);
+
+        incrementGear();   
     }
 
     private void OnUpShiftC(InputAction.CallbackContext value) { }
