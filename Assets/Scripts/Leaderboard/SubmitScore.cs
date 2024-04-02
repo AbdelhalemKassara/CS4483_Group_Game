@@ -27,7 +27,18 @@ public class SubmitScore : MonoBehaviour
     {
         if (EnterUsername.SubmitUsername())
         {
+            int topScore = sqLiteHelper.GetBestScore(_mapName);
             var s = sqLiteHelper.UpdateScores(_mapName, PlayerInfo.Username.ToLower(), _timeScore);
+            if (topScore > _timeScore)
+            {
+                SaveManager.instance.money += 1000;
+            }
+            else
+            {
+                SaveManager.instance.money += 500;
+            }
+            SaveManager.instance.Save();
+            
             Debug.Log("Test");
             if (s == "Success")
             {
