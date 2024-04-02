@@ -39,7 +39,7 @@ namespace Car
 
         private void TireSmoke()
         {
-            float emissionDir = 0.0f;
+            float emissionDir;
             if (Rpm < 0.0f)
             {
                 emissionDir = 1.0f;
@@ -48,7 +48,7 @@ namespace Car
             {
                 emissionDir = -1.0f;
             }
-            
+
             ProcessEmission(_wheelSlip.frontLSide, _wheelSlip.frontLForward, _wheelSmoke.frontL, wheelAudio.frontL, wheelTrail.frontL, emissionDir);
             ProcessEmission(_wheelSlip.frontRSide, _wheelSlip.frontRForward, _wheelSmoke.frontR, wheelAudio.frontR, wheelTrail.frontR, emissionDir);
             ProcessEmission(_wheelSlip.rearLSide, _wheelSlip.rearLForward, _wheelSmoke.rearL, wheelAudio.rearL, wheelTrail.rearL, emissionDir);

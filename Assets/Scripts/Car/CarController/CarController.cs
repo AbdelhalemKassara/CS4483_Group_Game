@@ -16,7 +16,7 @@ namespace Car
         [SerializeField] private float maxRpmTimeout = 0.1f;
         [SerializeField] private float gearShiftTimeout = 0.1f;
         [SerializeField] private float autoClutchFullEngageSpeed = 10.0f;//in km/h
-        [SerializeField] private bool enableAutoClutch = true;
+        [SerializeField] protected bool enableAutoClutch = true;
         
         [SerializeField] private WheelColliders WheelColliders;
         [SerializeField] private WheelMeshes WheelMeshesRot;
@@ -89,7 +89,11 @@ namespace Car
 
             //CarForces
             if (enableAutoClutch)
+            {
+                Debug.Log("asdfads");
                 AutoClutch();
+            }
+
             if (enableAutoTransmission)
                 AutoTransmission();
             Throttle();
