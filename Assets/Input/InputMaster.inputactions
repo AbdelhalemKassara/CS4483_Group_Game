@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Clutch",
+                    "type": "PassThrough",
+                    "id": "110905db-df7b-44aa-a0d5-5e0015113349",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -234,6 +243,39 @@
                     "processors": "",
                     "groups": "gamepad;SteeringWheel",
                     "action": "Handbrake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c85d595-5d22-4439-96c6-be9b2b40c5dc",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "gamepad",
+                    "action": "Clutch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca9606c2-c991-4f3a-84aa-e39ab31a8dfa",
+                    "path": "<Gamepad>/{SecondaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "SteeringWheel",
+                    "action": "Clutch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4119065f-1b38-422d-bd2e-7ad105be45e4",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Clutch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
