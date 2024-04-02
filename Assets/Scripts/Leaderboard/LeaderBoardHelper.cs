@@ -17,7 +17,7 @@ public class LeaderBoardHelper : MonoBehaviour
 
     public void GetMapData(string currentMap)
     {
-        title.text = currentMap;
+        title.text = GetMapName.MapName(currentMap);
         List<PlayerScore> playerScores = SQLiteHelper.GetMap(currentMap);
 
         for (var i = 0; i < 8; i++)
