@@ -18,6 +18,10 @@
         {
             return "Fun Road";
         }
+         else if (map == "map_5")
+        {
+            return "Mountain Road";
+        }
         else
         {
             return map;
