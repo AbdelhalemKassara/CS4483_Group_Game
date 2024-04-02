@@ -52,12 +52,12 @@ Probably the same thing just with an .exe for the last couple of steps
 - Throttle W
 
 ### Controller (any controller should work, I did most testing on the xbox one controller)
-- Camera view mode switch : Left shoulder
+- Camera view mode switch : Left shoulder (L1 for Playstation)
 - Handbrake : South Button (A on an xbox controller)
-- Steering : Leftstick
-- Down Shift : Button West (X on a xbox controller)
-- Up Shift : Button East (B on a xbox controller)
-- Brake : Left trigger
+- Steering : Leftstick Joystick
+- Down Shift : Button West (X on a xbox controller, and Square for Playstation)
+- Up Shift : Button East (B on a xbox controller, and O for Playstation)
+- Brake : Left trigger (L2 for Playstation)
 - Throttle Right trigger
 
 
