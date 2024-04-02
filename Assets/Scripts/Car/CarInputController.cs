@@ -13,7 +13,8 @@ public class CarInputController : CarController
     private float timeout = 0.0f;
     [SerializeField] private float AutoTransTimeoutDuration = 0.5f;
     private float SteeringJoystickVal = 0.0f;
-    
+
+    private bool AutoClutchToggle = false;
     void Awake()
     {
         input = new InputMaster();
@@ -96,6 +97,21 @@ public class CarInputController : CarController
             }
         }
 
+
+        if (AutoClutchToggle != enableAutoClutch)
+        {
+            AutoClutchToggle = enableAutoClutch;
+            if (AutoClutchToggle)
+            {
+                input.Car.Clutch.performed -= OnClutchP;
+                input.Car.Clutch.canceled -= OnClutchC;
+            }
+            else
+            {
+                input.Car.Clutch.performed += OnClutchP;
+                input.Car.Clutch.canceled += OnClutchC;
+            }
+        }
     }
     
     //called when gameobject is enabled
@@ -120,6 +136,10 @@ public class CarInputController : CarController
         
         // input.Car.Brake.performed += OnBrakeP;
         input.Car.Brake.canceled += OnBrakeC;
+        
+        input.Car.Clutch.performed += OnClutchP;
+        input.Car.Clutch.canceled += OnClutchC;
+
     }
     
     //called when gameobject is disabled
@@ -154,6 +174,13 @@ public class CarInputController : CarController
         input.Car.Handbrake.canceled -= OnHandbrakeC;
 
         input.Car.Brake.canceled -= OnBrakeC;
+
+        if (!enableAutoClutch)
+        {
+            input.Car.Clutch.performed -= OnClutchP;
+            input.Car.Clutch.canceled -= OnClutchC;
+
+        }
     }
 
     private void OnThrottleP(InputAction.CallbackContext value)
@@ -165,6 +192,15 @@ public class CarInputController : CarController
         ThrottleInput = 0;
     }
 
+    private void OnClutchP(InputAction.CallbackContext value)
+    {
+        ClutchInput = 1.0f - value.ReadValue<float>();
+    }
+
+    private void OnClutchC(InputAction.CallbackContext value)
+    {
+        ClutchInput = 1.0f;
+    }
     private void OnBrakeP(InputAction.CallbackContext value)
     {
         BrakeInput = value.ReadValue<float>();
