@@ -43,6 +43,17 @@ Probably the same thing just with an .exe for the last couple of steps
 - Start Racing
 - Car silding
 - 5 map
+- 6 cars
+- Pasue Menu
+- Finish Line
+- 5 Camera
+- sound track
+- LeaderBoard
+- controller/ Wheel controller
+- Car Wheel Running
+- Map data
+- Car lock (store)
+- Money
 
 ## Controls
 ### Keyboard
