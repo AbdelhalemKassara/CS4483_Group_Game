@@ -40,15 +40,18 @@ Probably the same thing just with an .exe for the last couple of steps
 - Adjustable center of mass 
 - two camera modes (dynamic (has a bit of a delay when following you) and fixed) with offset adjustments (anywhere in reference with the car, both inside and outside the car)
 - Fov adjustment (in unity editor under camera)
+- Start Racing
+- Car silding
+- 5 map
 
 ## Controls
 ### Keyboard
 - Camera view mode switch : C
 - Handbrake : spacebar
 - Steering : A for left, D for right
-- Down Shift : down array
+- Down Shift : down arrow
 - Up Shift : up arrow
-- Brake : S
+- Reverse : speed until 0 and press S
 - Throttle W
 
 ### Controller (any controller should work, I did most testing on the xbox one controller)
