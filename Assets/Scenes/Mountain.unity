@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641228, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -323,6 +323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775c762d719a8fb4ea31bf73c8b30c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dashboardManager: {fileID: 0}
+  submitScreen: {fileID: 0}
+  dashboard: {fileID: 0}
+  mapName: map_1
 --- !u!65 &1810797715
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -420,6 +424,38 @@ PrefabInstance:
     - target: {fileID: 798471800837052006, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: m_Name
       value: CarCamDashboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095194575807172841, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.564
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095194575807172841, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -123.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100026925810059844, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: mapName
+      value: map_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217156491694671275, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3395
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217156491694671275, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 130.97307
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217156491694671275, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217156491694671275, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -278.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217156491694671275, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -92.78
       objectReference: {fileID: 0}
     - target: {fileID: 8389973760916062847, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: m_LocalPosition.x
