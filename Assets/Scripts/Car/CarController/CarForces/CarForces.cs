@@ -49,19 +49,19 @@ namespace Car
             }
         }
         
-        private void handleDriveWheels(Action<float, WheelCollider, WheelCollider> f, float torque)
+        private void handleDriveWheels(Action<float, WheelCollider, WheelCollider, float, float> f, float torque)
         {
             switch (selectedDriveWheels)
             {
                 case DriveWheels.AWD:
-                    f(torque/2, WheelColliders.frontLeft, WheelColliders.frontRight);
-                    f(torque/2, WheelColliders.rearLeft, WheelColliders.rearRight);
+                    f(torque/2, WheelColliders.frontLeft, WheelColliders.frontRight, _wheelSlip.frontLForward, _wheelSlip.frontRForward);
+                    f(torque/2, WheelColliders.rearLeft, WheelColliders.rearRight, _wheelSlip.rearLForward, _wheelSlip.rearRForward);
                     break;
                 case DriveWheels.FWD:
-                    f(torque, WheelColliders.frontLeft, WheelColliders.frontRight);
+                    f(torque/2, WheelColliders.frontLeft, WheelColliders.frontRight, _wheelSlip.frontLForward, _wheelSlip.frontRForward);
                     break;
                 case DriveWheels.RWD:
-                    f(torque, WheelColliders.rearLeft, WheelColliders.rearRight);
+                    f(torque/2, WheelColliders.rearLeft, WheelColliders.rearRight, _wheelSlip.rearLForward, _wheelSlip.rearRForward);
                     break;
             }
         }
