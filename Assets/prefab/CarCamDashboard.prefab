@@ -6386,7 +6386,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  peakTorque: 40000
+  peakTorque: 20000
   MaxRpm: 9000
   minRpm: 1000
   maxRpmTimeout: 0.004
@@ -6425,7 +6425,7 @@ MonoBehaviour:
     rearR: {fileID: 7655021238165066190}
   selectedDiffType: 1
   selectedDriveWheels: 1
-  BrakeStrength: 2000000
+  BrakeStrength: 960000
   handbreakMult: 100
   maxTurn: 40
   CM: {fileID: 7831645035121448143}
@@ -6958,7 +6958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4911111803716350674
 Transform:
   m_ObjectHideFlags: 0
@@ -9042,7 +9042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7238198532025032401
 Transform:
   m_ObjectHideFlags: 0
@@ -15664,10 +15664,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: smoke_thin
       objectReference: {fileID: 0}
-    - target: {fileID: 1848968934737910, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4277412065456692, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.045
@@ -15818,10 +15814,6 @@ PrefabInstance:
     - target: {fileID: 1848968934737910, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: m_Name
       value: smoke_thin
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848968934737910, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4277412065456692, guid: b07739ad126c6ff46875821c2a3cd124, type: 3}
       propertyPath: m_LocalPosition.x
