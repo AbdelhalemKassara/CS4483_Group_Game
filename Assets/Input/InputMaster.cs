@@ -89,7 +89,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -111,7 +111,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -144,7 +144,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""UpShift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -166,7 +166,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""DownShift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -188,7 +188,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""Steering"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -199,7 +199,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""Steering"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -254,7 +254,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""Handbrake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -311,7 +311,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""ChangeCameraMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -333,7 +333,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""CameraLeftRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -344,7 +344,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""CameraLeftRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -399,7 +399,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""CameraUpDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -410,7 +410,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""gamepad"",
+                    ""groups"": ""gamepad;SteeringWheel"",
                     ""action"": ""CameraUpDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -473,6 +473,11 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""SteeringWheel"",
+            ""bindingGroup"": ""SteeringWheel"",
+            ""devices"": []
         }
     ]
 }");
@@ -710,6 +715,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         {
             if (m_gamepadSchemeIndex == -1) m_gamepadSchemeIndex = asset.FindControlSchemeIndex("gamepad");
             return asset.controlSchemes[m_gamepadSchemeIndex];
+        }
+    }
+    private int m_SteeringWheelSchemeIndex = -1;
+    public InputControlScheme SteeringWheelScheme
+    {
+        get
+        {
+            if (m_SteeringWheelSchemeIndex == -1) m_SteeringWheelSchemeIndex = asset.FindControlSchemeIndex("SteeringWheel");
+            return asset.controlSchemes[m_SteeringWheelSchemeIndex];
         }
     }
     public interface ICarActions
