@@ -18,6 +18,7 @@ public class DashboardManager : MonoBehaviour
     private bool activeTimer = true;
     float elapsedTime;
     private int currentBest;
+    [SerializeField] public string mapId = "map_1";
     
     public virtual void setGear(int gear)
     {
@@ -59,7 +60,7 @@ public class DashboardManager : MonoBehaviour
 
     private void Start()
     {
-        currentBest = SqLiteHelper.GetBestScore();
+        currentBest = SqLiteHelper.GetBestScore(mapId);
         bestTime.text = string.Format("{0:00}:{1:00}", getMinutes(currentBest), getSeconds(currentBest));
     }
 
