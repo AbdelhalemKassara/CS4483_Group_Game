@@ -13,14 +13,8 @@ public class CarInputController : CarController
     private float timeout = 0.0f;
     [SerializeField] private float AutoTransTimeoutDuration = 0.5f;
     private float SteeringJoystickVal = 0.0f;
-<<<<<<< HEAD
-    
-    
-    
-=======
 
     private bool AutoClutchToggle = false;
->>>>>>> main
     void Awake()
     {
         input = new InputMaster();
@@ -106,12 +100,9 @@ public class CarInputController : CarController
                 input.Car.Brake.performed += OnBrakeP;
             }
         }
-<<<<<<< HEAD
         
-        Debug.Log(CarSelected.enableAutoTransmission);
         if (!CarSelected.enableAutoTransmission)
         {
-            Debug.Log("Second Off Statement");
             setEnableAutoTransmission(false);
             
         }
@@ -119,10 +110,7 @@ public class CarInputController : CarController
         {
             setEnableAutoTransmission(true);
         }
-       
         
-=======
-
 
         if (AutoClutchToggle != enableAutoClutch)
         {
@@ -138,7 +126,6 @@ public class CarInputController : CarController
                 input.Car.Clutch.canceled += OnClutchC;
             }
         }
->>>>>>> main
     }
 
 
@@ -205,10 +192,6 @@ public class CarInputController : CarController
         input.Car.Handbrake.canceled -= OnHandbrakeC;
 
         input.Car.Brake.canceled -= OnBrakeC;
-<<<<<<< HEAD
-         
-        
-=======
 
         if (!enableAutoClutch)
         {
@@ -216,7 +199,6 @@ public class CarInputController : CarController
             input.Car.Clutch.canceled -= OnClutchC;
 
         }
->>>>>>> main
     }
 
     private void OnThrottleP(InputAction.CallbackContext value)
