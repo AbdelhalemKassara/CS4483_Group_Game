@@ -12,11 +12,11 @@ namespace Car
             //torque = const * pedalForce / velocity
             if(rpm < -1.0f || rpm > 1.0f)
             {
-                return peakForce * pedalInput / Math.Abs(rpm);
+                return Math.Abs(peakForce * pedalInput / rpm);
             }
             else
             {
-                return peakForce * pedalInput;
+                return Math.Abs(peakForce * pedalInput);
             }
         }
         

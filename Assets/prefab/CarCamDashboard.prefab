@@ -6381,12 +6381,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  peakTorque: 30000
+  peakTorque: 25000
   MaxRpm: 10000
-  minRpm: 1000
+  minRpm: 2000
   maxRpmTimeout: 0.01
-  gearShiftTimeout: 0.1
-  autoClutchFullEngageSpeed: 20
+  gearShiftTimeout: 0.2
+  autoClutchFullEngageSpeed: 25
   enableAutoClutch: 1
   WheelColliders:
     frontLeft: {fileID: 6263578943605694452}
@@ -6774,7 +6774,7 @@ MonoBehaviour:
   - 1.107
   - 0.848
   FinalDriveRatio: 4.4
-  enableAutoTransmission: 1
+  enableAutoTransmission: 0
   autoTransMinRpmOffsetFromMaxEngineRpm: 4700
   autoTransMaxRpmOffsetFromMaxEngineRpm: 100
   sideToSideEmission: 10
@@ -8007,7 +8007,7 @@ MonoBehaviour:
     rearR: {fileID: 0}
   tireSlipAudioLevel: 0.75
   selectedDiffType: 1
-  selectedDriveWheels: 1
+  selectedDriveWheels: 2
   BrakeStrength: 1200000
   handbreakMult: 100
   maxTurn: 40
