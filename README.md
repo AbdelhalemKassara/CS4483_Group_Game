@@ -65,7 +65,11 @@ Probably the same thing just with an .exe for the last couple of steps
 
 
 ## How To Play
-Click Start, Select, Select and will take you to the game.
+Main menu: 
+- There are a few different modes but please choose Normal Game for the demo.
+- If you would like to switch between Manual Transmission (To go faster you need to manually shift the gears), and Automatic Transmission (The car will automaticallu shift the gears for you), please click the mode you would like here.
+- Once in Normal Game please use the A or D on the keyboard to choose between the 5 maps we designed.
+- Then press select and enjoy the ride!
 
 
 
