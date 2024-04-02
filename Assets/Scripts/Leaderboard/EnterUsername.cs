@@ -8,26 +8,18 @@ using UnityEngine.UI;
 public class EnterUsername : MonoBehaviour
 {
     public GameObject warning;
-    public GameObject gameMenu;
-    public GameObject userInputMenu;
     public TMP_InputField nameInputField;
-    public TextMeshProUGUI nameTitle;
 
-    public void OnSubmit()
+    public bool SubmitUsername()
     {
         var inputString = nameInputField.text.ToLower();
         if (inputString.Length < 3 || inputString.Length > 14 ||inputString.Contains(" "))
         {
             warning.SetActive(true);
+            return false;
         }
-        else
-        {
-            SQLiteHelper.InsertPlayer(inputString);
-            gameMenu.SetActive(true);
-            userInputMenu.SetActive(false);
-            PlayerInfo.Username = inputString;
-            nameTitle.text = inputString;
-        }
-        
+        SQLiteHelper.InsertPlayer(inputString);
+        PlayerInfo.Username = inputString;
+        return true;
     }
 }
