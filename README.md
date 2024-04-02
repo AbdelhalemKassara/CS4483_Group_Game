@@ -64,7 +64,8 @@ Probably the same thing just with an .exe for the last couple of steps
 - Up Shift : up arrow
 - Reverse : speed until 0 and press S
 - Throttle W
-
+- brake: s
+- pasuse : p
 ### Controller (any controller should work, I did most testing on the xbox one controller)
 - Camera view mode switch : Left shoulder (L1 for Playstation)
 - Handbrake : South Button (A on an xbox controller)
@@ -73,7 +74,6 @@ Probably the same thing just with an .exe for the last couple of steps
 - Up Shift : Button East (B on a xbox controller, and O for Playstation)
 - Brake : Left trigger (L2 for Playstation)
 - Throttle Right trigger
-
 
 ## How To Play
 Main menu: 
