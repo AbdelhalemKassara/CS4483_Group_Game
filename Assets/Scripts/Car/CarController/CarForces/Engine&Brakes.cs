@@ -113,6 +113,18 @@ namespace Car
             {
                 incrementGear();
             }
+            
+                //if the user is pressing the brake and the car is stopped switch into reverse (we are assuming we are already at 1st gear or reverse)
+                if (Speed < 0.1f && BrakeInput > 0.1f && CurGear == 1)
+                {
+                    decrementGear(true);
+                }
+                else if (Speed < 0.1f && BrakeInput > 0.1f && CurGear == 0)//if the user is pressing on the throttle and we are in reversegear and we are stopped increment gear
+                {
+                    incrementGear();
+                }
+            
+            
         }
     }
 }
