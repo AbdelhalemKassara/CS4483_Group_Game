@@ -25,12 +25,12 @@ namespace Car
         {
             if (timeout <= maxRpmTimeout)
             {
-                timeout += Time.deltaTime;
+                timeout += Time.fixedDeltaTime;
             }
 
             if (_shiftTimeout <= gearShiftTimeout)
             {
-                _shiftTimeout += Time.deltaTime;
+                _shiftTimeout += Time.fixedDeltaTime;
                 return 0;
             }
             

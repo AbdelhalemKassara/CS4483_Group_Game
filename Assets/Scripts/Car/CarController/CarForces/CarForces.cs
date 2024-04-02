@@ -21,8 +21,6 @@ namespace Car
         }
         public void Breaking()
         {
-            // float torque = BrakeCurve(BrakeStrength, 100f, Rpm / (FinalDriveRatio * GearRatio[CurGear])) * Time.deltaTime * BrakeInput;
-            // Debug.Log("Brake Torque: " + torque);
             WheelCollider cur = WheelColliders.frontLeft;
             cur.brakeTorque = BrakeCurve(BrakeStrength, BrakeInput, cur.rpm);
             
@@ -38,7 +36,7 @@ namespace Car
         public void Throttle()
         {
             float torqueToWheels = EngineCurve(peakTorque, Rpm, MaxRpm, torqueCurve);
-            float torque = torqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.deltaTime * ThrottleInput;
+            float torque = torqueToWheels * FinalDriveRatio * GearRatio[CurGear] * Time.fixedDeltaTime * ThrottleInput;
 
             switch (selectedDiffType)
             {
