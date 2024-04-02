@@ -73,7 +73,6 @@ public class CarInputController : CarController
         
         if (curGearToggle != CurGear && CurGear <= 1 && timeout > AutoTransTimeoutDuration)
         {
-            Debug.Log("inside");
             curGearToggle = CurGear;
             timeout = 0.0f;
             ThrottleInput = 0f;

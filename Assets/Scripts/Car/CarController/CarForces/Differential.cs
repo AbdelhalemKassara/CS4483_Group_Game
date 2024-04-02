@@ -36,12 +36,6 @@ namespace Car
             float slipDiv = Math.Abs(w1ForwardSlip / w2ForwardSlip);
             slipDiv /= max;
             
-            //rpmDiff should be from 0 to 1 here
-            Debug.Log(w1ForwardSlip);
-            Debug.Log(w2ForwardSlip);
-            Debug.Log(w1ForwardSlip / w2ForwardSlip);
-            Debug.Log(slipDiv);
-            Debug.Log("");
             
             w1.motorTorque =  (1.0f-slipDiv) * engineTorque;
             w2.motorTorque = slipDiv * engineTorque;
