@@ -130,8 +130,7 @@ public class SQLiteHelper : MonoBehaviour {
                     if (count == 0)
                     {
                         // Insert
-                        dbCommand.CommandText = $"INSERT INTO players (username) VALUES (@username);";
-                        dbCommand.CommandText += $"\nINSERT INTO player_currency (username) VALUES (@username)";
+                        dbCommand.CommandText = $"INSERT INTO players (username) VALUES (@username)";
                         Debug.Log("Inserted "+ username);
                     }
                     dbCommand.ExecuteNonQuery();
