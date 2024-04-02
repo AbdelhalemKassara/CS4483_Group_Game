@@ -60,7 +60,7 @@ public class CameraManager : MonoBehaviour
             case CameraModes.two:
                 transform.position = RotatePointAroundPivot(curCar.transform.position + curCar.transform.TransformDirection(new Vector3(cameraModeSet.x, cameraModeSet.y, cameraModeSet.z)), curCar.transform.position, new Vector3(0.0f, angle, 0.0f)); // stays behind the car
                 transform.rotation = curCar.transform.rotation;
-                transform.Rotate(new Vector3(0.0f, -angle, 0.0f));
+                transform.Rotate(new Vector3(0.0f, angle, 0.0f));
 
                 Camera.main.fieldOfView = cameraModeSet.fov; 
                 break;

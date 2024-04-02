@@ -108,7 +108,7 @@
                 {
                     "name": "",
                     "id": "a9ce2e48-3b9b-45ba-b922-94e43644356d",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -130,7 +130,7 @@
                 {
                     "name": "",
                     "id": "ae6ed95d-2176-477b-ab05-2ee1d3d113d9",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -329,6 +329,39 @@
                 },
                 {
                     "name": "1D Axis",
+                    "id": "f745807c-2a0d-4ffd-bdfe-f57fa393aab3",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraLeftRight",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "d0b6b709-04e6-47a7-b2fd-0beaa6a1652d",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "CameraLeftRight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d0ded7a4-7c9d-4bc3-9b1a-2ebff65cce5a",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "CameraLeftRight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
                     "id": "8f2fdb02-7746-4634-8905-a6a32dac6f80",
                     "path": "1DAxis",
                     "interactions": "",
@@ -356,6 +389,39 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "gamepad",
+                    "action": "CameraUpDown",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "d36a6bdf-bdcc-4690-b3e7-f6573e4f587b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraUpDown",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "84cbf68f-235d-46dd-9bbb-8a99838bb5bd",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "CameraUpDown",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "f31d46f3-c3cb-4d30-90aa-151169c88b3f",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "CameraUpDown",
                     "isComposite": false,
                     "isPartOfComposite": true
