@@ -273,6 +273,24 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CameraLeftRight"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""ae1ea66e-9b00-4ee0-96a4-d22d71032a8c"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CameraUpDown"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""53059933-2c97-4765-ad5e-ada8ae854d5b"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -297,6 +315,72 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""ChangeCameraMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""cf978424-9607-45f5-8df1-41495ad3b96a"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraLeftRight"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""601ede91-f50c-4a3d-9b99-c2aa20afcbb1"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""gamepad"",
+                    ""action"": ""CameraLeftRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""214c77ac-9174-4715-965d-e2b4e671c5f1"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""gamepad"",
+                    ""action"": ""CameraLeftRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""8f2fdb02-7746-4634-8905-a6a32dac6f80"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraUpDown"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""ee4384cc-f53a-431e-9bbf-7cb704b5ec40"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""gamepad"",
+                    ""action"": ""CameraUpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""840aa4f1-c786-4ef2-b5e7-2508dab3f3de"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""gamepad"",
+                    ""action"": ""CameraUpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -337,6 +421,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_ChangeCameraMode = m_Camera.FindAction("ChangeCameraMode", throwIfNotFound: true);
+        m_Camera_CameraLeftRight = m_Camera.FindAction("CameraLeftRight", throwIfNotFound: true);
+        m_Camera_CameraUpDown = m_Camera.FindAction("CameraUpDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -485,11 +571,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Camera;
     private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
     private readonly InputAction m_Camera_ChangeCameraMode;
+    private readonly InputAction m_Camera_CameraLeftRight;
+    private readonly InputAction m_Camera_CameraUpDown;
     public struct CameraActions
     {
         private @InputMaster m_Wrapper;
         public CameraActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @ChangeCameraMode => m_Wrapper.m_Camera_ChangeCameraMode;
+        public InputAction @CameraLeftRight => m_Wrapper.m_Camera_CameraLeftRight;
+        public InputAction @CameraUpDown => m_Wrapper.m_Camera_CameraUpDown;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -502,6 +592,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @ChangeCameraMode.started += instance.OnChangeCameraMode;
             @ChangeCameraMode.performed += instance.OnChangeCameraMode;
             @ChangeCameraMode.canceled += instance.OnChangeCameraMode;
+            @CameraLeftRight.started += instance.OnCameraLeftRight;
+            @CameraLeftRight.performed += instance.OnCameraLeftRight;
+            @CameraLeftRight.canceled += instance.OnCameraLeftRight;
+            @CameraUpDown.started += instance.OnCameraUpDown;
+            @CameraUpDown.performed += instance.OnCameraUpDown;
+            @CameraUpDown.canceled += instance.OnCameraUpDown;
         }
 
         private void UnregisterCallbacks(ICameraActions instance)
@@ -509,6 +605,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @ChangeCameraMode.started -= instance.OnChangeCameraMode;
             @ChangeCameraMode.performed -= instance.OnChangeCameraMode;
             @ChangeCameraMode.canceled -= instance.OnChangeCameraMode;
+            @CameraLeftRight.started -= instance.OnCameraLeftRight;
+            @CameraLeftRight.performed -= instance.OnCameraLeftRight;
+            @CameraLeftRight.canceled -= instance.OnCameraLeftRight;
+            @CameraUpDown.started -= instance.OnCameraUpDown;
+            @CameraUpDown.performed -= instance.OnCameraUpDown;
+            @CameraUpDown.canceled -= instance.OnCameraUpDown;
         }
 
         public void RemoveCallbacks(ICameraActions instance)
@@ -556,5 +658,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     public interface ICameraActions
     {
         void OnChangeCameraMode(InputAction.CallbackContext context);
+        void OnCameraLeftRight(InputAction.CallbackContext context);
+        void OnCameraUpDown(InputAction.CallbackContext context);
     }
 }
