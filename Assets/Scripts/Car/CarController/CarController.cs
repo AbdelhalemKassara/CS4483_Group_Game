@@ -24,6 +24,7 @@ namespace Car
         [SerializeField] private WheelSmoke _wheelSmoke;
         [SerializeField] private WheelAudio wheelAudio;
         [SerializeField] private WheelTrail wheelTrail;
+        [SerializeField] private float tireSlipAudioLevel = 1.0f;
         
         [SerializeField] private DiffType selectedDiffType;
         [SerializeField] private DriveWheels selectedDriveWheels;
@@ -140,6 +141,16 @@ namespace Car
         public void setEnableAutoClutch(bool val)
         {
             enableAutoClutch = val;
+        }
+
+        public void setEngineAudio(float val)
+        {
+            engineSound.volume = Math.Clamp(val, 0.0f, 1.0f);
+        }
+
+        public void setTireSlipAudioLevel(float val)
+        {
+            tireSlipAudioLevel = Math.Clamp(val, 0.0f, 1.0f);
         }
 
         protected void incrementGear()
