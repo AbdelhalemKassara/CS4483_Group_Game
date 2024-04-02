@@ -15,6 +15,7 @@ public class DashboardManager : MonoBehaviour
     public CarDashboard _carDashboard;
     private CarController _carController;
     public SQLiteHelper SqLiteHelper;
+    private bool activeTimer = true;
     float elapsedTime;
     private int currentBest;
     
@@ -62,6 +63,19 @@ public class DashboardManager : MonoBehaviour
         bestTime.text = string.Format("{0:00}:{1:00}", getMinutes(currentBest), getSeconds(currentBest));
     }
 
+    public void setActiveTimer(bool isActive)
+    {
+        activeTimer = isActive;
+    }
+
+    public void updateTimer()
+    {
+        if (activeTimer)
+        {
+            elapsedTime += Time.deltaTime;
+        }
+    }
+
     void Update(){
         _carDashboard.updateNeedle(_carController.getRpm());
         setSpeed(_carController.getSpeed());
@@ -71,7 +85,8 @@ public class DashboardManager : MonoBehaviour
         {
             timer.color = Color.red;
         }
-        elapsedTime += Time.deltaTime;
+
+        updateTimer();
         timer.text = string.Format("{0:00}:{1:00}", getMinutes(elapsedTime), getSeconds(elapsedTime));
     }
 }

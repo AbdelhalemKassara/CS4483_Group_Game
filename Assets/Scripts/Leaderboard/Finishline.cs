@@ -6,16 +6,20 @@ using UnityEngine;
 
 public class Finishline : MonoBehaviour
 {
-    private DashboardManager _dashboardManager;
+    public DashboardManager _dashboardManager;
+    public GameObject submitScreen;
+    public GameObject dashboard;
+    [SerializeField]
+    public string mapName = "map_1";
     private void OnTriggerEnter(Collider collision)
     {
       if (collision.tag ==  "Player")
       {
-          StaticFinishData.MapName = "map_1";
+          _dashboardManager.setActiveTimer(false);
+          StaticFinishData.MapName = mapName;
           StaticFinishData.TimeScore = Mathf.FloorToInt(_dashboardManager.GetElapsedTime());
-          Debug.Log("Testing");
-
-          SceneManager.LoadScene(6);
+          submitScreen.SetActive(true);
+          dashboard.SetActive(false);
       }
     }
 }
