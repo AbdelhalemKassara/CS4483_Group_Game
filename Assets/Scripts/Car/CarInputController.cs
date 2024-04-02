@@ -18,12 +18,13 @@ public class CarInputController : CarController
     void Awake()
     {
         input = new InputMaster();
+        
     }
 
     void Update()
     {
         float returnAmount = 1f;
-        
+
         if (SteeringInput < -0.01f)
         {
             SteeringInput = Math.Clamp(SteeringInput + returnAmount * Time.deltaTime, -1f, 0f);
@@ -32,11 +33,12 @@ public class CarInputController : CarController
         {
             SteeringInput = Math.Clamp(SteeringInput - returnAmount * Time.deltaTime, 0f, 1f);
         }
-        
-        SteeringInput = Math.Clamp(SteeringInput + 2.5f * SteeringJoystickVal * Time.deltaTime, -Math.Abs(SteeringJoystickVal), Math.Abs(SteeringJoystickVal));
-        
 
-        
+        SteeringInput = Math.Clamp(SteeringInput + 2.5f * SteeringJoystickVal * Time.deltaTime,
+            -Math.Abs(SteeringJoystickVal), Math.Abs(SteeringJoystickVal));
+
+
+
         if (timeout < AutoTransTimeoutDuration)
         {
             timeout += Time.deltaTime;
@@ -49,29 +51,31 @@ public class CarInputController : CarController
                 //this probably is redundant
                 input.Car.Brake.performed -= OnThrottleP;
                 input.Car.Throttle.performed -= OnBrakeP;
-                
+
                 input.Car.Throttle.performed += OnThrottleP;
                 input.Car.Brake.performed += OnBrakeP;
-            } else if (curGearToggle == 0)
+            }
+            else if (curGearToggle == 0)
             {
                 input.Car.Throttle.performed -= OnBrakeP;
                 input.Car.Brake.performed -= OnThrottleP;
 
                 input.Car.Brake.performed += OnBrakeP;
                 input.Car.Throttle.performed += OnThrottleP;
-                
-            } else if (curGearToggle > 0)
+
+            }
+            else if (curGearToggle > 0)
             {
                 input.Car.Brake.performed -= OnThrottleP;
                 input.Car.Throttle.performed -= OnBrakeP;
-                
+
                 input.Car.Throttle.performed += OnThrottleP;
                 input.Car.Brake.performed += OnBrakeP;
             }
 
             return;
         }
-        
+
         if (curGearToggle != CurGear && CurGear <= 1 && timeout > AutoTransTimeoutDuration)
         {
             curGearToggle = CurGear;
@@ -83,7 +87,7 @@ public class CarInputController : CarController
             {
                 input.Car.Brake.performed -= OnBrakeP;
                 input.Car.Throttle.performed -= OnThrottleP;
-                
+
                 input.Car.Throttle.performed += OnBrakeP;
                 input.Car.Brake.performed += OnThrottleP;
             }
@@ -96,7 +100,17 @@ public class CarInputController : CarController
                 input.Car.Brake.performed += OnBrakeP;
             }
         }
-
+        
+        if (!CarSelected.enableAutoTransmission)
+        {
+            setEnableAutoTransmission(false);
+            
+        }
+        else
+        {
+            setEnableAutoTransmission(true);
+        }
+        
 
         if (AutoClutchToggle != enableAutoClutch)
         {
@@ -113,7 +127,8 @@ public class CarInputController : CarController
             }
         }
     }
-    
+
+
     //called when gameobject is enabled
     private void OnEnable()
     {
@@ -141,6 +156,9 @@ public class CarInputController : CarController
         input.Car.Clutch.canceled += OnClutchC;
 
     }
+    
+    
+
     
     //called when gameobject is disabled
     private void OnDisable()
