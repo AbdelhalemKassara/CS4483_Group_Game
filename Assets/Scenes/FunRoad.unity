@@ -1551,9 +1551,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306841683}
     m_Modifications:
+    - target: {fileID: 287151266193458563, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1306841686}
+    - target: {fileID: 287151266193458563, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 287151266193458563, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PasueMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 340259668038031832, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1306841686}
+    - target: {fileID: 340259668038031832, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: back
+      objectReference: {fileID: 0}
     - target: {fileID: 4308857891827929573, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_Name
       value: PasueMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894342283601917620, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1306841686}
+    - target: {fileID: 8894342283601917620, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: restart
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_Pivot.x
@@ -1605,23 +1633,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -210.3
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.00001001358
       objectReference: {fileID: 0}
     - target: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54257,10 +54285,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8389973760916062847, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 433088018}
+      addedObject: {fileID: 1573084081}
     - targetCorrespondingSourceObject: {fileID: 8389973760916062847, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1573084081}
+      addedObject: {fileID: 433088018}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 798471800837052006, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       insertIndex: -1
