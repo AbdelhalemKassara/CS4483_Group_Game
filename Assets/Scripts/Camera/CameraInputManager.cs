@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class CameraInputManager : CameraManager
 {
     private InputMaster input = null;
-
+    
 
     void Awake()
     {
@@ -20,6 +20,13 @@ public class CameraInputManager : CameraManager
         input.Camera.Enable();
         input.Camera.ChangeCameraMode.performed += OnChangeViewP;
         input.Camera.ChangeCameraMode.canceled += OnChangeViewC;
+
+        input.Camera.CameraUpDown.performed += OnCameraUpDownP;
+        input.Camera.CameraUpDown.canceled += OnCameraUpDownC;
+
+        input.Camera.CameraLeftRight.performed += OnCameraLeftRightP;
+        input.Camera.CameraLeftRight.canceled += OnCameraLeftRightC;
+        
     }
 
     private void OnDisable()
@@ -36,4 +43,24 @@ public class CameraInputManager : CameraManager
     }
 
     private void OnChangeViewC(InputAction.CallbackContext value) { }
+
+    private void OnCameraUpDownP(InputAction.CallbackContext value)
+    {
+        upDownCam = value.ReadValue<float>();
+    }
+
+    private void OnCameraUpDownC(InputAction.CallbackContext value)
+    {
+        upDownCam = 0;
+    }
+    
+    private void OnCameraLeftRightP(InputAction.CallbackContext value)
+    {
+        leftRightCam = value.ReadValue<float>();
+    }
+
+    private void OnCameraLeftRightC(InputAction.CallbackContext value)
+    {
+        leftRightCam = 0;
+    }
 }
