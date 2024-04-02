@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -428,6 +428,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarCamDashboard
       objectReference: {fileID: 0}
+    - target: {fileID: 861575390668391621, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877809983553225257, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: tireSlipAudioLevel
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191941417537531911, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5095194575807172841, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: m_LocalPosition.y
       value: 28.564
@@ -436,6 +448,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -123.84
       objectReference: {fileID: 0}
+    - target: {fileID: 5668011412687720366, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676215670518021864, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721004824402801416, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 890a29fc6c7af4bcea9ae83bea93fe40, type: 3}
     - target: {fileID: 8100026925810059844, guid: 25ff5cb01a73f41c9926952476f2a4df, type: 3}
       propertyPath: mapName
       value: map_5
