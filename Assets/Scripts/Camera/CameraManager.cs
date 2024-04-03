@@ -2,22 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CameraA;
 
-public enum CameraModes : int
-{
-    one= 1,
-    two = 2,
-    three = 3
-}
-[Serializable]
-public struct CameraModeSetings
-{
-    public CameraModes mode;
-    public float x;
-    public float y;
-    public float z;
-    public float fov;
-}
 
 
 public class CameraManager : MonoBehaviour
@@ -32,6 +18,7 @@ public class CameraManager : MonoBehaviour
     // Start is called before the first frame update
     protected float upDownCam = 0.0f;
     protected float leftRightCam = 0.0f;
+
     
     // Update is called once per frame
     void Update()
@@ -74,6 +61,10 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    public void setCameraModeSetings(List<CameraModeSetings> val)
+    {
+        cameraModeSetings = val;
+    }
     private Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot,Vector3 angles) {
         Vector3 dir = point - pivot; 
         dir = Quaternion.Euler(angles) * dir; 

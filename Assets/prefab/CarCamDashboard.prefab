@@ -4571,6 +4571,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 544130177262285347}
   engineSound: {fileID: 5280648661062501922}
+  cameraModeSetings: []
   AutoTransTimeoutDuration: 0.5
 --- !u!114 &799692313900685537
 MonoBehaviour:
@@ -8136,6 +8137,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 4086871541388787802}
   engineSound: {fileID: 3707900424970523445}
+  cameraModeSetings: []
   AutoTransTimeoutDuration: 0.3
 --- !u!82 &3707900424970523445
 AudioSource:
@@ -8475,6 +8477,32 @@ MonoBehaviour:
   FrontToBackEmission: 100
   headLightsManager: {fileID: 6873507081421035495}
   engineSound: {fileID: 5721004824402801416}
+  cameraModeSetings:
+  - mode: 1
+    x: 0
+    y: 2
+    z: -5
+    fov: 60
+  - mode: 2
+    x: 0.02
+    y: 1.2
+    z: 0.81
+    fov: 90
+  - mode: 2
+    x: 0.05
+    y: 2.02
+    z: -4.16
+    fov: 90
+  - mode: 2
+    x: -0.01
+    y: 1.07
+    z: -0.04
+    fov: 48.6
+  - mode: 2
+    x: -0.23
+    y: 1.01
+    z: -0.04
+    fov: 48.6
   AutoTransTimeoutDuration: 0.5
 --- !u!114 &8573722004431043746
 MonoBehaviour:
@@ -9758,6 +9786,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 4558685607002577722}
   engineSound: {fileID: 1472981094444661918}
+  cameraModeSetings: []
   AutoTransTimeoutDuration: 0.3
 --- !u!114 &574897788936783229
 MonoBehaviour:
@@ -13451,6 +13480,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 8896157304411368683}
   engineSound: {fileID: 2681081405308229079}
+  cameraModeSetings: []
   AutoTransTimeoutDuration: 0.5
 --- !u!64 &6016008107699912345
 MeshCollider:
@@ -13881,6 +13911,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 5450660209990807748}
   engineSound: {fileID: 5111698993303578833}
+  cameraModeSetings: []
   AutoTransTimeoutDuration: 0.5
 --- !u!114 &5450660209990807748
 MonoBehaviour:
@@ -17413,21 +17444,6 @@ MonoBehaviour:
     y: 1.2
     z: 0.81
     fov: 90
-  - mode: 2
-    x: 0.05
-    y: 2.02
-    z: -4.16
-    fov: 90
-  - mode: 2
-    x: -0.01
-    y: 1.07
-    z: -0.04
-    fov: 48.6
-  - mode: 2
-    x: -0.23
-    y: 1.01
-    z: -0.04
-    fov: 48.6
   curCar: {fileID: 4202506351362030764}
 --- !u!1 &6979404679011832206
 GameObject:
