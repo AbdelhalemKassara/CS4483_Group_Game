@@ -20,6 +20,7 @@ public class Finishline : MonoBehaviour
           StaticFinishData.TimeScore = Mathf.FloorToInt(_dashboardManager.GetElapsedTime());
           submitScreen.SetActive(true);
           dashboard.SetActive(false);
+          Debug.Log("Hello");
       }
     }
 }
