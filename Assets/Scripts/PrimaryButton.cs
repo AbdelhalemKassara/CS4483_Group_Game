@@ -12,6 +12,11 @@ public class PrimaryButton : MonoBehaviour
         primaryButton.Select();
     }
 
+    void OnEnable()
+    {
+        primaryButton.Select();
+    }
+
     // Update is called once per frame
     void Update()
     {
