@@ -14,6 +14,5 @@ public class UIToggleController : MonoBehaviour
         
         bool isOn = autoTransmissionToggle.isOn;
         CarSelected.enableAutoTransmission = isOn;
-        Debug.Log(CarSelected.enableAutoTransmission);
     }
 }

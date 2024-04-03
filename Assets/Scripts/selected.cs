@@ -18,13 +18,15 @@ public class selected : MonoBehaviour
 
     private void SelectionCar(int index)
     {
-       
+        CarController carController = null;
         for(int i =0; i<transform.childCount; i++)
         {
             if (i == index)
             {
-                CarController carController = transform.GetChild(i).gameObject.GetComponent<CarController>();
+                carController = transform.GetChild(i).gameObject.GetComponent<CarController>();
                 dashboardManager.setCurCarController(carController);
+                
+                
                 cameraManager.setCurCar(transform.GetChild(i).gameObject);
                 
                 List<CameraModeSetings> val = carController.getCameraModeSetings();
@@ -34,6 +36,11 @@ public class selected : MonoBehaviour
                 }
             }
             transform.GetChild(i).gameObject.SetActive(i== index);
+
+            if (i == index && carController != null)
+            {
+                carController.setEnableAutoClutch(CarSelected.enableAutoTransmission);
+            }
         }
     }
 }
