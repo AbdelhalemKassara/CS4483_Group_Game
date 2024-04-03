@@ -17,7 +17,7 @@ public class carSelection : MonoBehaviour
 
     private void Start(){
         SelectionCar(0);
-       
+        CarSelected.enableAutoTransmission = true;
     }
 
     void Update(){
@@ -75,5 +75,13 @@ public class carSelection : MonoBehaviour
         UpdateUI();
     }
 
+    public void enableAutoTransmission()
+    {
+        CarSelected.enableAutoTransmission = true;
+    }
     
+    public void enableManualTransmission()
+    {
+        CarSelected.enableAutoTransmission = false;
+    }
 }

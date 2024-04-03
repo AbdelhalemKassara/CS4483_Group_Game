@@ -97,7 +97,6 @@ namespace Car
             //CarForces
             if (enableAutoClutch)
             {
-                Debug.Log("asdfads");
                 AutoClutch();
             }
 
@@ -141,6 +140,7 @@ namespace Car
 
         public void setEnableAutoTransmission(bool val)
         {
+            setEnableAutoClutch(true);
             enableAutoTransmission = val;
         }
 
