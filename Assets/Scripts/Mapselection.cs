@@ -23,17 +23,7 @@ public class Mapselection : MonoBehaviour
             currentMap += 1;
         }
 
-        // PlayStation controller input for shifting left and right using "Horizontal" axis
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        if (horizontalInput < 0 && currentMap > 0)
-        {
-            currentMap -= 1;
-        }
-        else if (horizontalInput > 0 && currentMap < 4)
-        {
-            currentMap += 1;
-        }
-
+        
         SelectionMap(currentMap);
 
         MapSelected.index = currentMap;
