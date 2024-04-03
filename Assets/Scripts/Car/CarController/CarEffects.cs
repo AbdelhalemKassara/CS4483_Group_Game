@@ -89,6 +89,8 @@ namespace Car
             
             audioLevel = Math.Clamp(audioLevel, 0.0f, tireSlipAudioLevel);
             audio.volume = audioLevel;
+            AssignMixer(audio);
+
             
             //this is the only reasonable way of having the smoke direction change without
             //having the particle reset all the time
