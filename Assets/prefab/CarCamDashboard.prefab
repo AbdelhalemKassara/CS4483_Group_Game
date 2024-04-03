@@ -4571,6 +4571,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 544130177262285347}
   engineSound: {fileID: 5280648661062501922}
+  myMixerGroup: {fileID: 24300002, guid: 07c93f2f3b184b14e87c6c5424235a31, type: 2}
   AutoTransTimeoutDuration: 0.5
 --- !u!114 &799692313900685537
 MonoBehaviour:
@@ -8136,6 +8137,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 4086871541388787802}
   engineSound: {fileID: 3707900424970523445}
+  myMixerGroup: {fileID: 24300002, guid: 07c93f2f3b184b14e87c6c5424235a31, type: 2}
   AutoTransTimeoutDuration: 0.3
 --- !u!82 &3707900424970523445
 AudioSource:
@@ -8475,6 +8477,7 @@ MonoBehaviour:
   FrontToBackEmission: 100
   headLightsManager: {fileID: 6873507081421035495}
   engineSound: {fileID: 5721004824402801416}
+  myMixerGroup: {fileID: 24300002, guid: 07c93f2f3b184b14e87c6c5424235a31, type: 2}
   AutoTransTimeoutDuration: 0.5
 --- !u!114 &8573722004431043746
 MonoBehaviour:
@@ -9758,6 +9761,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 4558685607002577722}
   engineSound: {fileID: 1472981094444661918}
+  myMixerGroup: {fileID: 24300002, guid: 07c93f2f3b184b14e87c6c5424235a31, type: 2}
   AutoTransTimeoutDuration: 0.3
 --- !u!114 &574897788936783229
 MonoBehaviour:
@@ -13451,6 +13455,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 8896157304411368683}
   engineSound: {fileID: 2681081405308229079}
+  myMixerGroup: {fileID: 24300002, guid: 07c93f2f3b184b14e87c6c5424235a31, type: 2}
   AutoTransTimeoutDuration: 0.5
 --- !u!64 &6016008107699912345
 MeshCollider:
@@ -13881,6 +13886,7 @@ MonoBehaviour:
   FrontToBackEmission: 10
   headLightsManager: {fileID: 5450660209990807748}
   engineSound: {fileID: 5111698993303578833}
+  myMixerGroup: {fileID: 24300002, guid: 07c93f2f3b184b14e87c6c5424235a31, type: 2}
   AutoTransTimeoutDuration: 0.5
 --- !u!114 &5450660209990807748
 MonoBehaviour:

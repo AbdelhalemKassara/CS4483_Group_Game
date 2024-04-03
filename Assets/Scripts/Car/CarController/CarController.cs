@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
+using UnityEngine.Audio;
 
 namespace Car 
 {
@@ -48,7 +49,8 @@ namespace Car
         [SerializeField] private HeadLightsManager headLightsManager;
 
         [SerializeField] private AudioSource engineSound;
-       
+        [SerializeField] private AudioMixerGroup myMixerGroup;
+ 
         //car properties
         private float Rpm;
         protected float Speed;
@@ -76,6 +78,7 @@ namespace Car
             {
                 rb.centerOfMass = CM.position - carPosition.position; // sets the center of mass
             }
+
         }
 
 
@@ -155,6 +158,11 @@ namespace Car
         public void setTireSlipAudioLevel(float val)
         {
             tireSlipAudioLevel = Math.Clamp(val, 0.0f, 1.0f);
+        }
+        
+        private void AssignMixer(AudioSource source)
+        {
+            source.outputAudioMixerGroup = myMixerGroup;
         }
 
         protected void incrementGear()
