@@ -22,18 +22,31 @@ public class carSelection : MonoBehaviour
 
     void Update(){
 
-    if (Input.GetKeyDown("a") && currentCar > 0)
+        // Keyboard input for shifting left and right
+        if (Input.GetKeyDown("a") && currentCar > 0)
         {
             currentCar -= 1;
-     
+        }
+        else if (Input.GetKeyDown("d") && currentCar < 5)
+        {
+            currentCar += 1;
         }
 
-        else if (Input.GetKeyDown("d") && currentCar < 5 ){
+        // PlayStation controller input for shifting left and right
+        // Square button (JoystickButton0) for left
+        // Circle button (JoystickButton1) for right
+        if ((Input.GetKeyDown(KeyCode.JoystickButton0)) && currentCar > 0)
+        {
+            currentCar -= 1;
+        }
+        else if ((Input.GetKeyDown(KeyCode.JoystickButton1)) && currentCar < 5)
+        {
             currentCar += 1;
         }
 
         SelectionCar(currentCar);
 
+        
         CarSelected.index = currentCar;
 
 
