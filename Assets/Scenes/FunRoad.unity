@@ -984,6 +984,17 @@ MonoBehaviour:
   markerStartUVY: 0.34994507
   customPoints: []
   handleObject: {fileID: 0}
+--- !u!114 &280078379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8894342283601917620, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+  m_PrefabInstance: {fileID: 433088017}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &299277750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1698,7 +1709,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: f5aab2b9f3186904dbd45e9a7c597698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &433088021
@@ -1713,7 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c106f8521ef490f997eadcd6b77df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryButton: {fileID: 433088020}
+  primaryButton: {fileID: 280078379}
 --- !u!114 &437948000
 MonoBehaviour:
   m_ObjectHideFlags: 0
