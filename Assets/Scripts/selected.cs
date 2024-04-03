@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CameraA;
 using Car;
 using UnityEngine;
 
@@ -22,8 +23,15 @@ public class selected : MonoBehaviour
         {
             if (i == index)
             {
+                CarController carController = transform.GetChild(i).gameObject.GetComponent<CarController>();
+                dashboardManager.setCurCarController(carController);
                 cameraManager.setCurCar(transform.GetChild(i).gameObject);
-                dashboardManager.setCurCarController(transform.GetChild(i).gameObject.GetComponent<CarController>());
+                
+                List<CameraModeSetings> val = carController.getCameraModeSetings();
+                if (val.Count > 0)
+                {
+                    cameraManager.setCameraModeSetings(val);
+                }
             }
             transform.GetChild(i).gameObject.SetActive(i== index);
         }

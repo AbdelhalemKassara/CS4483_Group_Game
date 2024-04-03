@@ -4,6 +4,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
 using UnityEngine.Audio;
+using CameraA;
 
 namespace Car 
 {
@@ -51,6 +52,9 @@ namespace Car
         [SerializeField] private AudioSource engineSound;
         [SerializeField] private AudioMixerGroup myMixerGroup;
  
+
+        [SerializeField] private List<CameraModeSetings> cameraModeSetings = new List<CameraModeSetings>();
+        
         //car properties
         private float Rpm;
         protected float Speed;
@@ -165,6 +169,10 @@ namespace Car
             source.outputAudioMixerGroup = myMixerGroup;
         }
 
+        public List<CameraModeSetings> getCameraModeSetings()
+        {
+            return cameraModeSetings;
+        }
         protected void incrementGear()
         {
             if (CurGear < GearRatio.Length - 1 && !(CurGear == 0 && Speed < -0.1f))
