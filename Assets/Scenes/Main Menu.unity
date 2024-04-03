@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641228, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3670,7 +3670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &857564453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7245,7 +7245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1381560478
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8667,33 +8667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a584265fc6621409149fb3833fc532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &1557795207
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557795200}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1597554192
 GameObject:
   m_ObjectHideFlags: 0
@@ -12116,9 +12089,9 @@ RectTransform:
   - {fileID: 483582130}
   m_Father: {fileID: 1381560478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -373, y: 300}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 29, y: -76}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138698843
@@ -12629,9 +12602,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2391035750921416316, guid: a5ce0e338f5b08640b10c3187f3839e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1557795204}
-    - targetCorrespondingSourceObject: {fileID: 2391035750921416316, guid: a5ce0e338f5b08640b10c3187f3839e1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1557795207}
     - targetCorrespondingSourceObject: {fileID: 9010480552489446441, guid: a5ce0e338f5b08640b10c3187f3839e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 345966065}
