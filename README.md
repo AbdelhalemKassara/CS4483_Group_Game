@@ -40,47 +40,55 @@ Probably the same thing just with an .exe for the last couple of steps
 - Adjustable center of mass 
 - two camera modes (dynamic (has a bit of a delay when following you) and fixed) with offset adjustments (anywhere in reference with the car, both inside and outside the car)
 - Fov adjustment (in unity editor under camera)
-- Start Racing
-- Car silding
-- 5 map
-- 6 cars
-- Pasue Menu
-- Finish Line
-- 5 Camera
-- sound track
-- LeaderBoard
-- controller/ Wheel controller
-- Car Wheel Running
-- Map data
-- Car lock (store)
-- Money
+- torque curves
+- manual and automatic transmittion switching
+- fully adjustable 
+- campain where the user can earn money through completing the maps
+- leaderboard
+- time difference while driving
+- Tire smoke 
+- Tire slipping sound
+- Awd RWd and FWd
+- open and LSd differntials
+- adjustable camera modes
+- camera view to look around the car
+- Controls menu to let the user know the controls
+- We also support keyboard controls even though this isn't usable for this type of game 
+- Pause menu
+- volume adjustments
+- Toggle to switch between automatic and manual transmission in the setitngs menu
+- Free play and campain
+
+
+## Notes
+We ran into many issue with the built in Wheel Colliders as if the torque gets too high some value will wrap around and cause the wheels to spin the other way.
+
 
 ## Controls
 ### Keyboard
 - Camera view mode switch : C
 - Handbrake : spacebar
 - Steering : A for left, D for right
-- Down Shift : down arrow
-- Up Shift : up arrow
-- Reverse : speed until 0 and press S
+- Down Shift : I 
+- Up Shift : K 
+- Brake : S
 - Throttle W
-- brake: s
-- pasuse : p
+- Look Around The Car : Arrow keys (down is default view)
+
 ### Controller (any controller should work, I did most testing on the xbox one controller)
-- Camera view mode switch : Left shoulder (L1 for Playstation)
+- Camera view mode switch : Left shoulder
 - Handbrake : South Button (A on an xbox controller)
-- Steering : Leftstick Joystick
-- Down Shift : Button West (X on a xbox controller, and Square for Playstation)
-- Up Shift : Button East (B on a xbox controller, and O for Playstation)
-- Brake : Left trigger (L2 for Playstation)
+- Steering : Leftstick
+- Down Shift : Button West (X on a xbox controller)
+- Up Shift : Button East (B on a xbox controller)
+- Brake : Left trigger
 - Throttle Right trigger
+- Look Around The Car : right joysitc (fully down is the default view)
+
 
 ## How To Play
-Main menu: 
-- There are a few different modes but please choose Normal Game for the demo.
-- If you would like to switch between Manual Transmission (To go faster you need to manually shift the gears), and Automatic Transmission (The car will automaticallu shift the gears for you), please click the mode you would like here.
-- Once in Normal Game please use the A or D on the keyboard to choose between the 5 maps we designed.
-- Then press select and enjoy the ride!
+Click Start, Select, Select and will take you to the game.
+
 
 
 
