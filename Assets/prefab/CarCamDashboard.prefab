@@ -8455,7 +8455,7 @@ MonoBehaviour:
     frontR: {fileID: 4905223950195945040}
     rearL: {fileID: 92971849410949541}
     rearR: {fileID: 7655021238165066190}
-  tireSlipAudioLevel: 0
+  tireSlipAudioLevel: 0.75
   selectedDiffType: 1
   selectedDriveWheels: 1
   BrakeStrength: 960000
