@@ -26,7 +26,6 @@ public class selected : MonoBehaviour
                 CarController carController = transform.GetChild(i).gameObject.GetComponent<CarController>();
                 dashboardManager.setCurCarController(carController);
                 cameraManager.setCurCar(transform.GetChild(i).gameObject);
-                
                 List<CameraModeSetings> val = carController.getCameraModeSetings();
                 if (val.Count > 0)
                 {
