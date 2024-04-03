@@ -6,13 +6,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Car;
 
-public class CarInputController : CarController
+public class  CarInputController : CarController
 {
     private InputMaster input = null;
     private int curGearToggle = -1;
     private float timeout = 0.0f;
     [SerializeField] private float AutoTransTimeoutDuration = 0.5f;
     private float SteeringJoystickVal = 0.0f;
+    
 
     private bool AutoClutchToggle = false;
     void Awake()

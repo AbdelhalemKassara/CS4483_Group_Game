@@ -470,6 +470,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9024373317660773448, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
   m_PrefabInstance: {fileID: 132241073}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &132241076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2102602974953746680, guid: 48d4c50f915d26c4ca4a1db0090c232d, type: 3}
+  m_PrefabInstance: {fileID: 132241073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5aab2b9f3186904dbd45e9a7c597698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &151439262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66222,6 +66233,10 @@ PrefabInstance:
       propertyPath: Dashboard
       value: 
       objectReference: {fileID: 177235259}
+    - target: {fileID: 1634428289977181904, guid: 8b0d01e25cd3e8c41bde48fb22c4b24d, type: 3}
+      propertyPath: VolumeSettings
+      value: 
+      objectReference: {fileID: 132241076}
     - target: {fileID: 3550903933342166436, guid: 8b0d01e25cd3e8c41bde48fb22c4b24d, type: 3}
       propertyPath: m_Name
       value: Cube
