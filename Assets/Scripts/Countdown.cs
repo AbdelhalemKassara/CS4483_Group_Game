@@ -6,6 +6,7 @@ public class Countdown : MonoBehaviour
 {
     [SerializeField] private Text CountDown;
     [SerializeField] private GameObject Dashboard;
+    [SerializeField] private VolumeSettings VolumeSettings;
 
     private int Num = 5;
     private float countdownDelay = 1f; // Delay between counts
@@ -13,6 +14,14 @@ public class Countdown : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartCountdown());
+        if (PlayerPrefs.HasKey("musicVolume"))
+        {
+            VolumeSettings.LoadVolume();
+        }
+        else
+        {
+            VolumeSettings.SetMusicVolume();
+        }
     }
 
     IEnumerator StartCountdown()
