@@ -52,15 +52,15 @@ public class CameraManager : MonoBehaviour
         {
             case CameraModes.one:
                 //right now it is learping from the old camera positon to the new position.
-                transform.position = Vector3.Lerp(transform.position, RotatePointAroundPivot(curCar.transform.position + curCar.transform.TransformDirection(new Vector3(cameraModeSet.x, cameraModeSet.y, cameraModeSet.z)), curCar.transform.position, new Vector3(0.0f, angle, 0.0f)), Time.deltaTime * 3.0f);// slowely follows the car
+                transform.position = Vector3.Lerp(transform.position, RotatePointAroundPivot(curCar.transform.position + curCar.transform.TransformDirection(new Vector3(cameraModeSet.x, cameraModeSet.y, cameraModeSet.z)), curCar.transform.position, new Vector3(2.0f, angle, 0.0f)), Time.deltaTime * 3.0f);// slowely follows the car
                 transform.LookAt(curCar.transform);
 
                 Camera.main.fieldOfView = cameraModeSet.fov;
                 break;
             case CameraModes.two:
-                transform.position = RotatePointAroundPivot(curCar.transform.position + curCar.transform.TransformDirection(new Vector3(cameraModeSet.x, cameraModeSet.y, cameraModeSet.z)), curCar.transform.position, new Vector3(0.0f, angle, 0.0f)); // stays behind the car
+                transform.position = RotatePointAroundPivot(curCar.transform.position + curCar.transform.TransformDirection(new Vector3(cameraModeSet.x, cameraModeSet.y, cameraModeSet.z)), curCar.transform.position, new Vector3(2.0f, angle, 0.0f)); // stays behind the car
                 transform.rotation = curCar.transform.rotation;
-                transform.Rotate(new Vector3(0.0f, angle, 0.0f));
+                transform.Rotate(new Vector3(2.0f, angle, 0.0f));
 
                 Camera.main.fieldOfView = cameraModeSet.fov; 
                 break;
